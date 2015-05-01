@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &144724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410948}
+  - 114: {fileID: 11486128}
+  - 114: {fileID: 11487934}
+  - 114: {fileID: 11441596}
+  - 114: {fileID: 11432726}
+  - 114: {fileID: 11429828}
+  - 114: {fileID: 11434166}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: TotalCollectables
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410948
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 277.5, y: 174.5, z: -10}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11429828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33e2de66f8fbf344b2490d5b9b6e2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Magnet: {fileID: 125128, guid: d80a1533e9a2c734db1a48aabc63f6b1, type: 2}
+  Sliding: {fileID: 132322, guid: 4deb1b275cb98c64688157a5f6c6876d, type: 2}
+  PowerUps: []
+  powerupdiff: 1
+--- !u!114 &11432726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441e6a50e4527af4291ca1999e0dcbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectablePrefab: {fileID: 164232, guid: b921c5d61c0aa574da6843b65aa843ee, type: 2}
+  collectables: []
+  collectableCounter: 0
+--- !u!114 &11434166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fd442b7e310c64bbc5c07857f44c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slide: {fileID: 194652, guid: 525d0c51ae092184b8d0925f2085d32d, type: 2}
+--- !u!114 &11441596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57322e38ecac3d478c4ff2ed8c5a305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UUID: 
+  isStarted: 0
+  GameMode: 0
+  Powerup: 3
+  gravity: -10
+  poinkySpeed: {x: 0, y: 10, z: 0}
+--- !u!114 &11486128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d540cdfd4d05814e8fe684607b0ce4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalTile: {fileID: 154312, guid: 471ff9d488688c043b37407fcd7e1d82, type: 2}
+  immovableTile: {fileID: 102230, guid: a6871953afc33ed439cdf83af05ac6b6, type: 2}
+  spiralTile: {fileID: 150312, guid: 05373d7ac99f47e46a82a8a9aeda240d, type: 2}
+  tiles:
+  - {fileID: 0}
+--- !u!114 &11487934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c6ed18f482f094fae7661660cbf582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomPrefabs:
+  - {fileID: 183496, guid: 90728b69aa8d4a64aac71c9048083f40, type: 2}
+  - {fileID: 165076, guid: 2e87b6481e6c15f4fa82e8683ef67a52, type: 2}
+  - {fileID: 135034, guid: b4c11f79e2cb4814596f81e0b00a8d5d, type: 2}
+  - {fileID: 113870, guid: e29f63f089fb79e4995cdd5e9f2c7473, type: 2}
+  spiralPrefabs:
+  - {fileID: 162406, guid: b3273f5b5603c9f4aa72ae6ddaa19d56, type: 2}
+  doors:
+  - {fileID: 165596, guid: c8ab8fc218df3e14bafd8bad324f296c, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 144724}
+  m_IsPrefabParent: 1

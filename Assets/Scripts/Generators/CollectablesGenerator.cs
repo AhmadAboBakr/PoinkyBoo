@@ -1,0 +1,138 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class CollectablesGenerator : MonoBehaviour
+{
+
+    public static CollectablesGenerator generator;
+    public GameObject collectablePrefab;
+    float speed;
+    float time;
+    public List<GameObject> collectables;
+    public float collectableCounter;
+    bool flag;
+    float random;
+    float newrandom;
+    int counter = 0;
+    void Awake()
+    {
+        if (!CollectablesGenerator.generator)
+            CollectablesGenerator.generator = this;
+    }
+
+    void Start()
+    {
+        //StartCoroutine(Generatecollectable());
+        speed = GameManager.instance.poinkySpeed.y;
+        time = -speed / (0.5f * GameManager.instance.gravity);
+        collectables = new List<GameObject>();
+        random = 0;
+        newrandom = 0;
+        //randomgenerate = 13;
+        //magnetflag = true;
+        for (int i = 1; i <= 18; i++)
+        {
+            if (i % 6 == 0)
+            {
+                random = newrandom;
+                newrandom = Random.Range(-1, 2) * 3;
+            }
+            //if (i == randomgenerate && magnetflag)
+            //{
+            //    Debug.Log(i + "kjskjdfs" + randomgenerate);
+            //    collectables.Add(Instantiate(Magnet, new Vector3(random + (newrandom - random) / 6 * (i % 6), (speed * 2 / 6 * (i % 6) + 0.5f * Physics.gravity.y * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), (speed / 6 * i)), Quaternion.identity) as GameObject);
+            //    randomgenerate=Random.Range(5,20);
+            //    magnetflag = false;
+            //}
+            if (!(i % 6 == 0))//|| i % 6 == 2 || i % 6 == 4 ))
+            {
+                collectables.Add(Instantiate(collectablePrefab, new Vector3(random + (newrandom - random) / 6 * (i % 6), (speed * 2 / 6 * (i % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), (speed / 6 * i)), Quaternion.identity) as GameObject);
+            }
+            //        for (int i = 1; i <= 60; i++)
+            //        {
+            //            if (i % 6 == 0)
+            //            {
+            //                random = newrandom;
+            //                newrandom = Random.Range(-1, 2) * 3;
+            //            }
+            //            if (i % 6 != 0){
+            //                float x = i%6 / 6;
+            //                float t = x / 10;
+            //                float y = GameManager.manager.poinkySpeed.y*t+0.5f*Physics.gravity.y*t*t;
+            //                collectables.Add(Instantiate(
+            //                    collectablePrefab, 
+            //                    new Vector3(
+            //                        random + (newrandom - random) / 6 * (i % 6), 
+            //                        (y)  //this doesn't make any sense
+            //                        , (speed / 6 * i)), 
+            //Quaternion.identity) as GameObject);
+            //        }
+            //        }
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        speed = GameManager.instance.poinkySpeed.y;
+        time = -speed / (0.5f * GameManager.instance.gravity);
+        if (collectables.Count > 0 && collectables[0].transform.position.z < Camera.main.transform.position.z)
+        {
+            Destroy(collectables[0]);
+            collectables.Remove(collectables[0]);
+        }
+
+        //foreach (var collectable in collectables)
+        //{
+        //    if (GameManager.manager.IsMoving)
+        //    {
+        //        collectable.transform.position = Vector3.Lerp(collectable.transform.position, collectable.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
+        //    }
+        //}
+
+    }
+    public void EatCollectable(GameObject collectable)
+    {
+        collectables.Remove(collectable);
+        Destroy(collectable);
+    }
+    public void generate()
+    {
+
+        counter++;
+        if (counter == 6)
+        {
+            counter = 0;
+            random = newrandom;
+            newrandom = Random.Range(-1, 2) * 3;
+            for (int i = 1; i < 18; i++)
+            {
+                if (!(i % 6 == 0))// || i % 6 == 2 || i % 6 == 4))
+                    collectables.Add(Instantiate(collectablePrefab, new Vector3((random + (newrandom - random) / 6 * (i % 6)), (speed * 2 / 6 * (i % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), ((speed / 6) * i) + speed * 3), Quaternion.identity) as GameObject);
+            }
+        }
+    }
+    //IEnumerator Generatecollectable()
+    //{
+    //    while (true)
+    //    {
+    //        random = newrandom;
+    //        newrandom = Random.Range(-1, 2) * 3;
+    //        yield return new WaitForSeconds(5);
+    //        for (int i = 1; i < 6; i++)
+    //        {
+    //            if (!(i % 6 == 0))// || i % 6 == 2 || i % 6 == 4))
+    //                collectables.Add(Instantiate(collectablePrefab, new Vector3((random + (newrandom - random) / 6 * (i % 6)), (speed * 2 / 6 * (i % 6) + 0.5f * Physics.gravity.y * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), ((speed / 6) * i) + speed * 6), Quaternion.identity) as GameObject);
+    //        }
+    //    }
+    //}
+    void Clear()
+    {
+        for (int i = 0; i < collectables.Count; i++)
+        {
+            GameObject.Destroy(collectables[i].gameObject);
+        }
+        collectables.Clear();
+        Start();
+    }
+}
