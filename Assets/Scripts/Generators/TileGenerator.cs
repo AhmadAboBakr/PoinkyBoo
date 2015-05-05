@@ -151,7 +151,7 @@ public class TileGenerator : MonoBehaviour
             GameObject.Destroy(tiles[i].gameObject);
         }
         tiles.Clear();
-        Debug.Log(tiles.Count);
+        //Debug.Log(tiles.Count);
         index = 0;
         Start();
     }

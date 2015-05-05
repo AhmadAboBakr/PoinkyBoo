@@ -38,37 +38,26 @@ public class CollectablesGenerator : MonoBehaviour
                 random = newrandom;
                 newrandom = Random.Range(-1, 2) * 3;
             }
-            //if (i == randomgenerate && magnetflag)
-            //{
-            //    Debug.Log(i + "kjskjdfs" + randomgenerate);
-            //    collectables.Add(Instantiate(Magnet, new Vector3(random + (newrandom - random) / 6 * (i % 6), (speed * 2 / 6 * (i % 6) + 0.5f * Physics.gravity.y * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), (speed / 6 * i)), Quaternion.identity) as GameObject);
-            //    randomgenerate=Random.Range(5,20);
-            //    magnetflag = false;
-            //}
+            
             if (!(i % 6 == 0))//|| i % 6 == 2 || i % 6 == 4 ))
             {
                 collectables.Add(Instantiate(collectablePrefab, new Vector3(random + (newrandom - random) / 6 * (i % 6), (speed * 2 / 6 * (i % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), (speed / 6 * i)), Quaternion.identity) as GameObject);
             }
-            //        for (int i = 1; i <= 60; i++)
-            //        {
-            //            if (i % 6 == 0)
-            //            {
-            //                random = newrandom;
-            //                newrandom = Random.Range(-1, 2) * 3;
-            //            }
-            //            if (i % 6 != 0){
-            //                float x = i%6 / 6;
-            //                float t = x / 10;
-            //                float y = GameManager.manager.poinkySpeed.y*t+0.5f*Physics.gravity.y*t*t;
-            //                collectables.Add(Instantiate(
-            //                    collectablePrefab, 
-            //                    new Vector3(
-            //                        random + (newrandom - random) / 6 * (i % 6), 
-            //                        (y)  //this doesn't make any sense
-            //                        , (speed / 6 * i)), 
-            //Quaternion.identity) as GameObject);
-            //        }
-            //        }
+            
+        }
+        for (int j = 1; j <= 18; j++)
+        {
+            if (j % 6 == 0)
+            {
+                random = newrandom;
+                newrandom = Random.Range(-1, 2) * 3;
+            }
+
+            if (!(j % 6 == 0))//|| i % 6 == 2 || i % 6 == 4 ))
+            {
+                collectables.Add(Instantiate(collectablePrefab, new Vector3(random + (newrandom - random) / 6 * (j % 6), (speed * 2 / 6 * (j % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (j % 6) * 2 / 6 * (j % 6)), (speed / 6 * j) + 70), Quaternion.identity) as GameObject);
+            }
+
         }
     }
     // Update is called once per frame
@@ -108,7 +97,7 @@ public class CollectablesGenerator : MonoBehaviour
             for (int i = 1; i < 18; i++)
             {
                 if (!(i % 6 == 0))// || i % 6 == 2 || i % 6 == 4))
-                    collectables.Add(Instantiate(collectablePrefab, new Vector3((random + (newrandom - random) / 6 * (i % 6)), (speed * 2 / 6 * (i % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), ((speed / 6) * i) + speed * 3), Quaternion.identity) as GameObject);
+                    collectables.Add(Instantiate(collectablePrefab, new Vector3((random + (newrandom - random) / 6 * (i % 6)), (speed * 2 / 6 * (i % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), ((speed / 6) * i) + speed * 13), Quaternion.identity) as GameObject);
             }
         }
     }

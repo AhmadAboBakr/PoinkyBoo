@@ -44,6 +44,7 @@ public class PoinkyMovementController : MonoBehaviour
         if (this.transform.position.y < -5)
         {
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GameManager.instance.Powerup = PowerUps.None;
             this.transform.position = new Vector3(0, 10, 0);
             WinningScreen.screen.gameObject.SetActive(true);
 
@@ -158,9 +159,7 @@ public class PoinkyMovementController : MonoBehaviour
                 myRigidBody.velocity = new Vector3(0, 0, 0) + GameManager.instance.poinkySpeed;
                 GameObject.Destroy(other.gameObject);
                 GameManager.instance.IsMoving = true;
-
             }
-
         }
         else
         {

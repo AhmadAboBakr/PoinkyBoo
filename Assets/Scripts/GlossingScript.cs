@@ -50,7 +50,7 @@ public class GlossingScript : MonoBehaviour {
     }
     public void changeColor(){
         index = (index + 1) % colors.Length;
-        Debug.Log("changecolor");
+       // Debug.Log("changecolor");
 
     }
     public void reset()

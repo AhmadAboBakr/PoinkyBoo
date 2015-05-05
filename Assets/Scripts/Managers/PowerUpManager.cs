@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PowerUpManager : MonoBehaviour {
     public GameObject slide;
     public static PowerUpManager Manager;
-
+    public GameObject safetyNet;
 	// Use this for initialization
 	void Start () {
 	}
@@ -21,8 +21,10 @@ public class PowerUpManager : MonoBehaviour {
 	}
     public void GenerateNet() 
     {
-        Instantiate(slide, new Vector3(0, 0, 37.31f), Quaternion.EulerAngles(0, 90*Mathf.Deg2Rad, 0));
-        
+        if (safetyNet == null)
+        {
+            safetyNet = Instantiate(slide, new Vector3(0, -0.19f, 37.31f), Quaternion.EulerAngles(0, 90 * Mathf.Deg2Rad, 0)) as GameObject;
+        }
         //(Instantiate(slide) as GameObject).transform.position = new Vector3(0, 0, 69.25f);
 
 

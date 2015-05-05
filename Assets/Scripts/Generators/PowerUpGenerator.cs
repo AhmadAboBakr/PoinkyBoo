@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class PowerUpGenerator : MonoBehaviour {
     public static PowerUpGenerator generator;
     public GameObject Magnet;
+    public Coroutine powerupsCour;
     public GameObject Sliding;
     public List<GameObject> PowerUps;    
     float random;
@@ -14,43 +15,47 @@ public class PowerUpGenerator : MonoBehaviour {
     public float powerupdiff;
     int counter = 0;
 	// Use this for initialization
-    public void generatePowerup() 
-    {
-        counter++;
-        if(counter==powerupdiff)
-        {
-            powerupdiff++;
-            counter = 0;
-            random = 3 * Random.Range(-1, 2);
-            if (Random.Range(0, 2) == 0)
-            {
-                PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+    //public void generatePowerup() 
+    //{
+    //    counter++;
+    //    if(counter==powerupdiff)
+    //    {
+    //        powerupdiff++;
+    //        counter = 0;
+    //        random = 3 * Random.Range(-1, 2);
+    //        if (Random.Range(0, 2) == 0)
+    //        {
+    //            PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
 
-            }
-            else if (Random.Range(0, 2) == 1)
-            {
-                PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
-            }
+    //        }
+    //        else if (Random.Range(0, 2) == 1)
+    //        {
+    //            PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+    //        }
+    //    }
+    //}
+    public IEnumerator Generatepowerup()
+    {
+        while (true)
+        {
+                
+                powerupdiff++;
+                if (powerupdiff == 20)
+                    powerupdiff = 10;
+                //Debug.Log(powerupdiff);
+                random = 3 * Random.Range(-1, 2);
+                if (Random.Range(0, 2) == 0)
+                {
+                    PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+
+                }
+                else if (Random.Range(0, 2) == 1)
+                {
+                    PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                }
+                yield return new WaitForSeconds(powerupdiff);
         }
     }
-    //IEnumerator Generatepowerup()
-    //{
-    //    while (true)
-    //{
-    //    yield return new WaitForSeconds(powerupdiff);
-    //    powerupdiff++;
-    //    random = 3 * Random.Range(-1, 2);
-    //    if (Random.Range(0, 2) == 0)
-    //    {
-    //        PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
-
-    //    }
-    //    else if(Random.Range(0, 2) == 1)
-    //    {
-    //        PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
-    //    }
-    //}
-    //}
     void Awake()
     {
         if (!PowerUpGenerator.generator)
@@ -58,8 +63,8 @@ public class PowerUpGenerator : MonoBehaviour {
         GameManager.clear += Clear;
     }
 	void Start () {
-        powerupdiff = 15;
-        GameManager.Move += this.generatePowerup; 
+        powerupdiff = 10;
+        //GameManager.Move += this.generatePowerup; 
         speed = GameManager.instance.poinkySpeed.y;
         PowerUps = new List<GameObject>();
 	}
@@ -73,6 +78,7 @@ public class PowerUpGenerator : MonoBehaviour {
             Destroy(PowerUps[0]);
             PowerUps.Remove(PowerUps[0]);
         }
+        //Debug.Log(powerupdiff);
         //foreach (var powerup in PowerUps)
         //{
         //    if (GameManager.manager.IsMoving)
@@ -92,7 +98,12 @@ public class PowerUpGenerator : MonoBehaviour {
         {
             Destroy(PowerUps[i].gameObject);
         }
+        powerupdiff = 10;
         PowerUps.Clear();
         Start();
+    }
+    public void StartGenerator() 
+    {
+       powerupsCour = StartCoroutine(PowerUpGenerator.generator.Generatepowerup());
     }
 }
