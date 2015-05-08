@@ -9,36 +9,19 @@ public enum InputMethod
 }
 public class InputManager : MonoBehaviour
 {
-    public float senstivity;
-    public static InputManager manager;
+    public static InputManager instance;
     public GameObject ButtonsHandle;
-    public static InputMethod method;
-
+    
     void Awake()
     {
-        manager = this;
+        instance = this;
     }
     void Start()
     {
-        if (!PlayerPrefs.HasKey("Senstivity"))
-        {
-            PlayerPrefs.SetFloat("Senstivity", 1);
-        }
-        senstivity = PlayerPrefs.GetFloat("Senstivity");
-
-        if (!PlayerPrefs.HasKey("InputMode"))
-        {
-            PlayerPrefs.SetInt("InputMode", (int)InputMethod.Touch);
-            method = InputMethod.buttons;
-        }
-        else
-        {
-            method = (InputMethod)PlayerPrefs.GetInt("InputMode");
-
-        }
+        GameManager.instance.Senstivity = PlayerPrefs.GetFloat("Senstivity");
+        GameManager.instance.Input= (InputMethod)PlayerPrefs.GetInt("InputMode"); 
         GetComponent<PanGesture>().StateChanged += InputTest_StateChanged;
         ButtonsHandle.SetActive(false);
-
     }
 
     void InputTest_StateChanged(object sender, GestureStateChangeEventArgs e)
@@ -48,11 +31,11 @@ public class InputManager : MonoBehaviour
 
         if (GameManager.instance.isStarted)
         {
-            if (method == InputMethod.Touch)
+            if (GameManager.instance.Input == InputMethod.Touch)
             {
                 if (e.State == Gesture.GestureState.Changed)
                 {
-                    TileGenerator.generator.CurrentTile.Move((sender as PanGesture).LocalDeltaPosition.x * Screen.dpi * 0.8f * senstivity);
+                    TileGenerator.generator.CurrentTile.Move((sender as PanGesture).LocalDeltaPosition.x * Screen.dpi * 0.8f * GameManager.instance.Senstivity);
                 }
             }
         }
@@ -62,7 +45,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
 
-        if (method == InputMethod.Accelerometer && GameManager.instance.isStarted)
+        if (GameManager.instance.Input == InputMethod.Accelerometer && GameManager.instance.isStarted)
         {
             float x = Input.acceleration.x;
             if (Mathf.Abs(x) > .15f)
@@ -79,14 +62,14 @@ public class InputManager : MonoBehaviour
             TileGenerator.generator.CurrentTile.GetComponent<Rigidbody>().velocity = Vector3.zero;
             TileGenerator.generator.CurrentTile.Move(movement * senstivity);
         }
-        else if (method == InputMethod.buttons && GameManager.instance.isStarted)
+        else if (GameManager.instance.Input == InputMethod.buttons && GameManager.instance.isStarted)
         {
             ButtonsHandle.SetActive(true);
         }
     }
     public void changeInputType()
     {
-        method = (InputMethod)
+        GameManager.instance.Input = (InputMethod)
             PlayerPrefs.GetInt("InputMode");
     }
 

@@ -16,15 +16,18 @@ public class ButtonsHandle : MonoBehaviour
     void Start()
     {
     }
+    void OnEnable()
+    {
+        senstivity = PlayerPrefs.GetFloat("Senstivity");
+    }
 
     void Update()
     {
-        if (InputManager.method == InputMethod.buttons && GameManager.instance.isStarted)
+        if (GameManager.instance.Input == InputMethod.buttons && GameManager.instance.isStarted)
         {
-            senstivity = PlayerPrefs.GetFloat("Senstivity");
             if (pressed)
             {
-                TileGenerator.generator.CurrentTile.Move(buttonDirection * Time.deltaTime * 35 * senstivity);
+                TileGenerator.generator.CurrentTile.Move(buttonDirection * Time.deltaTime * 35 * senstivity * senstivity );
             }
         }
     }

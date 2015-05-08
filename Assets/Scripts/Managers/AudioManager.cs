@@ -14,12 +14,12 @@ public class AudioManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-       //Debug.Log(PlayerPrefs.GetFloat("MusicVol"));
-       Debug.Log(this.GetComponent<AudioSource>().volume);
+//       Debug.Log(this.GetComponent<AudioSource>().volume);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("what is love");
         this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("MusicVol");       
 	}
 

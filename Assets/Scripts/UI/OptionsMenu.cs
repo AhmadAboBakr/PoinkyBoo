@@ -13,14 +13,9 @@ public class OptionsMenu : MonoBehaviour
     public Toggle acc;
     void Awake()
     {
-        menu = this;
-        if (!PlayerPrefs.HasKey("MusicVol"))
-        {
-            PlayerPrefs.SetFloat("MusicVol", .5f);
-        }
+        menu = this;        
         music.value = PlayerPrefs.GetFloat("MusicVol");
         senstivity.value = PlayerPrefs.GetFloat("Senstivity");
-        
     }
     // Use this for initialization
     void Start()
@@ -43,7 +38,6 @@ public class OptionsMenu : MonoBehaviour
                 tapAndHold.isOn = true;
                 break;
 
-                break;
         }
         OnInputTypeChange(inputMode);
 
@@ -57,7 +51,6 @@ public class OptionsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetFloat("MusicVol", (music.value));
         if (Input.GetKeyDown(KeyCode.Escape) ) 
         {
             OnBackPressed();
@@ -82,6 +75,7 @@ public class OptionsMenu : MonoBehaviour
     public void OnMusicSliderChange()
     {
         PlayerPrefs.SetFloat("MusicVol", music.value);
+
         foreach (var item in FindObjectsOfType<AudioSource>())
         {
             item.volume = music.value;
@@ -90,11 +84,11 @@ public class OptionsMenu : MonoBehaviour
     public void OnSenstivitySliderChange()
     {
         PlayerPrefs.SetFloat("Senstivity", senstivity.value);
-        InputManager.manager.senstivity = senstivity.value;
+        GameManager.instance.Senstivity = senstivity.value;
     }
     public void OnInputTypeChange(int id)
     {
         PlayerPrefs.SetInt("InputMode", id);
-        InputManager.manager.changeInputType();
+        InputManager.instance.changeInputType();
     }
 }

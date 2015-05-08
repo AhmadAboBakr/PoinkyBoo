@@ -38,7 +38,6 @@ public class PowerUpGenerator : MonoBehaviour {
     {
         while (true)
         {
-                
                 powerupdiff++;
                 if (powerupdiff == 20)
                     powerupdiff = 10;

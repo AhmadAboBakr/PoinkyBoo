@@ -31,17 +31,17 @@ public class Tutorials : MonoBehaviour {
         //{
             GameManager.instance.isStarted = true;
             PowerUpGenerator.generator.StartGenerator();
-            if (InputManager.method == InputMethod.Touch)
+            if (GameManager.instance.Input == InputMethod.Touch)
             {
                 //swip.gameObject.SetActive(false);
                 //swipText.enabled = false;
             }
-            else if (InputManager.method == InputMethod.Accelerometer)
+            else if (GameManager.instance.Input == InputMethod.Accelerometer)
             {
                 //tilt.gameObject.SetActive(false);
                 //tiltText.enabled = false;
             }
-            else if (InputManager.method == InputMethod.buttons)
+            else if (GameManager.instance.Input == InputMethod.buttons)
             {
                 //tabandhold.gameObject.SetActive(false);
                 //tabandholdText.enabled = false;
@@ -62,7 +62,7 @@ public class Tutorials : MonoBehaviour {
     {
         //if (GameManager.manager.isStarted == true)
         //{
-            if (InputManager.method == InputMethod.Touch)
+        if (GameManager.instance.Input == InputMethod.Touch)
             {
                 tabandhold.gameObject.SetActive(false);
                 tilt.gameObject.SetActive(false);
@@ -72,7 +72,7 @@ public class Tutorials : MonoBehaviour {
                 swipText.enabled = true;
 
             }
-            else if (InputManager.method == InputMethod.Accelerometer)
+        else if (GameManager.instance.Input == InputMethod.Accelerometer)
             {
                 tabandhold.gameObject.SetActive(false);
                 swip.gameObject.SetActive(false);
@@ -81,7 +81,7 @@ public class Tutorials : MonoBehaviour {
                 tilt.gameObject.SetActive(true);
                 tiltText.enabled = true;
             }
-            else if (InputManager.method == InputMethod.buttons)
+        else if (GameManager.instance.Input == InputMethod.buttons)
             {
                 tilt.gameObject.SetActive(false);
                 swip.gameObject.SetActive(false);

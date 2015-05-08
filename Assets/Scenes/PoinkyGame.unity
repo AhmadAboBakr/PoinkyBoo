@@ -566,7 +566,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: .25}
   m_AnchorMax: {x: 1, y: .75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -47.0999985, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &184715499
@@ -2302,7 +2302,7 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 663040885}
---- !u!1 &691869969
+--- !u!1 &691869969 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 131558, guid: 1309e7d1f8b86ac4388039fb60be3713, type: 2}
   m_PrefabInternal: {fileID: 1565975173}
@@ -3402,7 +3402,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: .25}
   m_AnchorMax: {x: 1, y: .75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -79.0999985, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1000042647
@@ -4549,7 +4549,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 61.5, y: 0}
+  m_AnchoredPosition: {x: 2.79999995, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1322822164
@@ -5967,7 +5967,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468130, guid: 3c1dbdd008e25534a9f1cec83aba487c, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8227888, guid: 3c1dbdd008e25534a9f1cec83aba487c, type: 2}
       propertyPath: m_Enabled
@@ -7444,14 +7444,14 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1322822163}
   m_Direction: 0
   m_MinValue: .5
-  m_MaxValue: 4
+  m_MaxValue: 2
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11135174}
-        m_MethodName: OnMusicSliderChange
+        m_MethodName: OnSenstivitySliderChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

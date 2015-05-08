@@ -39,10 +39,7 @@ public class WinningScreen : MonoBehaviour
 
             GameManager.instance.isStarted = false;
             Time.timeScale = 0;
-            if (!PlayerPrefs.HasKey("BestScore"))
-            {
-                PlayerPrefs.SetInt("BestScore",0);
-            }
+       
             if (HUDManager.manager.score> PlayerPrefs.GetInt("BestScore"))
             {
                 score.color = Color.red;
@@ -89,8 +86,8 @@ public class WinningScreen : MonoBehaviour
        // dict.Add("replay", true);
         //UnityAnalytics.CustomEvent("gameOver", dict);
         //GA.API.Design.NewEvent("Game:replay", 1);
-        
-        if(InputManager.method==InputMethod.buttons)
+
+        if (GameManager.instance.Input == InputMethod.buttons)
         {
             rightbutton.pressed = leftButton.pressed = false;
         }
