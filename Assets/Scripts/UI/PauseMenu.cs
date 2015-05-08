@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class PauseMenu : MonoBehaviour {
-    public static PauseMenu menu;
+    public static PauseMenu instance;
 
 	// Use this for initialization
     void Awake()
     {
-        menu = this;
+        instance = this;
     }
     void Start () {
 	}
@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = HUDManager.manager.currentTimeScale;
         Application.LoadLevel(Application.loadedLevel);
         HUDManager.manager.ispaused = false;
+
     }
     public void ContinuePlay() 
     {
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour {
         this.gameObject.SetActive(false);
         HUDManager.manager.gameObject.SetActive(true);
         HUDManager.manager.ispaused = false;
+
     }
     public void exit() 
     {

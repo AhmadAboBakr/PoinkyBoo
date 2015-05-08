@@ -60,6 +60,8 @@ public class PowerUpGenerator : MonoBehaviour {
         if (!PowerUpGenerator.generator)
             PowerUpGenerator.generator = this;
         GameManager.clear += Clear;
+        GameManager.Move += Generate;
+
     }
 	void Start () {
         powerupdiff = 10;
@@ -101,8 +103,33 @@ public class PowerUpGenerator : MonoBehaviour {
         PowerUps.Clear();
         Start();
     }
-    public void StartGenerator() 
+    public void Generate() 
     {
-       powerupsCour = StartCoroutine(PowerUpGenerator.generator.Generatepowerup());
+       //powerupsCour = StartCoroutine(PowerUpGenerator.generator.Generatepowerup());
+        if (powerupdiff <=0)
+        {
+            powerupdiff = Random.Range(15,20);
+            random = 3 * Random.Range(-1, 2);
+            if (Random.Range(0, 2) == 0)
+            {
+                PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+
+            }
+            else if (Random.Range(0, 2) == 1)
+            {
+                PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+            }
+        }
+        else
+        {
+            powerupdiff--;
+        }
+
+    }
+    public void StopGenerate()
+    {
+        //StopCoroutine(powerupsCour);
+        //powerupdiff = 10;
+
     }
 }

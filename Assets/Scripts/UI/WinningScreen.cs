@@ -23,13 +23,14 @@ public class WinningScreen : MonoBehaviour
 	}
     void OnEnable()
     {
+        PauseMenu.instance.gameObject.SetActive(false);
+
         if (!score)
         {
             score = GameObject.FindGameObjectWithTag("CurrentScore").GetComponent<Text>();   
             bestScore = GameObject.FindGameObjectWithTag("BestScore").GetComponent<Text>();
             startColor=score.color;
         }
-
         if (!GameJustStarted)
         {
             GameManager.instance.isStarted = false;
@@ -82,6 +83,7 @@ public class WinningScreen : MonoBehaviour
         this.gameObject.SetActive(false);
         HUDManager.manager.gameObject.SetActive(true);
         GameManager.instance.isStarted = true;
+        PowerUpGenerator.generator.Generate();
         //Dictionary<string, object> dict = new Dictionary<string, object>();
        // dict.Add("replay", true);
         //UnityAnalytics.CustomEvent("gameOver", dict);
@@ -108,8 +110,8 @@ public class WinningScreen : MonoBehaviour
     }
     public void Share()
     {
-        string link="http://games.senetStudios.com/Poinky";
-        string pictureLink = "https://lh5.googleusercontent.com/b5VYY1rqU-yR5_LUPjNUXXy2FP5aXzltE1So8OHvzB3WjszCqzXO7qwiHdZVVyV7kVF67z0u=w1884-h717";
+        string link = "https://play.google.com/store/apps/details?id=com.ITI.poinky";
+        string pictureLink = "http://i.imgur.com/WD7nqDE.png";
         string name="I'm Playing Poinky";
         string caption="a new High score";
         string description="just scored : "+HUDManager.manager.score;

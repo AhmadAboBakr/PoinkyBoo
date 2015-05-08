@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 476986}
   - 33: {fileID: 3348886}
   - 23: {fileID: 2306682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Object108
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 65: {fileID: 6592808}
   - 54: {fileID: 5445670}
   - 114: {fileID: 11489492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tile
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - 4: {fileID: 463096}
   - 33: {fileID: 3317228}
   - 23: {fileID: 2300908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

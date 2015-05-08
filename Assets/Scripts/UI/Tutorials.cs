@@ -30,7 +30,7 @@ public class Tutorials : MonoBehaviour {
         //if (InputManager.method == InputMethod.Touch)
         //{
             GameManager.instance.isStarted = true;
-            PowerUpGenerator.generator.StartGenerator();
+            PowerUpGenerator.generator.Generate();
             if (GameManager.instance.Input == InputMethod.Touch)
             {
                 //swip.gameObject.SetActive(false);

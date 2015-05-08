@@ -57,7 +57,7 @@ public class HUDManager : MonoBehaviour {
         if (!ispaused)
         {
             Time.timeScale = 0;
-            PauseMenu.menu.gameObject.SetActive(true);
+            PauseMenu.instance.gameObject.SetActive(true);
             this.gameObject.SetActive(false);
             ispaused = true;
         }

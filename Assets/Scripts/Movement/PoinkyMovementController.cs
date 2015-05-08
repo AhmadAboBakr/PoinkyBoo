@@ -45,8 +45,10 @@ public class PoinkyMovementController : MonoBehaviour
         {
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             GameManager.instance.Powerup = PowerUps.None;
+            PowerUpGenerator.generator.StopGenerate();
             this.transform.position = new Vector3(0, 10, 0);
             WinningScreen.screen.gameObject.SetActive(true);
+            
 
 
         }
