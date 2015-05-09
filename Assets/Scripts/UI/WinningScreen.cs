@@ -85,6 +85,7 @@ public class WinningScreen : MonoBehaviour
         this.gameObject.SetActive(false);
         HUDManager.manager.gameObject.SetActive(true);
         GameManager.instance.isStarted = true;
+        PowerUpGenerator.generator.StartGenerator();
         //Dictionary<string, object> dict = new Dictionary<string, object>();
        // dict.Add("replay", true);
         //UnityAnalytics.CustomEvent("gameOver", dict);
@@ -111,8 +112,8 @@ public class WinningScreen : MonoBehaviour
     }
     public void Share()
     {
-        string link="http://games.senetStudios.com/Poinky";
-        string pictureLink = "https://lh5.googleusercontent.com/b5VYY1rqU-yR5_LUPjNUXXy2FP5aXzltE1So8OHvzB3WjszCqzXO7qwiHdZVVyV7kVF67z0u=w1884-h717";
+        string link = "https://www.facebook.com/PoinkyGame";
+        string pictureLink = "https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/22699_1614154782136548_3239675649755014057_n.png?oh=1b7d23cb21f6f049a07657aba96d0f78&oe=55CDD353";
         string name="I'm Playing Poinky";
         string caption="a new High score";
         string description="just scored : "+HUDManager.manager.score;

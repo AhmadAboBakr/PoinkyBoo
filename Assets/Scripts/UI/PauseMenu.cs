@@ -25,6 +25,8 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = HUDManager.manager.currentTimeScale;
         Application.LoadLevel(Application.loadedLevel);
         HUDManager.manager.ispaused = false;
+        PowerUpGenerator.generator.StartGenerator();
+
     }
     public void ContinuePlay() 
     {
@@ -33,6 +35,8 @@ public class PauseMenu : MonoBehaviour {
         this.gameObject.SetActive(false);
         HUDManager.manager.gameObject.SetActive(true);
         HUDManager.manager.ispaused = false;
+        PowerUpGenerator.generator.StartGenerator();
+
     }
     public void exit() 
     {

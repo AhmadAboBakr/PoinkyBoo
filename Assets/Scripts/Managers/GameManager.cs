@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
     private bool isMoving = false;
     public Mode GameMode;
     public PowerUps Powerup;
+    public float timeScale;
     public float gravity = Physics.gravity.y;
     float timer;
 
@@ -36,9 +37,11 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
+        //FB.Init(SetInit, OnHideUnity);  
         GameManager.instance = this;
         isStarted=false;
         isMoving = false;
+        timeScale = Time.timeScale;
     }
     void Start()
     {
@@ -64,4 +67,30 @@ public class GameManager : MonoBehaviour {
         this.GameMode = Mode.MainMode;
         clear();
     }
+    private void SetInit()
+    {
+        Debug.Log("SetInit");
+        //enabled = true; // "enabled" is a property inherited from MonoBehaviour                  
+        if (FB.IsLoggedIn)
+        {
+            Debug.Log("Already logged in");
+            FacebookIntegration.instance.OnLoggedIn();
+        }
+    }
+
+    private void OnHideUnity(bool isGameShown)
+    {
+        Debug.Log("OnHideUnity");
+        //if (!isGameShown)
+        //{
+        //    // pause the game - we will need to hide  
+        //    timeScale = Time.timeScale;                              
+        //    Time.timeScale = 0;
+        //}
+        //else
+        //{
+        //    // start the game back up - we're getting focus again                                
+        //    Time.timeScale =timeScale ;
+        //}
+    }    
 }

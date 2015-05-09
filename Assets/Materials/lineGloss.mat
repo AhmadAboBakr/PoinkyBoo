@@ -55,7 +55,7 @@ Material:
         second:
           m_Texture: {fileID: 2800000, guid: 7b4d542af1f059e42af26706d231782e, type: 3}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: .438304216}
+          m_Offset: {x: 0, y: .643436015}
       data:
         first:
           name: _ParallaxMap
@@ -231,7 +231,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .0784313753, g: .501960814, b: .13333334, a: 1}
+        second: {r: 1, g: .643137276, b: 9.43836937e-29, a: 1}
       data:
         first:
           name: _SpecColor

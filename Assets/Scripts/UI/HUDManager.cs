@@ -60,6 +60,8 @@ public class HUDManager : MonoBehaviour {
             PauseMenu.menu.gameObject.SetActive(true);
             this.gameObject.SetActive(false);
             ispaused = true;
+            PowerUpGenerator.generator.StartGenerator();
+
         }
     }
     void Update()

@@ -105,5 +105,11 @@ public class PowerUpGenerator : MonoBehaviour {
     public void StartGenerator() 
     {
        powerupsCour = StartCoroutine(PowerUpGenerator.generator.Generatepowerup());
+       Debug.Log("start cour");
+    }
+    public void StopGenerate()
+    {
+        Debug.Log("stop cour");
+        StopCoroutine(powerupsCour);
     }
 }

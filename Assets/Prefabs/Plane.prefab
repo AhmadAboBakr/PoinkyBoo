@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3323808}
   - 64: {fileID: 6472822}
   - 23: {fileID: 2303674}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: SafetyNet
   m_Icon: {fileID: 0}

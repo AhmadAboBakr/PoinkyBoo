@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
+
 public class MainMenu : MonoBehaviour
 {
     public static MainMenu menu;
@@ -28,7 +30,7 @@ public class MainMenu : MonoBehaviour
         OptionsMenu.menu.gameObject.SetActive(false);
         HUDManager.manager.gameObject.SetActive(false);
         PauseMenu.menu.gameObject.SetActive(false);
-        timeScale = Time.timeScale;
+        // timeScale = Time.timeScale;
     }
     void Update()
     {
@@ -38,28 +40,28 @@ public class MainMenu : MonoBehaviour
         }
     }
     public void BtnPlayPressed()
-    {        
-        Time.timeScale = timeScale; 
+    {
+        Time.timeScale = GameManager.instance.timeScale;
         this.gameObject.SetActive(false);
         HUD.SetActive(true);
         //if (!tutorialsflag)
         //{
         Tutorials.Manager.gameObject.SetActive(true);
-        GameObject [] ARR= GameObject.FindGameObjectsWithTag("Tutorials");
+        GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
         foreach (var item in ARR)
         {
             item.gameObject.SetActive(true);
 
         }
         Tutorials.Manager.tutorials();
-            //tutorialsflag = true;
+        //tutorialsflag = true;
         //}
         //else
-            //GameManager.manager.isStarted = true;
+        //GameManager.manager.isStarted = true;
     }
 
     public void BtnOptionsPressed()
-    {   
+    {
         this.gameObject.SetActive(false);
         GameManager.instance.IsMoving = false;
         Options.SetActive(true);
@@ -67,12 +69,15 @@ public class MainMenu : MonoBehaviour
 
 
     public void BtnStorePressed()
-    {       
+    {
     }
 
     public void BtnMorePressed()
-    {       
+    {
+        FacebookIntegration.instance.Login();
     }
+    
+
 
     public void BtnLeaderboardPressed()
     {

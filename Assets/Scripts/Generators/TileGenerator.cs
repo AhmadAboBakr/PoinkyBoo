@@ -102,6 +102,8 @@ public class TileGenerator : MonoBehaviour
     }
     public void Move()
     {
+        //Debug.Log("tiles move");
+
         while (tiles[index].transform.position.z > 0)
         {
             foreach (var tile in tiles)
