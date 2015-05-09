@@ -112,14 +112,15 @@ public class WinningScreen : MonoBehaviour
     }
     public void Share()
     {
-        string link = "https://www.facebook.com/PoinkyGame";
-        string pictureLink = "https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/22699_1614154782136548_3239675649755014057_n.png?oh=1b7d23cb21f6f049a07657aba96d0f78&oe=55CDD353";
-        string name="I'm Playing Poinky";
-        string caption="a new High score";
-        string description="just scored : "+HUDManager.manager.score;
-        Debug.Log(HUDManager.manager.score);
-        string redirectUri = "http://facebook.com/";
-        ShareToFacebook(link,name,caption,description,pictureLink,redirectUri);
+        //string link = "https://www.facebook.com/PoinkyGame";
+        //string pictureLink = "https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/22699_1614154782136548_3239675649755014057_n.png?oh=1b7d23cb21f6f049a07657aba96d0f78&oe=55CDD353";
+        //string name="I'm Playing Poinky";
+        //string caption="a new High score";
+        //string description="just scored : "+HUDManager.manager.score;
+        //Debug.Log(HUDManager.manager.score);
+        //string redirectUri = "http://facebook.com/";
+        //ShareToFacebook(link,name,caption,description,pictureLink,redirectUri);
+        FacebookIntegration.instance.Share(HUDManager.manager.score.ToString());
     }
     void ShareToFacebook(string linkParameter, string nameParameter, string captionParameter, string descriptionParameter, string pictureParameter, string redirectParameter)
     {

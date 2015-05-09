@@ -52,6 +52,7 @@ public class FacebookIntegration : MonoBehaviour {
         soreetAlProfile.color = Color.green;
 
         Debug.Log("Logged in. ID: " + FB.UserId);
+        
         FB.API("/me?fields=id,first_name,friends.limit(100).fields(first_name,id)", Facebook.HttpMethod.GET, APICallback);
         LoadPictureAPI(Util.GetPictureURL("me", 128, 128), MyPictureCallback);
         soreetAlProfile.color = Color.yellow;
@@ -124,5 +125,16 @@ public class FacebookIntegration : MonoBehaviour {
         soreetAlProfile.color = Color.red;
         nameW7agatTania.text =result.Text;
         
-    }           
+    }
+    public void Share(string score)
+    {
+        Util.Log("onBragClicked");
+        //Debug.Log("http://apps.facebook.com/" + FB.AppId + "/?challenge_brag=" + (FB.IsLoggedIn ? FB.UserId : "guest"));
+        FB.Feed(
+                linkCaption: "Play Poinky with me",
+                picture: "http://i.imgur.com/WD7nqDE.png",
+                linkName: "I just got " +score+ " in Poinky! Can you beat me?",
+                link: "https://www.facebook.com/PoinkyGame" 
+                );
+    }       
 }
