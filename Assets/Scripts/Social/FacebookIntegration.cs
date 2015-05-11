@@ -10,8 +10,9 @@ public class FacebookIntegration : MonoBehaviour {
     public Text nameW7agatTania;
     public Image soreetAlProfile;
     public static FacebookIntegration instance;
-    Dictionary<string, string> profile;
+    public Dictionary<string, string> profile;
     List<object> friends;
+    public Text ttttt;
     
 	// Use this for initialization
     void Awake()
@@ -31,16 +32,18 @@ public class FacebookIntegration : MonoBehaviour {
         if (!FB.IsLoggedIn)
         {
             FB.Login("email,publish_actions,user_friends", LoginCallback);
+            ttttt.text += "facebook logged in ";
         }
         else
         {
             OnLoggedIn();
+            ServerHandle.instance.SendFbId();
+
         }
     }
     public void LoginCallback(FBResult result)
     {
         Debug.Log("LoginCallback");
-
         if (FB.IsLoggedIn)
         {
             OnLoggedIn();
@@ -49,30 +52,29 @@ public class FacebookIntegration : MonoBehaviour {
 
     public void OnLoggedIn()
     {
-        soreetAlProfile.color = Color.green;
+        ttttt.text += "on logged in entre ";
 
-        Debug.Log("Logged in. ID: " + FB.UserId);
-        
+
         FB.API("/me?fields=id,first_name,friends.limit(100).fields(first_name,id)", Facebook.HttpMethod.GET, APICallback);
-        LoadPictureAPI(Util.GetPictureURL("me", 128, 128), MyPictureCallback);
-        soreetAlProfile.color = Color.yellow;
+        //LoadPictureAPI(Util.GetPictureURL("me", 128, 128), MyPictureCallback);
+        ttttt.text += "on logged in exit ";
 
 
     }
-    void MyPictureCallback(Texture texture)
-    {
+    //void MyPictureCallback(Texture texture)
+    //{
 
-        if (texture == null)
-        {
-            // Let's just try again
-            LoadPictureAPI(Util.GetPictureURL("me", 128, 128), MyPictureCallback);
-            return;
-        }
-        var spr = new Sprite();
-        //spr.texture= texture.;
-        //soreetAlProfile.sprite = spr;
-        //GameStateManager.UserTexture = texture;
-    }
+    //    if (texture == null)
+    //    {
+    //        // Let's just try again
+    //        LoadPictureAPI(Util.GetPictureURL("me", 128, 128), MyPictureCallback);
+    //        return;
+    //    }
+    //    var spr = new Sprite();
+    //    //spr.texture= texture.;
+    //    //soreetAlProfile.sprite = spr;
+    //    //GameStateManager.UserTexture = texture;
+    //}
     IEnumerator LoadPictureEnumerator(string url, LoadPictureCallback callback)
     {
         WWW www = new WWW(url);
@@ -101,9 +103,8 @@ public class FacebookIntegration : MonoBehaviour {
     }
     void APICallback(FBResult result)
     {
-        soreetAlProfile.color = Color.blue;
+        ttttt.text += "APICallback entre \n";
 
-        Util.Log("APICallback");
         if (result.Error != null)
         {
             Util.LogError(result.Error);
@@ -111,24 +112,28 @@ public class FacebookIntegration : MonoBehaviour {
             FB.API("/me?fields=id,email,first_name,friends.limit(100).fields(first_name,id)", Facebook.HttpMethod.GET, APICallback);
             return;
         }
+       // ttttt.text = result.Text;
         profile=Util.DeserializeJSONProfile(result.Text);
+        ServerHandle.instance.SendFbId();
+
+        //ttttt.text += "profile add \n";
         
         //GameStateManager.Username = profile["first_name"];
             
             
             friends = Util.DeserializeJSONFriends(result.Text);
+            //ttttt.text += "friends add \n";
+
         //profile["first_name"];
         foreach (var friend in friends)
         {
             nameW7agatTania.text += "\n" + friend.ToString();
         }
-        soreetAlProfile.color = Color.red;
         nameW7agatTania.text =result.Text;
         
     }
     public void Share(string score)
     {
-        Util.Log("onBragClicked");
         //Debug.Log("http://apps.facebook.com/" + FB.AppId + "/?challenge_brag=" + (FB.IsLoggedIn ? FB.UserId : "guest"));
         FB.Feed(
                 linkCaption: "Play Poinky with me",

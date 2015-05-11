@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
     public float timeScale;
     public float gravity = Physics.gravity.y;
     float timer;
+    public string FacebookUserId;
 
     public bool IsMoving
     {
