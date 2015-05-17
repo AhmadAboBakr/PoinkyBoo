@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   appIds:
-  - 387389954782154
+  - '387389954782154 '
   appLabels:
-  - Poinky
+  - Poinky Beta
   cookie: 1
   logging: 1
   status: 1

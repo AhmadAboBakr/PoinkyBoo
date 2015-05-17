@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        //FB.Init(SetInit, OnHideUnity);  
+        FB.Init(SetInit, OnHideUnity);  
         GameManager.instance = this;
         isStarted = false;
         isMoving = false;
