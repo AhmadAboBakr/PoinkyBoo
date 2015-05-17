@@ -74,7 +74,7 @@ public class MainMenu : MonoBehaviour
 
     public void BtnMorePressed()
     {
-        //FacebookIntegration.instance.Login();
+        FacebookIntegration.instance.Login();
     }
     
 
