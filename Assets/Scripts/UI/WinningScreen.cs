@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class WinningScreen : MonoBehaviour
 {
@@ -48,6 +50,12 @@ public class WinningScreen : MonoBehaviour
                 score.text = HUDManager.manager.score.ToString();
                 bestScore.text = HUDManager.manager.score.ToString();
                 PlayerPrefs.SetInt("BestScore", HUDManager.manager.score);
+                // post score 12345 to leaderboard ID "Cfji293fjsie_QA")
+                Social.ReportScore(HUDManager.manager.score, "CgkInbf4694CEAIQAQ", (bool success) =>
+                {
+                    // handle success or failure
+                });
+
             }
             else
             {

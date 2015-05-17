@@ -14,6 +14,8 @@ GameObject:
   - 114: {fileID: 11432726}
   - 114: {fileID: 11429828}
   - 114: {fileID: 11434166}
+  - 114: {fileID: 11492226}
+  - 114: {fileID: 11468436}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: TotalCollectables
@@ -74,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slide: {fileID: 194652, guid: 525d0c51ae092184b8d0925f2085d32d, type: 2}
+  safetyNet: {fileID: 194652, guid: 525d0c51ae092184b8d0925f2085d32d, type: 2}
 --- !u!114 &11441596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,8 +92,22 @@ MonoBehaviour:
   isStarted: 0
   GameMode: 0
   Powerup: 3
+  timeScale: 0
   gravity: -10
+  FacebookUserId: 
   poinkySpeed: {x: 0, y: 10, z: 0}
+--- !u!114 &11468436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745641d20df90fd4faa8a7adce2bf506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ttttt: {fileID: 0}
 --- !u!114 &11486128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,6 +144,20 @@ MonoBehaviour:
   - {fileID: 162406, guid: b3273f5b5603c9f4aa72ae6ddaa19d56, type: 2}
   doors:
   - {fileID: 165596, guid: c8ab8fc218df3e14bafd8bad324f296c, type: 2}
+--- !u!114 &11492226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3e5722b7a2946439170221d760c141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameW7agatTania: {fileID: 0}
+  soreetAlProfile: {fileID: 0}
+  ttttt: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

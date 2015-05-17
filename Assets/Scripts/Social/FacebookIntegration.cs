@@ -44,6 +44,8 @@ public class FacebookIntegration : MonoBehaviour {
     public void LoginCallback(FBResult result)
     {
         Debug.Log("LoginCallback");
+        ttttt.text += "log in call back";
+
         if (FB.IsLoggedIn)
         {
             OnLoggedIn();
@@ -115,7 +117,7 @@ public class FacebookIntegration : MonoBehaviour {
        // ttttt.text = result.Text;
         profile=Util.DeserializeJSONProfile(result.Text);
         ServerHandle.instance.SendFbId();
-
+        //FB.UserId;
         //ttttt.text += "profile add \n";
         
         //GameStateManager.Username = profile["first_name"];

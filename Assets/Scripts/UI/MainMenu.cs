@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
+
 
 
 
@@ -12,6 +15,7 @@ public class MainMenu : MonoBehaviour
     float timeScale;
     bool tutorialsflag;
     public GameObject tutorials;
+    public Text ttttt;
 
     void Awake()
     {
@@ -30,6 +34,8 @@ public class MainMenu : MonoBehaviour
         OptionsMenu.menu.gameObject.SetActive(false);
         HUDManager.manager.gameObject.SetActive(false);
         PauseMenu.instance.gameObject.SetActive(false);
+        // authenticate user:for google play
+        
         // timeScale = Time.timeScale;
     }
     void Update()
@@ -70,10 +76,12 @@ public class MainMenu : MonoBehaviour
 
     public void BtnStorePressed()
     {
+
     }
 
     public void BtnMorePressed()
     {
+        
         FacebookIntegration.instance.Login();
     }
     
@@ -81,6 +89,17 @@ public class MainMenu : MonoBehaviour
 
     public void BtnLeaderboardPressed()
     {
+        Social.localUser.Authenticate((bool success) =>
+        {
+            if (success)
+                ttttt.text = "success";
+            else
+                ttttt.text = "failure";
+            // handle success or failure
+        });
+    // show leaderboard UI
+        PlayGamesPlatform.Instance.ShowLeaderboardUI();
+        Debug.Log("kotomoto");
     }
 
 

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
 
 public enum Mode
 {
@@ -78,7 +81,14 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        FB.Init(SetInit, OnHideUnity);  
+        FB.Init(SetInit, OnHideUnity);
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+        PlayGamesPlatform.InitializeInstance(config);
+        // recommended for debugging:
+        PlayGamesPlatform.DebugLogEnabled = true;
+        // Activate the Google Play Games platform
+        PlayGamesPlatform.Activate();
+
         GameManager.instance = this;
         isStarted = false;
         isMoving = false;
@@ -123,13 +133,13 @@ public class GameManager : MonoBehaviour
     }
     private void SetInit()
     {
-        Debug.Log("SetInit");
+       // Debug.Log("SetInit");
         //enabled = true; // "enabled" is a property inherited from MonoBehaviour                  
-        //if (FB.IsLoggedIn)
-        //{
-        //    Debug.Log("Already logged in");
-        //    FacebookIntegration.instance.OnLoggedIn();
-        //}
+        if (FB.IsLoggedIn)
+        {
+            Debug.Log("Already logged in");
+            FacebookIntegration.instance.OnLoggedIn();
+        }
     }
 
     private void OnHideUnity(bool isGameShown)

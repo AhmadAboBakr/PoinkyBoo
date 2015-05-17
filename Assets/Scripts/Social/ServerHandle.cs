@@ -57,7 +57,7 @@ public class ServerHandle : MonoBehaviour {
         ttttt.text += FacebookIntegration.instance.profile["first_name"];
        
         WWWForm form = new WWWForm();
-        //tttt.text += FacebookIntegration.instance.profile["first_name"];
+        ttttt.text += FacebookIntegration.instance.profile["first_name"];
 
         form.AddField("name", FacebookIntegration.instance.profile["first_name"]);
 
@@ -65,7 +65,7 @@ public class ServerHandle : MonoBehaviour {
         ttttt.text += FB.UserId;
 
         form.AddField("fbId", FB.UserId);
-        POST("http://45.55.200.82:8080/api/user", form);
+        POST("http://45.55.200.82:80/api/user", form);
         ttttt.text += "end of request";
 
 

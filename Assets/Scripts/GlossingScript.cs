@@ -17,7 +17,7 @@ public class GlossingScript : MonoBehaviour {
     }
     void Start()
     {
-        //rend = GetComponent<Renderer>();
+        rend = GetComponent<Renderer>();
 
         colors[0] = new Color(20 / 255f, 128 / 255f, 34 / 255f);
         colors[1] = new Color(1, 164 / 255.0f, 0);
