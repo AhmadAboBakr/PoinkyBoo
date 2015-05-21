@@ -25,7 +25,7 @@ public class WinningScreen : MonoBehaviour
 	}
     void OnEnable()
     {
-        PauseMenu.instance.gameObject.SetActive(false);
+        //PauseMenu.instance.gameObject.SetActive(false);
 
         if (!score)
         {

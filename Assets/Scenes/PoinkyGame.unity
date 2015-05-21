@@ -138,6 +138,14 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 563c136d71a7a334cbb54aa3cdf828d6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &141518303
+GameObject:
+  m_PrefabParentObject: {fileID: 103486, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+  m_PrefabInternal: {fileID: 539000340}
+--- !u!1 &182438659
+GameObject:
+  m_PrefabParentObject: {fileID: 177082, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+  m_PrefabInternal: {fileID: 539000340}
 --- !u!1 &185132316
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,59 +291,51 @@ Prefab:
       objectReference: {fileID: 1443893299}
     - target: {fileID: 22414048, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.x
-      value: .504950464
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22414048, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22490016, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMin.x
-      value: .504950464
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22490016, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.x
-      value: .504950464
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22490016, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22467140, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.x
-      value: .142857149
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22467140, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22437838, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMin.x
-      value: .142857149
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22437838, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.x
-      value: .142857149
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22437838, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438360, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438360, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
       propertyPath: m_AnchorMax.y
-      value: .999999881
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455174, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
-      propertyPath: ttttt
-      value: 
-      objectReference: {fileID: 503424685}
-    - target: {fileID: 172708, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e918cd0da5e6d24389b8becec451402, type: 2}
@@ -397,7 +397,32 @@ Prefab:
       propertyPath: tiltText
       value: 
       objectReference: {fileID: 1617252343}
-    m_RemovedComponents: []
+    - target: {fileID: 11444736, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: tilt
+      value: 
+      objectReference: {fileID: 182438659}
+    - target: {fileID: 11444736, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: tabandhold
+      value: 
+      objectReference: {fileID: 141518303}
+    - target: {fileID: 11444736, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: swip
+      value: 
+      objectReference: {fileID: 936655791}
+    - target: {fileID: 11444736, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: swipText
+      value: 
+      objectReference: {fileID: 1564578546}
+    - target: {fileID: 11444736, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: tiltText
+      value: 
+      objectReference: {fileID: 1617252343}
+    - target: {fileID: 11444736, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: tabandholdText
+      value: 
+      objectReference: {fileID: 1092120982}
+    m_RemovedComponents:
+    - {fileID: 11444736, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &691869969
@@ -478,6 +503,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &936655791
+GameObject:
+  m_PrefabParentObject: {fileID: 194422, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+  m_PrefabInternal: {fileID: 539000340}
 --- !u!1 &1000042647
 GameObject:
   m_ObjectHideFlags: 0
