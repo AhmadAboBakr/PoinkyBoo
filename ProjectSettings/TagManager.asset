@@ -31,6 +31,9 @@ TagManager:
   - New Tag
   - Spiral
   - Normal
+  - Desert
+  - DesertDoorIn
+  - DesertTile
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public enum Mode
 {
-    MainMode, Spiral
+    MainMode, Spiral, Desert
 }
 public enum PowerUps
 {
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public float timeScale;
     public float gravity = Physics.gravity.y;
     float timer;
+    float modeTimer;
     public string FacebookUserId;
 
     public bool IsMoving
@@ -113,6 +114,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        modeTimer = Time.deltaTime;
+        GameMode = Mode.MainMode;
     }
     void Update()
     {
@@ -124,6 +127,13 @@ public class GameManager : MonoBehaviour
         {
             Powerup = PowerUps.None;
             timer = 0;
+        }
+
+        //game modes
+        modeTimer += Time.deltaTime;
+        if (modeTimer > 1)
+        {
+            GameMode = Mode.Desert;
         }
     }
     public void Clear()

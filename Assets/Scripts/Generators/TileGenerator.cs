@@ -7,6 +7,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject normalTile;
     public GameObject immovableTile;
     public GameObject spiralTile;
+    public GameObject desertTile;
     public List<Tile> tiles;
     float speed;
     int index;
@@ -36,34 +37,43 @@ public class TileGenerator : MonoBehaviour
         speed = GameManager.instance.poinkySpeed.y;
         time = -2 * speed / Physics.gravity.y;
         tiles.Add((GameObject.Instantiate(normalTile, new Vector3(0, 0, 0), Quaternion.identity) as GameObject).GetComponent<Tile>());
-
         {
             for (int i = 1; i < 10; i++)
             {
-                if (GameManager.instance.GameMode==Mode.MainMode)
+                if (GameManager.instance.GameMode == Mode.MainMode)
                 {
-                        tiles.Add((GameObject.Instantiate(normalTile, new Vector3(3 * Random.Range(-1, 2), 0, speed * i), Quaternion.identity) as GameObject).GetComponent<Tile>());
-                        count++;
+                    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(3 * Random.Range(-1, 2), 0, speed * i), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                    count++;
                 }
-                else
+
+                else if (GameManager.instance.GameMode == Mode.Desert)
                 {
-                    var tile = (GameObject.Instantiate(spiralTile, new Vector3(0, -4, speed * i), Quaternion.Euler(-90,0,0)) as GameObject).GetComponent<Tile>();
-                    tiles.Add(tile);
-                    Vector3 point = new Vector3(0,0,tile.transform.position.z);
-                    tile.transform.RotateAround(point, Vector3.back, Random.Range(0, 45) * 8);
-                    
+                    tiles.Add((GameObject.Instantiate(desertTile, new Vector3(0, 0, speed * i), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                    count++;
                 }
+                //else if (GameManager.instance.GameMode == Mode.Spiral)                
+                //{
+                //    var tile = (GameObject.Instantiate(spiralTile, new Vector3(0, -4, speed * i), Quaternion.Euler(-90,0,0)) as GameObject).GetComponent<Tile>();
+                //    tiles.Add(tile);
+                //    Vector3 point = new Vector3(0,0,tile.transform.position.z);
+                //    tile.transform.RotateAround(point, Vector3.back, Random.Range(0, 45) * 8);                    
+                //}
             }
         }
-
-
     }
 
     void Update()
     {
-
         speed = GameManager.instance.poinkySpeed.y;
         time = -speed / (0.51f * Physics.gravity.y);
+
+
+        //if (GameManager.instance.GameMode == Mode.MainMode)
+        //{
+        //    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(3 * Random.Range(-1, 2), 0, speed), Quaternion.identity) as GameObject).GetComponent<Tile>());           
+        //} else
+     
+
         if (tiles[index].transform.position.z > 0)
         {
             //if tiles shifted
@@ -135,6 +145,10 @@ public class TileGenerator : MonoBehaviour
             {
                 tiles.Add((GameObject.Instantiate(normalTile, new Vector3(3 * Random.Range(-1, 2), 0, speed * (10)), Quaternion.identity) as GameObject).GetComponent<Tile>());
             }
+        }
+        else if (GameManager.instance.GameMode == Mode.Desert)
+        {
+            tiles.Add((GameObject.Instantiate(desertTile, new Vector3(3 * Random.Range(-1, 2), 0, speed * (10)), Quaternion.identity) as GameObject).GetComponent<Tile>());
         }
         else if (GameManager.instance.GameMode == Mode.Spiral)
         {
