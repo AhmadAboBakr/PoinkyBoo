@@ -60,6 +60,10 @@ public class Collectable : MonoBehaviour
         var position = gameObject.transform.position;
         position = Vector3.Lerp(position, PoinkyMovementController.poinky.transform.position, Time.deltaTime *5);
         gameObject.transform.position = position;
+        if (GameManager.instance.Powerup == PowerUps.Magnit)
+        {
+
+        }
 
     }
 }

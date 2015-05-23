@@ -75,13 +75,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.ITI.poinky
-  bundleVersion: 1.2
+  bundleVersion: 1.5
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   productGUID: 95fb1bc58e521dc4bb6c5d08b5a645f2
-  AndroidBundleVersionCode: 12
+  AndroidBundleVersionCode: 15
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -122,7 +122,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: C:/Users/alaa0_000/Desktop/Poinky.keystore
-  AndroidKeyaliasName: 
+  AndroidKeyaliasName: poinky
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
