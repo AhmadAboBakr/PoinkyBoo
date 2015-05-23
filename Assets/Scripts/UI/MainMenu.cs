@@ -30,9 +30,9 @@ public class MainMenu : MonoBehaviour
     {
         Tutorials.instance.gameObject.SetActive(false);
         WinningScreen.screen.gameObject.SetActive(false);
-        HUDManager.manager.gameObject.SetActive(false);
+        HUDManager.instance.gameObject.SetActive(false);
         OptionsMenu.menu.gameObject.SetActive(false);
-        HUDManager.manager.gameObject.SetActive(false);
+        HUDManager.instance.gameObject.SetActive(false);
         PauseMenu.instance.gameObject.SetActive(false);
         // authenticate user:for google play
         
@@ -76,6 +76,7 @@ public class MainMenu : MonoBehaviour
 
     public void BtnStorePressed()
     {
+        Social.ShowAchievementsUI();
 
     }
 

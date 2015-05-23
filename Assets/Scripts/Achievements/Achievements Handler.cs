@@ -6,42 +6,120 @@ using System.Collections.Generic;
 
 public class AchievementsHandler : MonoBehaviour {
     public static AchievementsHandler instance;
-    public Dictionary<int, Achievementdata> Achievements;
     void Awake()
     {
         if (!AchievementsHandler.instance)
             AchievementsHandler.instance = this;
         GameManager.Move += Move;
-        GameManager.clear += Clear;
     }
 	public void Move()
     {
-        //if()
-        //{
-
-        //}
-        //else if()
-        //{
-
-        //}
-    }
-    public void Clear ()
-    {
-
-    }
-    void AchievementUnlocked (string avhievementID,double value)
-    {
-        Social.ReportProgress(avhievementID, value, (bool success) =>
+        switch (HUDManager.instance.score)
         {
-            // handle success or failure
-        });
+            case 10:
+                Social.ReportProgress("Score10", 10, (bool success) =>
+                {
+                    // handle success or failure
+                });
+                break;
+            case 50:
+                Social.ReportProgress("Score50", 50, (bool success) =>
+                {
+                    // handle success or failure
+                });
+                break;
+            case 100:
+                Social.ReportProgress("Score100", 100, (bool success) =>
+                {
+                    // handle success or failure
+                });
+                break;
+            case 250:
+                Social.ReportProgress("Score100", 100, (bool success) =>
+                {
+                    // handle success or failure
+                });
+                break;
+            case 500:
+                Social.ReportProgress("Score100", 100, (bool success) =>
+                {
+                    // handle success or failure
+                });
+                break;
+            default:
+                break;
+        }
     }
-    void Start()
+    public void ReportMagnetAchivement(int numberOfPowerUPS)
     {
-        Achievements=new Dictionary<int,Achievementdata>();
-        Achievements.Add(10, new  Achievementdata("id1", false));
-        Achievements.Add(20, new Achievementdata("id2", false));
-        Achievements.Add(50, new Achievementdata("id3", false));
-        Achievements.Add(100, new Achievementdata("id4", false));
+        switch (numberOfPowerUPS)
+        {
+            case 2:
+                break;
+            case 4:
+                break;
+            case 8:
+                break;
+            case 16:
+                break;
+            default:
+                break;
+        }
     }
+    public void ReportShieldAchivement(int numberOfPowerUPS)
+    {
+        switch (numberOfPowerUPS)
+        {
+            case 2:
+                break;
+            case 4:
+                break;
+            case 8:
+                break;
+            case 16:
+                break;
+            default:
+                break;
+        }
+    }
+    public void ReportCollectingCoinsInOneGame(int numberOfCoins)
+    {
+        switch (numberOfCoins)
+        {
+            case 50:
+                break;
+            case 100:
+                break;
+            case 200:
+                break;
+            case 400:
+                break;
+            default:
+                break;
+        }
+    }
+    public void ReportCollectingCoinsWithMagnetInOneGame(int numberOfCoins)
+    {
+        switch (numberOfCoins)
+        {
+            case 10:
+                break;
+            case 50:
+                break;
+            case 100:
+                break;
+            case 200:
+                break;
+            default:
+                break;
+        }
+    }
+    public void ReportTotalCoins(int numberOfCoins)
+    {
+        PlayGamesPlatform.Instance.IncrementAchievement("ID", 5, (bool success) =>
+      {
+          // handle success or failure
+      });
+    }
+
 }
