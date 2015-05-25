@@ -907,7 +907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &173658
 GameObject:
   m_ObjectHideFlags: 1
@@ -3250,7 +3250,7 @@ MonoBehaviour:
   Options: {fileID: 135008}
   HUD: {fileID: 181202}
   tutorials: {fileID: 0}
-  ttttt: {fileID: 0}
+  ttttt: {fileID: 11488196}
 --- !u!114 &11456108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3352,7 +3352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightbutton: {fileID: 11467248}
-  leftButton: {fileID: 0}
+  leftButton: {fileID: 11429652}
 --- !u!114 &11461606
 MonoBehaviour:
   m_ObjectHideFlags: 1

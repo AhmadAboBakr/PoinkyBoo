@@ -25,7 +25,7 @@ public class WinningScreen : MonoBehaviour
 	}
     void OnEnable()
     {
-        PauseMenu.instance.gameObject.SetActive(false);
+        //PauseMenu.instance.gameObject.SetActive(false);
 
         if (!score)
         {
@@ -43,7 +43,7 @@ public class WinningScreen : MonoBehaviour
             GameManager.instance.isStarted = false;
             Time.timeScale = 0;
        
-            if (HUDManager.manager.score> PlayerPrefs.GetInt("BestScore"))
+            if (HUDManager.manager.score > PlayerPrefs.GetInt("BestScore"))
             {
                 score.color = Color.red;
                 bestScore.color = Color.red;

@@ -10,10 +10,12 @@ public class PoinkyMovementController : MonoBehaviour
     public AudioClip soundTileColl;
     public AudioClip soundWallColl;
     public AudioClip soundCollectableColl;
+    public GameObject WallColliders;
+
     float decalWidth;
     Rigidbody myRigidBody;
     GameObject lastCollision;
-    public bool isInSpiral=false;
+    public bool isInSpiral = false;
 
     private AudioSource source;
 
@@ -27,9 +29,10 @@ public class PoinkyMovementController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         lastCollision = null;
         myRigidBody = this.GetComponent<Rigidbody>();
+
+        WallColliders.SetActive(true);
     }
     void Update()
     {
@@ -37,7 +40,6 @@ public class PoinkyMovementController : MonoBehaviour
         {
             this.transform.position = new Vector3(0, 1, 0);
             this.myRigidBody.velocity = Vector3.zero;
-
         }
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
         this.GetComponent<Animator>().SetFloat("speedY", this.GetComponent<Rigidbody>().velocity.y);
@@ -48,15 +50,17 @@ public class PoinkyMovementController : MonoBehaviour
             PowerUpGenerator.generator.StopGenerate();
             this.transform.position = new Vector3(0, 10, 0);
             WinningScreen.screen.gameObject.SetActive(true);
-            
-
-
         }
+
         CollectablesGenerator.generator.collectableCounter += Time.deltaTime;
+
+        if(GameManager.instance.GameMode == Mode.MainMode)
+        {
+            WallColliders.SetActive(true);
+        }
     }
     void FixedUpdate()
     {
-
         if (!isInSpiral)
         {
             this.myRigidBody.velocity += new Vector3(0, GameManager.instance.gravity, 0) * Time.deltaTime; //Physics.gravity*Time.deltaTime;
@@ -104,6 +108,12 @@ public class PoinkyMovementController : MonoBehaviour
                 else
                     this.GetComponent<Animator>().SetTrigger("rightWall");
             }
+
+            else if (other.gameObject.CompareTag("DesertDoorIn"))
+            {
+                WallColliders.SetActive(false);
+            }
+
             else if (other.CompareTag("Spiral"))
             {
                 isInSpiral = true;
