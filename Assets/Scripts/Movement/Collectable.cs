@@ -41,6 +41,18 @@ public class Collectable : MonoBehaviour
             {
                 CollectablesGenerator.generator.EatCollectable(this.gameObject);
                 PoinkyMovementController.poinky.Eat(this.gameObject);
+                if(GameManager.instance.Powerup==PowerUps.Magnit)
+                {
+                    AchievementsHandler.instance.NumOfCollectablesWithMagnet++;
+                    AchievementsHandler.instance.ReportCollectingCoinsWithMagnetInOneGame();
+
+                }
+                if (GameManager.instance.Powerup == PowerUps.Sliding)
+                {
+                    AchievementsHandler.instance.NumOfTilesWithSfatyNEt++;
+                    AchievementsHandler.instance.ReportJumpingOnTilesWithSaftNetInOneGame();
+
+                }
             }
             if (this.transform.position.z-3 <= Camera.main.transform.position.z)
             {

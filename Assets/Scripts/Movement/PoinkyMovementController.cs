@@ -98,6 +98,7 @@ public class PoinkyMovementController : MonoBehaviour
             HUDManager.instance.increaseCollectables();
             CollectablesGenerator.generator.EatCollectable(collectable.gameObject);
             source.PlayOneShot(soundCollectableColl, source.volume);
+            AchievementsHandler.instance.ReportCollectingCoinsInOneGame();
         }
     }
     void OnTriggerEnter(Collider other)
@@ -113,12 +114,17 @@ public class PoinkyMovementController : MonoBehaviour
             {
                 GameManager.instance.Powerup = PowerUps.Magnit;
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
+                AchievementsHandler.instance.NumberOfMagnits++;
+                AchievementsHandler.instance.ReportMagnetAchivement();
+
             }
             else if (other.gameObject.CompareTag("Sliding"))
             {
                 GameManager.instance.Powerup = PowerUps.Sliding;
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 PowerUpManager.Manager.GenerateNet();
+                AchievementsHandler.instance.NumberOfSaftyNets++;
+                AchievementsHandler.instance.ReportShieldAchivement();
             }
             else if (other.CompareTag("Room"))
             {

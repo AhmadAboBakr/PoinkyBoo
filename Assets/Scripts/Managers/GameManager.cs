@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         set { 
             coinsCollectedWithMagnet = value; 
             if(value>10){
-                AchievementsHandler.instance.
+                //AchievementsHandler.instance.
                 }
         }
     }
