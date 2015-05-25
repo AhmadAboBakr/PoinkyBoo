@@ -28,11 +28,11 @@ public class MainMenu : MonoBehaviour
     }
     void Start()
     {
-        Tutorials.Manager.gameObject.SetActive(false);
+        Tutorials.instance.gameObject.SetActive(false);
         WinningScreen.screen.gameObject.SetActive(false);
-        HUDManager.manager.gameObject.SetActive(false);
+        HUDManager.instance.gameObject.SetActive(false);
         OptionsMenu.menu.gameObject.SetActive(false);
-        HUDManager.manager.gameObject.SetActive(false);
+        HUDManager.instance.gameObject.SetActive(false);
         PauseMenu.instance.gameObject.SetActive(false);
         // authenticate user:for google play
         
@@ -52,14 +52,14 @@ public class MainMenu : MonoBehaviour
         HUD.SetActive(true);
         //if (!tutorialsflag)
         //{
-        Tutorials.Manager.gameObject.SetActive(true);
+        Tutorials.instance.gameObject.SetActive(true);
         GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
         foreach (var item in ARR)
         {
             item.gameObject.SetActive(true);
 
         }
-        Tutorials.Manager.tutorials();
+        Tutorials.instance.tutorials();
         //tutorialsflag = true;
         //}
         //else
@@ -76,6 +76,7 @@ public class MainMenu : MonoBehaviour
 
     public void BtnStorePressed()
     {
+        Social.ShowAchievementsUI();
 
     }
 

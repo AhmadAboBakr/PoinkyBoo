@@ -65,6 +65,9 @@ public class InputManager : MonoBehaviour
         else if (GameManager.instance.Input == InputMethod.buttons && GameManager.instance.isStarted)
         {
             ButtonsHandle.SetActive(true);
+            float movement = Input.GetAxis("Horizontal");
+            TileGenerator.generator.CurrentTile.Move(movement *2);
+
         }
     }
     public void changeInputType()

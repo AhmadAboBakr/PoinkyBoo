@@ -38,20 +38,20 @@ public class WinningScreen : MonoBehaviour
             GameManager.instance.isStarted = false;
             
             RoomGenerator.generator.Clear();
-            HUDManager.manager.gameObject.SetActive(false);
+            HUDManager.instance.gameObject.SetActive(false);
 
             GameManager.instance.isStarted = false;
             Time.timeScale = 0;
        
-            if (HUDManager.manager.score > PlayerPrefs.GetInt("BestScore"))
+            if (HUDManager.instance.score> PlayerPrefs.GetInt("BestScore"))
             {
                 score.color = Color.red;
                 bestScore.color = Color.red;
-                score.text = HUDManager.manager.score.ToString();
-                bestScore.text = HUDManager.manager.score.ToString();
-                PlayerPrefs.SetInt("BestScore", HUDManager.manager.score);
+                score.text = HUDManager.instance.score.ToString();
+                bestScore.text = HUDManager.instance.score.ToString();
+                PlayerPrefs.SetInt("BestScore", HUDManager.instance.score);
                 // post score 12345 to leaderboard ID "Cfji293fjsie_QA")
-                Social.ReportScore(HUDManager.manager.score, "CgkInbf4694CEAIQAQ", (bool success) =>
+                Social.ReportScore(HUDManager.instance.score, "CgkInbf4694CEAIQAQ", (bool success) =>
                 {
                     // handle success or failure
                 });
@@ -61,10 +61,11 @@ public class WinningScreen : MonoBehaviour
             {
                 score.color = startColor;
                 bestScore.color = startColor;
-                score.text = HUDManager.manager.score.ToString();
+                score.text = HUDManager.instance.score.ToString();
                 bestScore.text = PlayerPrefs.GetInt("BestScore").ToString();
             }
-            PlayerPrefs.SetInt("Collectables",PlayerPrefs.GetInt("Collectables")+HUDManager.manager.collectables);
+            PlayerPrefs.SetInt("Collectables",PlayerPrefs.GetInt("Collectables")+HUDManager.instance.collectables);
+            AchievementsHandler.instance.ReportTotalCoins(HUDManager.instance.collectables);
             collectablesTotal.instance.Start();
         }
         else
@@ -89,7 +90,7 @@ public class WinningScreen : MonoBehaviour
         Time.timeScale = timeScale;
         GameManager.instance.Clear();
         this.gameObject.SetActive(false);
-        HUDManager.manager.gameObject.SetActive(true);
+        HUDManager.instance.gameObject.SetActive(true);
         GameManager.instance.isStarted = true;
         PowerUpGenerator.generator.Generate();
         //Dictionary<string, object> dict = new Dictionary<string, object>();
@@ -108,7 +109,7 @@ public class WinningScreen : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         //HUD.SetActive(false);
-        HUDManager.manager.Clear();
+        HUDManager.instance.Clear();
         MainMenu.menu.gameObject.SetActive(true);
 
         TileGenerator.generator.Clear();
@@ -122,8 +123,8 @@ public class WinningScreen : MonoBehaviour
         string pictureLink = "http://i.imgur.com/WD7nqDE.png";
         string name="I'm Playing Poinky";
         string caption="a new High score";
-        string description="just scored : "+HUDManager.manager.score;
-        Debug.Log(HUDManager.manager.score);
+        string description="just scored : "+HUDManager.instance.score;
+        Debug.Log(HUDManager.instance.score);
         string redirectUri = "http://facebook.com/";
         ShareToFacebook(link,name,caption,description,pictureLink,redirectUri);
     }
@@ -143,9 +144,9 @@ public class WinningScreen : MonoBehaviour
     void sendAnalyticsData()
     {
         Dictionary<string, object> dict = new Dictionary<string, object>();
-        dict.Add("score", HUDManager.manager.score);
-        dict.Add("game", HUDManager.manager.score);
-        dict.Add("Collectables",HUDManager.manager.collectables/(HUDManager.manager.score/3.0f));
+        dict.Add("score", HUDManager.instance.score);
+        dict.Add("game", HUDManager.instance.score);
+        dict.Add("Collectables",HUDManager.instance.collectables/(HUDManager.instance.score/3.0f));
         //UnityAnalytics.CustomEvent("gameOver", dict);
     //    GA.API.Design.NewEvent("Game:score", HUDManager.manager.score);
     //    GA.API.Design.NewEvent("Game:Collectables", HUDManager.manager.collectables / (HUDManager.manager.score / 3.0f));

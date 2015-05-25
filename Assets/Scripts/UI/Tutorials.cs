@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Tutorials : MonoBehaviour {
-    public static Tutorials Manager;
+    public static Tutorials instance;
     public GameObject tabandhold;
     public GameObject swip;
     public GameObject tilt;
@@ -14,8 +14,10 @@ public class Tutorials : MonoBehaviour {
 	// Use this for initialization
     void Awake()
     {
-        if (!Tutorials.Manager)
-            Tutorials.Manager = this;
+        Debug.Log(this.name);
+        if (!Tutorials.instance)
+            Tutorials.instance = this;
+
        
     }
     void Start()

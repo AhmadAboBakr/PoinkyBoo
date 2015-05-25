@@ -22,18 +22,18 @@ public class PauseMenu : MonoBehaviour {
     public void restart() 
     {
         GameManager.Move -= TileGenerator.generator.Move;
-        Time.timeScale = HUDManager.manager.currentTimeScale;
+        Time.timeScale = HUDManager.instance.currentTimeScale;
         Application.LoadLevel(Application.loadedLevel);
-        HUDManager.manager.ispaused = false;
+        HUDManager.instance.ispaused = false;
 
     }
     public void ContinuePlay() 
     {
-        Time.timeScale = HUDManager.manager.currentTimeScale;
+        Time.timeScale = HUDManager.instance.currentTimeScale;
         gameObject.SetActive(false);
         this.gameObject.SetActive(false);
-        HUDManager.manager.gameObject.SetActive(true);
-        HUDManager.manager.ispaused = false;
+        HUDManager.instance.gameObject.SetActive(true);
+        HUDManager.instance.ispaused = false;
 
     }
     public void exit() 

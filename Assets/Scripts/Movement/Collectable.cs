@@ -41,6 +41,18 @@ public class Collectable : MonoBehaviour
             {
                 CollectablesGenerator.generator.EatCollectable(this.gameObject);
                 PoinkyMovementController.poinky.Eat(this.gameObject);
+                if(GameManager.instance.Powerup==PowerUps.Magnit)
+                {
+                    AchievementsHandler.instance.NumOfCollectablesWithMagnet++;
+                    AchievementsHandler.instance.ReportCollectingCoinsWithMagnetInOneGame();
+
+                }
+                if (GameManager.instance.Powerup == PowerUps.Sliding)
+                {
+                    AchievementsHandler.instance.NumOfTilesWithSfatyNEt++;
+                    AchievementsHandler.instance.ReportJumpingOnTilesWithSaftNetInOneGame();
+
+                }
             }
             if (this.transform.position.z-3 <= Camera.main.transform.position.z)
             {
@@ -60,6 +72,10 @@ public class Collectable : MonoBehaviour
         var position = gameObject.transform.position;
         position = Vector3.Lerp(position, PoinkyMovementController.poinky.transform.position, Time.deltaTime *5);
         gameObject.transform.position = position;
+        if (GameManager.instance.Powerup == PowerUps.Magnit)
+        {
+
+        }
 
     }
 }

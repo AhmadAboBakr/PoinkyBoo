@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class HUDManager : MonoBehaviour {
 
-    public static HUDManager manager;
+    public static HUDManager instance;
     public GameObject canvasMainMenu;
     public int score;
     public int collectables;
@@ -14,7 +14,7 @@ public class HUDManager : MonoBehaviour {
     Text collectablesText;
     void Awake()
     {
-        manager = this;
+        instance = this;
         GameManager.clear += Clear;
     }
     void Start()

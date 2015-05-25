@@ -10,7 +10,29 @@ public class PoinkyMovementController : MonoBehaviour
     public AudioClip soundTileColl;
     public AudioClip soundWallColl;
     public AudioClip soundCollectableColl;
+
     public GameObject WallColliders;
+    private int numberOfMagnetsCollected;
+    private int numberOfShieldsCollected;
+    
+    public int NumberOfMagnetsCollected
+    {
+        get { 
+            return numberOfMagnetsCollected; 
+        }
+        set { 
+            numberOfMagnetsCollected = value;
+            if (value > 1)
+            {
+
+            }
+        }
+    }
+    public int NumberOfShieldsCollected
+    {
+        get { return numberOfShieldsCollected; }
+        set { numberOfShieldsCollected = value; }
+    }
 
     float decalWidth;
     Rigidbody myRigidBody;
@@ -40,6 +62,8 @@ public class PoinkyMovementController : MonoBehaviour
         {
             this.transform.position = new Vector3(0, 1, 0);
             this.myRigidBody.velocity = Vector3.zero;
+            this.NumberOfMagnetsCollected = 0;
+            this.numberOfShieldsCollected = 0;
         }
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
         this.GetComponent<Animator>().SetFloat("speedY", this.GetComponent<Rigidbody>().velocity.y);
@@ -76,9 +100,10 @@ public class PoinkyMovementController : MonoBehaviour
     {
         if (GameManager.instance.isStarted)
         {
-            HUDManager.manager.increaseCollectables();
+            HUDManager.instance.increaseCollectables();
             CollectablesGenerator.generator.EatCollectable(collectable.gameObject);
             source.PlayOneShot(soundCollectableColl, source.volume);
+            AchievementsHandler.instance.ReportCollectingCoinsInOneGame();
         }
     }
     void OnTriggerEnter(Collider other)
@@ -94,12 +119,17 @@ public class PoinkyMovementController : MonoBehaviour
             {
                 GameManager.instance.Powerup = PowerUps.Magnit;
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
+                AchievementsHandler.instance.NumberOfMagnits++;
+                AchievementsHandler.instance.ReportMagnetAchivement();
+
             }
             else if (other.gameObject.CompareTag("Sliding"))
             {
                 GameManager.instance.Powerup = PowerUps.Sliding;
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 PowerUpManager.Manager.GenerateNet();
+                AchievementsHandler.instance.NumberOfSaftyNets++;
+                AchievementsHandler.instance.ReportShieldAchivement();
             }
             else if (other.CompareTag("Room"))
             {
@@ -142,7 +172,7 @@ public class PoinkyMovementController : MonoBehaviour
                 float x = gameObject.transform.position.x - other.transform.position.x;
                 myRigidBody.velocity = new Vector3(2 * x, 0, 0) + GameManager.instance.poinkySpeed;
 
-                HUDManager.manager.increaseScore(1);
+                HUDManager.instance.increaseScore(1);
 
                 GameManager.instance.IsMoving = true;
                 var trail = GameObject.Instantiate(decal, other.contacts[0].point, Quaternion.identity) as GameObject;

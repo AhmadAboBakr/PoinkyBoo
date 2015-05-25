@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour
         {
             isMoving = value;
             if (value)
+            {
                 Move();
+            }
         }
     }
     public float Senstivity
@@ -74,7 +76,18 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("InputMode", (int)value);
         }
     }
+    private int coinsCollectedWithMagnet = 0;
 
+    public int CoinsCollectedWithMagnet
+    {
+        get { return coinsCollectedWithMagnet; }
+        set { 
+            coinsCollectedWithMagnet = value; 
+            if(value>10){
+                //AchievementsHandler.instance.
+                }
+        }
+    }
     public delegate void emptyEventHandler();
     public static event emptyEventHandler Move;
     public static event emptyEventHandler clear;
@@ -130,11 +143,10 @@ public class GameManager : MonoBehaviour
         }
 
         //game modes
-        modeTimer += Time.deltaTime;
-        if (modeTimer > 1)
-        {
-            GameMode = Mode.Desert;
-        }
+        //if (modeTimer > 1)
+        //{
+        //    GameMode = Mode.Desert;
+        //}
     }
     public void Clear()
     {
