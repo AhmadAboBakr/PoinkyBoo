@@ -8,10 +8,9 @@ public class RoomGenerator : MonoBehaviour
     public GameObject[] roomPrefabs;
     public GameObject[] spiralPrefabs;
     public GameObject[] desertPrefabs;
-
+    public Mode previousRoomMode;
     public GameObject exitRoom;
 
-    bool roomExitGenerated;
 
     public GameObject[] doors;
     int count = 0;
@@ -25,11 +24,11 @@ public class RoomGenerator : MonoBehaviour
     void Awake()
     {
         generator = this;
+        previousRoomMode = Mode.MainMode;
         GameManager.clear += Clear;
     }
     void Start()
     {
-        roomExitGenerated = false;
         rooms = new List<GameObject>();
         speed = GameManager.instance.poinkySpeed.y;
         for (int i = 0; i < 5; i++)  
@@ -59,7 +58,7 @@ public class RoomGenerator : MonoBehaviour
             count++;
         }
     }
-
+    
     void Update()
     {
         if (rooms[0].transform.position.z < Camera.main.transform.position.z -20)
@@ -72,27 +71,36 @@ public class RoomGenerator : MonoBehaviour
             if (GameManager.instance.GameMode == Mode.MainMode)
             {
                 rooms.Add(GameObject.Instantiate(roomPrefabs[random], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
+                previousRoomMode = Mode.MainMode;
             }
             else if (GameManager.instance.GameMode == Mode.Desert)
             {
                 //GameObject.Instantiate(exitRoom, new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0));
-                if(roomExitGenerated == false)
+                if(previousRoomMode!=Mode.Desert)
                 {
                     rooms.Add(GameObject.Instantiate(exitRoom, new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
-                    roomExitGenerated = true;
-                   // rooms.Add(GameObject.Instantiate(desertPrefabs[random], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
-
-                    //without this, it generates a desert room above the exit room
-                    lastRoom = rooms[rooms.Count - 1];
-                    lastRoomLocation = lastRoom.transform.position.z;
-                    lastRoomLocation += lastRoom.transform.GetChild(0).GetComponent<Renderer>().bounds.size.z;
                 }
-                rooms.Add(GameObject.Instantiate(desertPrefabs[random], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
-            }    
-            else
+                else
+                {
+
+                    rooms.Add(GameObject.Instantiate(desertPrefabs[random], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
+                }
+                previousRoomMode = Mode.Desert;
+
+            }
+            else if (GameManager.instance.GameMode == Mode.Spiral)
             {
-                random = Random.Range(0, spiralPrefabs.Length);
-                rooms.Add(GameObject.Instantiate(spiralPrefabs[random], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
+                if (previousRoomMode != Mode.Desert)
+                {
+                    rooms.Add(GameObject.Instantiate(doors[0], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
+                }
+                else
+                {
+                    random = Random.Range(0, spiralPrefabs.Length);
+                    rooms.Add(GameObject.Instantiate(spiralPrefabs[random], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-0, 0, 0)) as GameObject);
+                    previousRoomMode = Mode.MainMode;
+                }
+
             }
             count++;
             //exitRoom.gameObject.SetActive(false);

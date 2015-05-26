@@ -121,14 +121,13 @@ public class GameManager : MonoBehaviour
         else
         {
 
-
         }
         timeScale = Time.timeScale;
+        GameMode = Mode.MainMode;
+
     }
     void Start()
     {
-        modeTimer = Time.deltaTime;
-        GameMode = Mode.MainMode;
     }
     void Update()
     {

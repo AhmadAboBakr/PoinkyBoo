@@ -153,7 +153,7 @@ public class TileGenerator : MonoBehaviour
         else if (GameManager.instance.GameMode == Mode.Spiral)
         {
             tiles.Add((GameObject.Instantiate(spiralTile, new Vector3(0, -4, speed * (10)), Quaternion.Euler(-90, 0, 0)) as GameObject).GetComponent<Tile>());
-            tiles[tiles.Count-1].transform.RotateAround(this.transform.position + new Vector3(0, 0, 0), Vector3.back, Random.Range(0, 45) * 8);
+            //tiles[tiles.Count-1].transform.RotateAround(this.transform.position + new Vector3(0, 0, 0), Vector3.back, Random.Range(0, 45) * 8);
         }
 
 

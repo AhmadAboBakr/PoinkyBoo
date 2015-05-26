@@ -4,7 +4,8 @@ using System.Collections;
 public class NormalTile : Tile {
 
     Rigidbody myRigidBody;
-    void Start()
+
+    void Awake()
     {
         this.myRigidBody = this.GetComponent<Rigidbody>();
     }

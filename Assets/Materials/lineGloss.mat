@@ -79,13 +79,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Illum
-        second:
-          m_Texture: {fileID: 2800000, guid: 7b4d542af1f059e42af26706d231782e, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: .208041832}
-      data:
-        first:
           name: _Cube
         second:
           m_Texture: {fileID: 0}
@@ -98,6 +91,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Illum
+        second:
+          m_Texture: {fileID: 2800000, guid: 7b4d542af1f059e42af26706d231782e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: .162172005}
     m_Floats:
       data:
         first:
@@ -123,10 +123,6 @@ Material:
         first:
           name: _Parallax
         second: .0199999996
-      data:
-        first:
-          name: _Lightmapping
-        second: 1
       data:
         first:
           name: _ZWrite
@@ -223,6 +219,10 @@ Material:
         first:
           name: _V_CW_Emission_Strength
         second: 1
+      data:
+        first:
+          name: _Lightmapping
+        second: 1
     m_Colors:
       data:
         first:
@@ -231,7 +231,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .0784313753, g: .501960814, b: .13333334, a: 1}
+        second: {r: .999999762, g: .643137038, b: 9.68832237e-10, a: 1}
       data:
         first:
           name: _SpecColor
