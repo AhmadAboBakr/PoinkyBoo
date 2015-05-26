@@ -31,7 +31,7 @@ public class RoomGenerator : MonoBehaviour
     {
         rooms = new List<GameObject>();
         speed = GameManager.instance.poinkySpeed.y;
-        for (int i = 0; i < 5; i++)  
+        for (int i = 0; i < 10; i++)  
         {           
             if (rooms.Count > 0)
             {
@@ -90,7 +90,7 @@ public class RoomGenerator : MonoBehaviour
             }
             else if (GameManager.instance.GameMode == Mode.Spiral)
             {
-                if (previousRoomMode != Mode.Desert)
+                if (previousRoomMode != Mode.Spiral)
                 {
                     rooms.Add(GameObject.Instantiate(doors[0], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
                 }
@@ -98,8 +98,8 @@ public class RoomGenerator : MonoBehaviour
                 {
                     random = Random.Range(0, spiralPrefabs.Length);
                     rooms.Add(GameObject.Instantiate(spiralPrefabs[random], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-0, 0, 0)) as GameObject);
-                    previousRoomMode = Mode.MainMode;
                 }
+                previousRoomMode = Mode.Spiral;
 
             }
             count++;

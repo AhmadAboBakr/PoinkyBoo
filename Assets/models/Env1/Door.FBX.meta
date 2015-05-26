@@ -43,6 +43,7 @@ ModelImporter:
     4300010: Cylinder051
     4300012: Box005
     7400000: Open
+    7400002: Idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -63,8 +64,50 @@ ModelImporter:
     - serializedVersion: 16
       name: Open
       takeName: Take 001
-      firstFrame: 24
+      firstFrame: 2
       lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Plane003
+        weight: 1
+      - path: Plane003/Line035
+        weight: 1
+      - path: Plane003/Line035/Box004
+        weight: 1
+      - path: Plane003/Line035/Cylinder050
+        weight: 1
+      - path: Plane003/Line036
+        weight: 1
+      - path: Plane003/Line036/Box005
+        weight: 1
+      - path: Plane003/Line036/Cylinder051
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

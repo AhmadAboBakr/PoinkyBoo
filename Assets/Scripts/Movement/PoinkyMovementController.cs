@@ -108,6 +108,7 @@ public class PoinkyMovementController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         if (other.gameObject.CompareTag("Tile"))
         {
             this.GetComponent<Animator>().SetTrigger("hitTarget");
