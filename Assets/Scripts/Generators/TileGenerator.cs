@@ -51,13 +51,13 @@ public class TileGenerator : MonoBehaviour
                     tiles.Add((GameObject.Instantiate(desertTile, new Vector3(0, 0, speed * i), Quaternion.identity) as GameObject).GetComponent<Tile>());
                     count++;
                 }
-                //else if (GameManager.instance.GameMode == Mode.Spiral)                
-                //{
-                //    var tile = (GameObject.Instantiate(spiralTile, new Vector3(0, -4, speed * i), Quaternion.Euler(-90,0,0)) as GameObject).GetComponent<Tile>();
-                //    tiles.Add(tile);
-                //    Vector3 point = new Vector3(0,0,tile.transform.position.z);
-                //    tile.transform.RotateAround(point, Vector3.back, Random.Range(0, 45) * 8);                    
-                //}
+                else if (GameManager.instance.GameMode == Mode.Spiral)
+                {
+                    var tile = (GameObject.Instantiate(spiralTile, new Vector3(0, -4, speed * i), Quaternion.Euler(-90, 0, 0)) as GameObject).GetComponent<Tile>();
+                    tiles.Add(tile);
+                    Vector3 point = new Vector3(0, 0, tile.transform.position.z);
+                    tile.transform.RotateAround(point, Vector3.back, Random.Range(0, 45) * 8);
+                }
             }
         }
     }
@@ -124,7 +124,6 @@ public class TileGenerator : MonoBehaviour
             }
             foreach (var collectable in CollectablesGenerator.generator.collectables)
             {
-
                     collectable.transform.position = Vector3.Lerp(collectable.transform.position, collectable.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
             }
             foreach (var powerup in PowerUpGenerator.generator.PowerUps)
@@ -143,21 +142,18 @@ public class TileGenerator : MonoBehaviour
             }
             else
             {
-                tiles.Add((GameObject.Instantiate(normalTile, new Vector3(0 * Random.Range(-1, 2), 0, speed * (10)), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                tiles.Add((GameObject.Instantiate(normalTile, new Vector3( Random.Range(-1, 2), 0, speed * (10)), Quaternion.identity) as GameObject).GetComponent<Tile>());
             }
         }
         else if (GameManager.instance.GameMode == Mode.Desert)
         {
-            tiles.Add((GameObject.Instantiate(desertTile, new Vector3(0 * Random.Range(-1, 2), 0, speed * (10)), Quaternion.identity) as GameObject).GetComponent<Tile>());
+            tiles.Add((GameObject.Instantiate(desertTile, new Vector3(Random.Range(-1, 2), 0, speed * (10)), Quaternion.identity) as GameObject).GetComponent<Tile>());
         }
         else if (GameManager.instance.GameMode == Mode.Spiral)
         {
-            tiles.Add((GameObject.Instantiate(spiralTile, new Vector3(0, -0, speed * (10)), Quaternion.Euler(-90, 0, 0)) as GameObject).GetComponent<Tile>());
-            //tiles[tiles.Count-1].transform.RotateAround(this.transform.position + new Vector3(0, 0, 0), Vector3.back, Random.Range(0, 45) * 8);
+            tiles.Add((GameObject.Instantiate(spiralTile, new Vector3(0, 3, speed * (10)), Quaternion.Euler(0, 0, Random.Range(-90,90))) as GameObject).GetComponent<Tile>());
+           // tiles[tiles.Count-1].transform.RotateAround(this.transform.position + new Vector3(0, 0, 0), Vector3.back, Random.Range(0, 45) * 8);
         }
-
-
-
         CollectablesGenerator.generator.generate();
     }
     public void Clear()

@@ -17,8 +17,6 @@ TagManager:
   - UI
   - CurrentScore
   - BestScore
-  - MaterialButtonLayer
-  - MaterialText
   - MaterialRadioButton
   - Magnet
   - TextYourScore
@@ -28,13 +26,13 @@ TagManager:
   - Tutorials
   - TotalCollectables
   - buttonsHandle
-  - New Tag
   - Spiral
   - Normal
   - Desert
   - DesertDoorIn
   - DesertTile
   - Door
+  - SpiralTile
   layers:
   - Default
   - TransparentFX

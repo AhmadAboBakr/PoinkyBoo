@@ -8,10 +8,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 421152}
-  - 114: {fileID: 11458874}
+  - 114: {fileID: 11491998}
   m_Layer: 0
   m_Name: Spiral_Tile
-  m_TagString: Untagged
+  m_TagString: SpiralTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,8 +57,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150312}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 1.28043926, y: -1.87927532, z: -6.29581356}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
+  m_LocalPosition: {x: -29.7999992, y: 3.93000007, z: 80.9000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440398}
@@ -71,8 +71,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193090}
-  m_LocalRotation: {x: .707106829, y: 0, z: -0, w: .707106709}
-  m_LocalPosition: {x: -0, y: 1.45365202, z: .032596942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.80000019, z: 0}
   m_LocalScale: {x: 2.36826968, y: 3.33167505, z: 3.33167505}
   m_Children: []
   m_Father: {fileID: 421152}
@@ -83,8 +83,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157886}
-  m_LocalRotation: {x: .707106829, y: 0, z: -0, w: .707106709}
-  m_LocalPosition: {x: -0, y: 1.45365202, z: .032596942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.80000019, z: 0}
   m_LocalScale: {x: 2.36826968, y: 3.33167505, z: 3.33167505}
   m_Children: []
   m_Father: {fileID: 421152}
@@ -163,7 +163,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.05931461, y: .237505451, z: .872625172}
   m_Center: {x: .00122213364, y: .0180708673, z: .436312586}
---- !u!114 &11458874
+--- !u!114 &11491998
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

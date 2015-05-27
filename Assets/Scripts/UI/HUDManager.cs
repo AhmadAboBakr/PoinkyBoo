@@ -50,7 +50,7 @@ public class HUDManager : MonoBehaviour {
 
         switch (modeChanger)
         {
-            case 10:
+            case 10: 
                 GameManager.instance.GameMode = Mode.Spiral;
                 break;
             case 18:

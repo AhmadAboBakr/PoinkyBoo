@@ -33,7 +33,7 @@ public class AchievementsHandler : MonoBehaviour {
     }
 	public void Move()
     {
-        ttttt.text += "by3ed";
+
         switch (HUDManager.instance.score)
         {
             case 10:

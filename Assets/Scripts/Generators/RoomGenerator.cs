@@ -100,7 +100,6 @@ public class RoomGenerator : MonoBehaviour
                     rooms.Add(GameObject.Instantiate(spiralPrefabs[random], new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-0, 0, 0)) as GameObject);
                 }
                 previousRoomMode = Mode.Spiral;
-
             }
             count++;
             //exitRoom.gameObject.SetActive(false);

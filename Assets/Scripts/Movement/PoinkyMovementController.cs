@@ -14,13 +14,15 @@ public class PoinkyMovementController : MonoBehaviour
     public GameObject WallColliders;
     private int numberOfMagnetsCollected;
     private int numberOfShieldsCollected;
-    
+
     public int NumberOfMagnetsCollected
     {
-        get { 
-            return numberOfMagnetsCollected; 
+        get
+        {
+            return numberOfMagnetsCollected;
         }
-        set { 
+        set
+        {
             numberOfMagnetsCollected = value;
             if (value > 1)
             {
@@ -78,7 +80,7 @@ public class PoinkyMovementController : MonoBehaviour
 
         CollectablesGenerator.generator.collectableCounter += Time.deltaTime;
 
-        if(GameManager.instance.GameMode == Mode.MainMode)
+        if (GameManager.instance.GameMode == Mode.MainMode)
         {
             WallColliders.SetActive(true);
         }
@@ -95,7 +97,7 @@ public class PoinkyMovementController : MonoBehaviour
             this.transform.up = this.transform.position;
         }
     }
-   
+
     public void Eat(GameObject collectable)
     {
         if (GameManager.instance.isStarted)
@@ -108,7 +110,6 @@ public class PoinkyMovementController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if (other.gameObject.CompareTag("Tile"))
         {
             this.GetComponent<Animator>().SetTrigger("hitTarget");
@@ -154,16 +155,14 @@ public class PoinkyMovementController : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Spiral"))
-            {
-                isInSpiral = false;
-            }
+        {
+            isInSpiral = false;
+        }
     }
     void OnCollisionEnter(Collision other)
     {
         if (GameManager.instance.isStarted)
         {
-            //if (GameManager.manager.Powerup == PowerUps.None)
-            //{
             if (other.gameObject.CompareTag("Tile") && other.gameObject != lastCollision)
             {
                 other.gameObject.GetComponent<BoxCollider>().enabled = false; //to stop from multiple collisions (should not happen)
@@ -203,7 +202,13 @@ public class PoinkyMovementController : MonoBehaviour
                 GameObject.Destroy(other.gameObject);
                 GameManager.instance.IsMoving = true;
             }
+            else if (other.gameObject.CompareTag("SpiralTile"))
+            {
+
+                myRigidBody.velocity = new Vector3(0, 0, 0) + GameManager.instance.poinkySpeed;
+            }
         }
+
         else
         {
             myRigidBody.velocity = GameManager.instance.poinkySpeed;
