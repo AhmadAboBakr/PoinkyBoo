@@ -34,6 +34,7 @@ TagManager:
   - Desert
   - DesertDoorIn
   - DesertTile
+  - PoinkyMultiplier
   layers:
   - Default
   - TransparentFX
@@ -46,8 +47,8 @@ TagManager:
   - Player
   - TouchScript
   - plane
-  - 
-  - 
+  - poinky
+  - PoinkyMultiplier
   - 
   - 
   - 

@@ -64,7 +64,9 @@ public class Collectable : MonoBehaviour
     {
         if (other.CompareTag("Poinky"))
         {
-            closeToPoinky = true;
+            CollectablesGenerator.generator.EatCollectable(this.gameObject);
+
+           // closeToPoinky = true;
         }
     }
     void AttractSelfToPoinky()

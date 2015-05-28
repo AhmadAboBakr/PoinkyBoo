@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     float modeTimer;
     public string FacebookUserId;
 
+    public int NumOfPoinky = 1;
+
     public bool IsMoving
     {
         get { return isMoving; }

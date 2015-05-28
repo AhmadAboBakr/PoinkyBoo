@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11434166}
   - 114: {fileID: 11492226}
   - 114: {fileID: 11468436}
+  - 114: {fileID: 11407908}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: TotalCollectables
@@ -35,6 +36,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11407908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18303c10c7c7254eb95eaa545e4e3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ttttt: {fileID: 0}
+  NumberOfMagnits: 0
+  NumberOfSaftyNets: 0
+  NumOfTilesWithSafty: 0
+  NumOfCollectablesWithMagnet: 0
+  NumOfTilesWithSfatyNEt: 0
 --- !u!114 &11429828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -48,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Magnet: {fileID: 125128, guid: d80a1533e9a2c734db1a48aabc63f6b1, type: 2}
   Sliding: {fileID: 132322, guid: 4deb1b275cb98c64688157a5f6c6876d, type: 2}
+  PoinkyMultiplier: {fileID: 110786, guid: 88ae65b7ec4771844800dc9c4b5fa019, type: 2}
   PowerUps: []
   powerupdiff: 1
 --- !u!114 &11432726
@@ -56,7 +75,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441e6a50e4527af4291ca1999e0dcbcd, type: 3}
   m_Name: 
@@ -77,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slide: {fileID: 194652, guid: 525d0c51ae092184b8d0925f2085d32d, type: 2}
   safetyNet: {fileID: 194652, guid: 525d0c51ae092184b8d0925f2085d32d, type: 2}
+  Poinky: {fileID: 161566, guid: 3c1dbdd008e25534a9f1cec83aba487c, type: 2}
 --- !u!114 &11441596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UUID: 
   isStarted: 0
-  GameMode: 0
+  GameMode: 1
   Powerup: 3
   timeScale: 0
   gravity: -10
@@ -122,6 +142,7 @@ MonoBehaviour:
   normalTile: {fileID: 154312, guid: 471ff9d488688c043b37407fcd7e1d82, type: 2}
   immovableTile: {fileID: 102230, guid: a6871953afc33ed439cdf83af05ac6b6, type: 2}
   spiralTile: {fileID: 150312, guid: 05373d7ac99f47e46a82a8a9aeda240d, type: 2}
+  desertTile: {fileID: 144580, guid: be7a32120b0da8b41904a406d4b94992, type: 2}
   tiles:
   - {fileID: 0}
 --- !u!114 &11487934
@@ -142,6 +163,8 @@ MonoBehaviour:
   - {fileID: 113870, guid: e29f63f089fb79e4995cdd5e9f2c7473, type: 2}
   spiralPrefabs:
   - {fileID: 162406, guid: b3273f5b5603c9f4aa72ae6ddaa19d56, type: 2}
+  desertPrefabs: []
+  exitRoom: {fileID: 0}
   doors:
   - {fileID: 165596, guid: c8ab8fc218df3e14bafd8bad324f296c, type: 2}
 --- !u!114 &11492226
