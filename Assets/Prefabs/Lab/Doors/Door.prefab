@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &106580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 452630}
+  - 65: {fileID: 6593704}
+  m_Layer: 12
+  m_Name: GameObject
+  m_TagString: Spiral
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &109918
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +144,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 493958}
   - 95: {fileID: 9547920}
-  - 65: {fileID: 6574466}
   - 65: {fileID: 6535056}
   - 65: {fileID: 6595192}
   - 114: {fileID: 11496926}
@@ -163,6 +178,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 462560}
   m_RootOrder: 0
+--- !u!4 &452630
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1700, z: -342}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493958}
+  m_RootOrder: 1
 --- !u!4 &457810
 Transform:
   m_ObjectHideFlags: 1
@@ -236,10 +263,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165596}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -3.20000005, y: 1.29999995, z: 19.7999992}
+  m_LocalPosition: {x: 99.9000015, y: -17.6000004, z: -21.8999996}
   m_LocalScale: {x: .00999999978, y: .00999999978, z: .00999999978}
   m_Children:
   - {fileID: 483756}
+  - {fileID: 452630}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2322470
@@ -471,18 +499,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: -1881.41589, y: -1512.38794, z: 1759.62634}
   m_Center: {x: -11.2851143, y: 756.750183, z: 79.7486572}
---- !u!65 &6574466
+--- !u!65 &6593704
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165596}
+  m_GameObject: {fileID: 106580}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -1881.41589, y: -1512.38794, z: 1759.62634}
-  m_Center: {x: -11.2851143, y: 756.750183, z: 79.7486572}
+  m_Size: {x: -419.799988, y: 4066.78027, z: -1429.8999}
+  m_Center: {x: 764.098389, y: 1952.9248, z: -1366.11914}
 --- !u!65 &6595192
 BoxCollider:
   m_ObjectHideFlags: 1

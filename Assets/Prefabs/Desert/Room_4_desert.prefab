@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 457156}
   - 33: {fileID: 3323290}
   - 23: {fileID: 2358076}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Line016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 495192}
   - 33: {fileID: 3348312}
   - 23: {fileID: 2360228}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Plamtree001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 402824}
   - 33: {fileID: 3311180}
   - 23: {fileID: 2314782}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 426890}
   - 33: {fileID: 3368120}
   - 23: {fileID: 2349452}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 452624}
   - 33: {fileID: 3384428}
   - 23: {fileID: 2364764}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Line014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 466200}
   - 33: {fileID: 3353408}
   - 23: {fileID: 2353152}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Line015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,9 +112,10 @@ GameObject:
   - 4: {fileID: 462766}
   - 33: {fileID: 3394814}
   - 23: {fileID: 2394720}
-  m_Layer: 0
+  - 65: {fileID: 6587214}
+  m_Layer: 12
   m_Name: Room_4_sand
-  m_TagString: Untagged
+  m_TagString: Desert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +128,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404588}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Room_4_desert
   m_TagString: Desert
   m_Icon: {fileID: 0}
@@ -144,7 +145,7 @@ GameObject:
   - 4: {fileID: 405456}
   - 33: {fileID: 3344384}
   - 23: {fileID: 2309936}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Line013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147736}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -246.496674, y: 24.3514519, z: -70.0731354}
+  m_LocalPosition: {x: -100, y: -10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462766}
@@ -515,6 +516,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141948}
   m_Mesh: {fileID: 4300000, guid: 4505a0f6c2e49e24a94d5f3cac3bef06, type: 3}
+--- !u!65 &6587214
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.7563486, y: 19.3702679, z: 9.73579597}
+  m_Center: {x: 12.5581827, y: .858387947, z: -13.9274216}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

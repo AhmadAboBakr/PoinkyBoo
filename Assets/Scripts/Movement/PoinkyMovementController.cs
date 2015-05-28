@@ -87,7 +87,7 @@ public class PoinkyMovementController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!isInSpiral)
+        if (!isInSpiral || true)
         {
             this.myRigidBody.velocity += new Vector3(0, GameManager.instance.gravity, 0) * Time.deltaTime; //Physics.gravity*Time.deltaTime;
         }

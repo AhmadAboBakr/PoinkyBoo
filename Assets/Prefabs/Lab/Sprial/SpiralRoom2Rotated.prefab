@@ -59,9 +59,10 @@ GameObject:
   - 4: {fileID: 432434}
   - 33: {fileID: 3317212}
   - 23: {fileID: 2392786}
-  m_Layer: 0
+  - 65: {fileID: 6542150}
+  m_Layer: 12
   m_Name: Object107
-  m_TagString: Untagged
+  m_TagString: Spiral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.2955456, y: 19.8315945, z: -111.959686}
+  m_LocalPosition: {x: 32.5719795, y: -16.5290451, z: 12.5948133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 465818}
@@ -210,6 +211,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147804}
   m_Mesh: {fileID: 4300004, guid: 2523c2c47fef928488c89873f040a62d, type: 3}
+--- !u!65 &6542150
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 564.475464, y: 411.117706, z: 654.22998}
+  m_Center: {x: 0, y: -607.292236, z: 308.834961}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

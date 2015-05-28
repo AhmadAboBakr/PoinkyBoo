@@ -5,7 +5,7 @@ public class SpiralTile : Tile {
 
     void Update()
     {
-        Debug.Log(this.transform.rotation.eulerAngles.z);
+        //Debug.Log(this.transform.rotation.eulerAngles.z);
     }
     public override void Move(float force)
     {

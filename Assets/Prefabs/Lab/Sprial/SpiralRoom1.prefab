@@ -27,9 +27,10 @@ GameObject:
   - 4: {fileID: 416688}
   - 33: {fileID: 3325516}
   - 23: {fileID: 2365392}
-  m_Layer: 0
+  - 65: {fileID: 6558136}
+  m_Layer: 12
   m_Name: Object107
-  m_TagString: Untagged
+  m_TagString: Spiral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +45,7 @@ GameObject:
   - 4: {fileID: 436806}
   m_Layer: 0
   m_Name: SpiralRoom1
-  m_TagString: Untagged
+  m_TagString: Spiral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.68658924, y: 30.3833866, z: -127.978592}
+  m_LocalPosition: {x: 20.5988941, y: -6.33609819, z: 20.3108425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433286}
@@ -210,6 +211,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125076}
   m_Mesh: {fileID: 4300004, guid: 5ab69250f334eb249b698adf024a0dd4, type: 3}
+--- !u!65 &6558136
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 564.475464, y: 411.117706, z: 654.22998}
+  m_Center: {x: 0, y: -607.292236, z: 308.834961}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
