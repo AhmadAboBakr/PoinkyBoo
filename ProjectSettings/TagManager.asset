@@ -17,7 +17,6 @@ TagManager:
   - UI
   - CurrentScore
   - BestScore
-  - MaterialRadioButton
   - Magnet
   - TextYourScore
   - TextBestScore
@@ -33,6 +32,7 @@ TagManager:
   - DesertTile
   - Door
   - SpiralTile
+  - PoinkyMultiplier
   layers:
   - Default
   - TransparentFX
@@ -46,8 +46,8 @@ TagManager:
   - TouchScript
   - plane
   - Door
-  - 
-  - 
+  - PoinkyMultipler
+  - Poinky
   - 
   - 
   - 

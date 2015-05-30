@@ -11,7 +11,7 @@ GameObject:
   - 65: {fileID: 6593704}
   m_Layer: 12
   m_Name: GameObject
-  m_TagString: Spiral
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

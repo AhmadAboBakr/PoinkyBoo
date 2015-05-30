@@ -15,7 +15,7 @@ public class TileGenerator : MonoBehaviour
     float time;
     public Tile CurrentTile
     {
-        get 
+        get
         {
             return tiles[index];
         }
@@ -52,7 +52,7 @@ public class TileGenerator : MonoBehaviour
 
                 if (GameManager.instance.GameMode == Mode.MainMode) //currentRoom == "Normal"
                 {
-                    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(3 * Random.Range(-1, 2), 0, speed * i), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(3 * Random.Range(-1, 2) * 0, 0, speed * i), Quaternion.identity) as GameObject).GetComponent<Tile>());
                     count++;
                 }
 
@@ -82,7 +82,7 @@ public class TileGenerator : MonoBehaviour
         //{
         //    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(3 * Random.Range(-1, 2), 0, speed), Quaternion.identity) as GameObject).GetComponent<Tile>());           
         //} else
-     
+
 
         if (tiles[index].transform.position.z > 0)
         {
@@ -105,10 +105,12 @@ public class TileGenerator : MonoBehaviour
             {
                 powerup.transform.position = Vector3.Lerp(powerup.transform.position, powerup.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
             }
+            //PoinkyMovementController.Hitile = false;
+
         }
         else
         {
-            GameManager.instance.IsMoving = false;
+            //GameManager.instance.IsMoving = false;
         }
 
         //removing tiles out of screen
@@ -122,7 +124,7 @@ public class TileGenerator : MonoBehaviour
     }
     public void Move()
     {
-        //Debug.Log("tiles move");
+        Debug.Log("tiles move");
 
         while (tiles[index].transform.position.z > 0)
         {
@@ -135,10 +137,11 @@ public class TileGenerator : MonoBehaviour
             foreach (var collectable in CollectablesGenerator.generator.collectables)
             {
                     collectable.transform.position = Vector3.Lerp(collectable.transform.position, collectable.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
+
             }
             foreach (var powerup in PowerUpGenerator.generator.PowerUps)
             {
-                    powerup.transform.position = Vector3.Lerp(powerup.transform.position, powerup.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
+                powerup.transform.position = Vector3.Lerp(powerup.transform.position, powerup.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
             }
         }
         index++;
@@ -162,7 +165,8 @@ public class TileGenerator : MonoBehaviour
             }
             else
             {
-                tiles.Add((GameObject.Instantiate(normalTile, new Vector3( Random.Range(-1, 2), 0, speed * (10)), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                tiles.Add((GameObject.Instantiate(normalTile, new Vector3( 0*Random.Range(-1, 2), 0, speed * (10)), Quaternion.identity) as GameObject).GetComponent<Tile>());
+
             }
         }
         else if (r.collider.tag == "Desert") //GameManager.instance.GameMode == Mode.Desert
@@ -173,6 +177,7 @@ public class TileGenerator : MonoBehaviour
         {
             tiles.Add((GameObject.Instantiate(spiralTile, new Vector3(0, 3, speed * (10)), Quaternion.Euler(0, 0, Random.Range(-90,90))) as GameObject).GetComponent<Tile>());
            // tiles[tiles.Count-1].transform.RotateAround(this.transform.position + new Vector3(0, 0, 0), Vector3.back, Random.Range(0, 45) * 8);
+
         }
         CollectablesGenerator.generator.generate();
     }

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class AchievementsHandler : MonoBehaviour {
     public static AchievementsHandler instance;
-    public Text ttttt;
+    //public Text ttttt;
     public int NumberOfMagnits;
     public int NumberOfSaftyNets;
     public int NumOfTilesWithSafty;
@@ -22,7 +22,7 @@ public class AchievementsHandler : MonoBehaviour {
             AchievementsHandler.instance = this;
         GameManager.Move += Move;
         GameManager.clear += Clear;
-        ttttt.text += "fata7";
+        //ttttt.text += "fata7";
     }
     public void Clear ()
     {

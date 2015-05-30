@@ -6,6 +6,7 @@ public class PowerUpManager : MonoBehaviour {
     public GameObject slide;
     public static PowerUpManager Manager;
     public GameObject safetyNet;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -28,6 +29,13 @@ public class PowerUpManager : MonoBehaviour {
         //(Instantiate(slide) as GameObject).transform.position = new Vector3(0, 0, 69.25f);
 
 
+    }
+    public void MultiplyPoinky(GameObject poinky)
+    {
+        Debug.Log("tala3 poinkies");
+        Instantiate(poinky, new Vector3(2, poinky.gameObject.transform.position.y, 0),Quaternion.identity);
+        Instantiate(poinky, new Vector3(-2, poinky.gameObject.transform.position.y, 0), Quaternion.identity);
+        GameManager.instance.NumOfPoinky += 2;
     }
     
 }

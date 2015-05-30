@@ -8,6 +8,7 @@ public class PowerUpGenerator : MonoBehaviour {
     public GameObject Magnet;
     public Coroutine powerupsCour;
     public GameObject Sliding;
+    public GameObject PoinkyMultiplier;
     public List<GameObject> PowerUps;    
     float random;
     float speed;
@@ -38,20 +39,25 @@ public class PowerUpGenerator : MonoBehaviour {
     {
         while (true)
         {
-                powerupdiff++;
-                if (powerupdiff == 20)
-                    powerupdiff = 10;
+            int type=Random.Range(0, 3);
+                //powerupdiff++;
+                //if (powerupdiff == 20)
+                    //powerupdiff = 10;
                 //Debug.Log(powerupdiff);
                 random = 3 * Random.Range(-1, 2);
-                if (Random.Range(0, 2) == 0)
-                {
-                    PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                //if (type == 0)
+                //{
+                //    PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
 
-                }
-                else if (Random.Range(0, 2) == 1)
-                {
-                    PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
-                }
+                //}
+                //else if (type == 1)
+                //{
+                //    PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                //}
+                //else if (type == 2)
+                //{
+                    PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                //}
                 yield return new WaitForSeconds(powerupdiff);
         }
     }
@@ -61,7 +67,6 @@ public class PowerUpGenerator : MonoBehaviour {
             PowerUpGenerator.generator = this;
         GameManager.clear += Clear;
         GameManager.Move += Generate;
-
     }
 	void Start () {
         powerupdiff = 10;
@@ -99,7 +104,7 @@ public class PowerUpGenerator : MonoBehaviour {
         {
             Destroy(PowerUps[i].gameObject);
         }
-        powerupdiff = 10;
+        powerupdiff = 2;
         PowerUps.Clear();
         Start();
     }
@@ -108,17 +113,24 @@ public class PowerUpGenerator : MonoBehaviour {
        //powerupsCour = StartCoroutine(PowerUpGenerator.generator.Generatepowerup());
         if (powerupdiff <=0)
         {
-            powerupdiff = Random.Range(15,20);
-            random = 3 * Random.Range(-1, 2);
-            if (Random.Range(0, 2) == 0)
-            {
-                PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+            int type = Random.Range(0, 3);
+            //powerupdiff = Random.Range(15,20);
+           powerupdiff = Random.Range(1,10);
 
-            }
-            else if (Random.Range(0, 2) == 1)
-            {
-                PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
-            }
+            random = 3 * Random.Range(-1, 2);
+            //if (type == 0)
+            //{
+            //    PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+
+            //}
+            //else if (type == 1)
+            //{
+            //    PowerUps.Add(Instantiate(Sliding, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+            //}
+            //else if (type == 2)
+            //{
+            PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random*0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+            //}
         }
         else
         {

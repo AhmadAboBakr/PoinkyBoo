@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class NormalTile : Tile {
-
     Rigidbody myRigidBody;
 
     void Awake()

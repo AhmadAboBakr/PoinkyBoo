@@ -10,7 +10,6 @@ public class PoinkyMovementController : MonoBehaviour
     public AudioClip soundTileColl;
     public AudioClip soundWallColl;
     public AudioClip soundCollectableColl;
-
     public GameObject WallColliders;
     private int numberOfMagnetsCollected;
     private int numberOfShieldsCollected;
@@ -36,6 +35,7 @@ public class PoinkyMovementController : MonoBehaviour
         set { numberOfShieldsCollected = value; }
     }
 
+    public static bool Hitile;
     float decalWidth;
     Rigidbody myRigidBody;
     GameObject lastCollision;
@@ -55,7 +55,7 @@ public class PoinkyMovementController : MonoBehaviour
     {
         lastCollision = null;
         myRigidBody = this.GetComponent<Rigidbody>();
-
+        Hitile = false;
         WallColliders.SetActive(true);
     }
     void Update()
@@ -69,13 +69,18 @@ public class PoinkyMovementController : MonoBehaviour
         }
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
         this.GetComponent<Animator>().SetFloat("speedY", this.GetComponent<Rigidbody>().velocity.y);
-        if (this.transform.position.y < -5)
+        if (this.transform.position.y < -5 && GameManager.instance.NumOfPoinky == 1)
         {
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             GameManager.instance.Powerup = PowerUps.None;
             PowerUpGenerator.generator.StopGenerate();
             this.transform.position = new Vector3(0, 10, 0);
             WinningScreen.screen.gameObject.SetActive(true);
+        }
+        else if (GameManager.instance.isStarted && this.transform.position.y < -5)
+        {
+            Destroy(this.gameObject);
+            GameManager.instance.NumOfPoinky--;
         }
 
         CollectablesGenerator.generator.collectableCounter += Time.deltaTime;
@@ -84,6 +89,7 @@ public class PoinkyMovementController : MonoBehaviour
         {
             WallColliders.SetActive(true);
         }
+
     }
     void FixedUpdate()
     {
@@ -133,6 +139,11 @@ public class PoinkyMovementController : MonoBehaviour
                 AchievementsHandler.instance.NumberOfSaftyNets++;
                 AchievementsHandler.instance.ReportShieldAchivement();
             }
+            else if (other.gameObject.CompareTag("PoinkyMultiplier"))
+            {
+                other.gameObject.GetComponent<SphereCollider>().enabled = false;
+                PowerUpManager.Manager.MultiplyPoinky(this.gameObject);
+            }
             else if (other.CompareTag("Room"))
             {
                 if (this.GetComponent<Rigidbody>().velocity.x > 0)
@@ -165,7 +176,7 @@ public class PoinkyMovementController : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Tile") && other.gameObject != lastCollision)
             {
-                other.gameObject.GetComponent<BoxCollider>().enabled = false; //to stop from multiple collisions (should not happen)
+                //other.gameObject.GetComponent<BoxCollider>().enabled = false; //to stop from multiple collisions (should not happen)
 
                 CollectablesGenerator.generator.collectableCounter = 0;
                 lastCollision = other.gameObject;
@@ -173,8 +184,13 @@ public class PoinkyMovementController : MonoBehaviour
                 myRigidBody.velocity = new Vector3(2 * x, 0, 0) + GameManager.instance.poinkySpeed;
 
                 HUDManager.instance.increaseScore(1);
-
-                GameManager.instance.IsMoving = true;
+                if (!Hitile)
+                {
+                    Debug.Log("fiha 7aga 7lwa");
+                    Hitile = true;
+                    StartCoroutine("ResetCollisionStatus");
+                    GameManager.instance.IsMoving = true;
+                }
                 var trail = GameObject.Instantiate(decal, other.contacts[0].point, Quaternion.identity) as GameObject;
                 if (Mathf.Abs(trail.transform.position.x - other.transform.position.x) > .51f)
                 {
@@ -213,5 +229,11 @@ public class PoinkyMovementController : MonoBehaviour
         {
             myRigidBody.velocity = GameManager.instance.poinkySpeed;
         }
+    }
+    IEnumerator ResetCollisionStatus()
+    {
+        yield return new WaitForSeconds(.35f);
+        Hitile = false;
+        Debug.Log("entered");
     }
 }
