@@ -81,6 +81,10 @@ public class PoinkyMovementController : MonoBehaviour
         {
             Destroy(this.gameObject);
             GameManager.instance.NumOfPoinky--;
+            if(GameManager.instance.NumOfPoinky==1)
+            {
+                GameManager.instance.Powerup=PowerUps.None;
+            }
         }
 
         CollectablesGenerator.generator.collectableCounter += Time.deltaTime;
@@ -141,6 +145,7 @@ public class PoinkyMovementController : MonoBehaviour
             }
             else if (other.gameObject.CompareTag("PoinkyMultiplier"))
             {
+                GameManager.instance.Powerup = PowerUps.PoinkyMultiplier;
                 other.gameObject.GetComponent<SphereCollider>().enabled = false;
                 PowerUpManager.Manager.MultiplyPoinky(this.gameObject);
             }
@@ -188,7 +193,6 @@ public class PoinkyMovementController : MonoBehaviour
                 HUDManager.instance.increaseScore(1);
                 if (!Hitile)
                 {
-                    Debug.Log("fiha 7aga 7lwa");
                     Hitile = true;
                     StartCoroutine("ResetCollisionStatus");
                     GameManager.instance.IsMoving = true;

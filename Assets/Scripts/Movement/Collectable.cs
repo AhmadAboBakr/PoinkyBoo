@@ -30,18 +30,18 @@ public class Collectable : MonoBehaviour
             {
                 AttractSelfToPoinky();
             }
-            else if(this.transform.position.z<-1)
+            else if (this.transform.position.z < -1)
             {
                 this.transform.position -= new Vector3(0, 0.1f, 0);
             }
             if (
-                Vector3.Distance(this.transform.position, PoinkyMovementController.poinky.transform.position) < .7||
+                Vector3.Distance(this.transform.position, PoinkyMovementController.poinky.transform.position) < .7 ||
                 (this.transform.position.z <= 0 && closeToPoinky)
                 )
             {
                 CollectablesGenerator.generator.EatCollectable(this.gameObject);
                 PoinkyMovementController.poinky.Eat(this.gameObject);
-                if(GameManager.instance.Powerup==PowerUps.Magnit)
+                if (GameManager.instance.Powerup == PowerUps.Magnit)
                 {
                     AchievementsHandler.instance.NumOfCollectablesWithMagnet++;
                     AchievementsHandler.instance.ReportCollectingCoinsWithMagnetInOneGame();
@@ -54,21 +54,21 @@ public class Collectable : MonoBehaviour
 
                 }
             }
-            if (this.transform.position.z-3 <= Camera.main.transform.position.z)
+            if (this.transform.position.z - 3 <= Camera.main.transform.position.z)
             {
                 CollectablesGenerator.generator.EatCollectable(this.gameObject);
             }
         }
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Poinky"))
-        {
-            CollectablesGenerator.generator.EatCollectable(this.gameObject);
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Poinky"))
+    //    {
+    //        CollectablesGenerator.generator.EatCollectable(this.gameObject);
 
-           // closeToPoinky = true;
-        }
-    }
+    //       // closeToPoinky = true;
+    //    }
+    //}
     void AttractSelfToPoinky()
     {
         var position = gameObject.transform.position;

@@ -32,7 +32,7 @@ public class RoomGenerator : MonoBehaviour
         roomExitGenerated = false;
         rooms = new List<GameObject>();
         speed = GameManager.instance.poinkySpeed.y;
-        for (int i = 0; i < 5; i++)  
+        for (int i = 0; i < 10; i++)  
         {           
             if (rooms.Count > 0)
             {

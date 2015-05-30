@@ -17,9 +17,6 @@ TagManager:
   - UI
   - CurrentScore
   - BestScore
-  - MaterialButtonLayer
-  - MaterialText
-  - MaterialRadioButton
   - Magnet
   - TextYourScore
   - TextBestScore
@@ -28,7 +25,6 @@ TagManager:
   - Tutorials
   - TotalCollectables
   - buttonsHandle
-  - New Tag
   - Spiral
   - Normal
   - Desert

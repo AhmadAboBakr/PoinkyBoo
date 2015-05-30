@@ -33,7 +33,6 @@ public class PowerUpManager : MonoBehaviour {
     }
     public void MultiplyPoinky(GameObject poinky)
     {
-        Debug.Log("tala3 poinkies");
         Instantiate(poinky, new Vector3(2, poinky.gameObject.transform.position.y, 0),Quaternion.identity);
         Instantiate(poinky, new Vector3(-2, poinky.gameObject.transform.position.y, 0), Quaternion.identity);
         GameManager.instance.NumOfPoinky += 2;
