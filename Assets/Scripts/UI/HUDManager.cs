@@ -46,18 +46,17 @@ public class HUDManager : MonoBehaviour {
             if (Time.timeScale >= EndTimeScale) Time.timeScale = EndTimeScale;
             currentTimeScale = Time.timeScale;
         }
-        int modeChanger = score % 30;
+        int modeChanger = score % 35;
 
         switch (modeChanger)
         {
             case 10: 
                 GameManager.instance.GameMode = Mode.Spiral;
                 break;
-            case 18:
-            case 29:
+            case 25:
                 GameManager.instance.GameMode = Mode.MainMode;
                 break;
-            case 20:
+            case 15:
                 GameManager.instance.GameMode = Mode.Desert;
                 break;
             default:

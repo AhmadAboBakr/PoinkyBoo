@@ -17,9 +17,10 @@ GameObject:
   - 114: {fileID: 11492226}
   - 114: {fileID: 11468436}
   - 114: {fileID: 11407908}
+  - 114: {fileID: 11411254}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: TotalCollectables
+  m_TagString: GameManager
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +48,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18303c10c7c7254eb95eaa545e4e3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ttttt: {fileID: 0}
+  NumberOfMagnits: 0
+  NumberOfSaftyNets: 0
+  NumOfTilesWithSafty: 0
+  NumOfCollectablesWithMagnet: 0
+  NumOfTilesWithSfatyNEt: 0
+--- !u!114 &11411254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18303c10c7c7254eb95eaa545e4e3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   NumberOfMagnits: 0
   NumberOfSaftyNets: 0
   NumOfTilesWithSafty: 0
@@ -75,7 +91,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144724}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441e6a50e4527af4291ca1999e0dcbcd, type: 3}
   m_Name: 
@@ -96,7 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slide: {fileID: 194652, guid: 525d0c51ae092184b8d0925f2085d32d, type: 2}
   safetyNet: {fileID: 194652, guid: 525d0c51ae092184b8d0925f2085d32d, type: 2}
-  Poinky: {fileID: 161566, guid: 3c1dbdd008e25534a9f1cec83aba487c, type: 2}
 --- !u!114 &11441596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,6 +130,7 @@ MonoBehaviour:
   timeScale: 0
   gravity: -10
   FacebookUserId: 
+  NumOfPoinky: 1
   poinkySpeed: {x: 0, y: 10, z: 0}
 --- !u!114 &11468436
 MonoBehaviour:
@@ -142,7 +158,7 @@ MonoBehaviour:
   normalTile: {fileID: 154312, guid: 471ff9d488688c043b37407fcd7e1d82, type: 2}
   immovableTile: {fileID: 102230, guid: a6871953afc33ed439cdf83af05ac6b6, type: 2}
   spiralTile: {fileID: 150312, guid: 05373d7ac99f47e46a82a8a9aeda240d, type: 2}
-  desertTile: {fileID: 144580, guid: be7a32120b0da8b41904a406d4b94992, type: 2}
+  desertTile: {fileID: 102044, guid: 3c2cb13bddba7eb499bf6b876d4835c1, type: 2}
   tiles:
   - {fileID: 0}
 --- !u!114 &11487934
@@ -157,14 +173,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefabs:
-  - {fileID: 183496, guid: 90728b69aa8d4a64aac71c9048083f40, type: 2}
+  - {fileID: 146890, guid: 938c35cfdf02280499e1975471f8b74e, type: 2}
   - {fileID: 165076, guid: 2e87b6481e6c15f4fa82e8683ef67a52, type: 2}
   - {fileID: 135034, guid: b4c11f79e2cb4814596f81e0b00a8d5d, type: 2}
   - {fileID: 113870, guid: e29f63f089fb79e4995cdd5e9f2c7473, type: 2}
   spiralPrefabs:
   - {fileID: 162406, guid: b3273f5b5603c9f4aa72ae6ddaa19d56, type: 2}
-  desertPrefabs: []
-  exitRoom: {fileID: 0}
+  - {fileID: 128056, guid: 323290e72f407d14eae98691ffa2ff42, type: 2}
+  desertPrefabs:
+  - {fileID: 135096, guid: a29c0bbe6d3f2964ea778f9b6765f247, type: 2}
+  - {fileID: 118154, guid: bd0361fcf0ae70c4b839d5a0998b4161, type: 2}
+  - {fileID: 160396, guid: 37eda6ea9d5fbcd45afe133be11a2ea9, type: 2}
+  - {fileID: 147736, guid: e765fe9aab7824e49b81e3d768cb31d6, type: 2}
+  previousRoomMode: 0
+  exitRoom: {fileID: 144426, guid: 28eda17c0bfd57d49ae6b8921569084e, type: 2}
   doors:
   - {fileID: 165596, guid: c8ab8fc218df3e14bafd8bad324f296c, type: 2}
 --- !u!114 &11492226
