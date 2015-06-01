@@ -28,6 +28,11 @@ public class ButtonsHandle : MonoBehaviour
             if (pressed)
             {
                 TileGenerator.instance.CurrentTile.Move(buttonDirection * Time.deltaTime * 35 * senstivity * senstivity );
+
+                if (HUDManager.instance.score == 5)
+                {
+                   // TutorialImages.instance.FadeOut();
+                }
             }
         }
     }

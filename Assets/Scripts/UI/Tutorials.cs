@@ -35,18 +35,23 @@ public class Tutorials : MonoBehaviour {
             PowerUpGenerator.generator.Generate();
             if (GameManager.instance.Input == InputMethod.Touch)
             {
-                //swip.gameObject.SetActive(false);
-                //swipText.enabled = false;
+                swip.gameObject.SetActive(false);
+                swipText.enabled = false;
             }
             else if (GameManager.instance.Input == InputMethod.Accelerometer)
             {
-                //tilt.gameObject.SetActive(false);
-                //tiltText.enabled = false;
+                tilt.gameObject.SetActive(false);
+                tiltText.enabled = false;
             }
             else if (GameManager.instance.Input == InputMethod.buttons)
             {
                 //tabandhold.gameObject.SetActive(false);
                 //tabandholdText.enabled = false;
+
+                //if (HUDManager.instance.score == 5)
+                //{
+                //    TutorialImages.instance.FadeOut();
+                //}
             }
             this.gameObject.SetActive(false);
             foreach (var item in GameObject.FindGameObjectsWithTag("Tutorials"))
