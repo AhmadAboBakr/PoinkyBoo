@@ -56,7 +56,7 @@ public class PowerUpGenerator : MonoBehaviour {
                 //}
                 //else if (type == 2)
                 //{
-                    PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                    //PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
                 //}
                 yield return new WaitForSeconds(powerupdiff);
         }
@@ -129,7 +129,7 @@ public class PowerUpGenerator : MonoBehaviour {
             //}
             //else if (type == 2)
             //{
-            PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random*0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+            //PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random*0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
             //}
         }
         else

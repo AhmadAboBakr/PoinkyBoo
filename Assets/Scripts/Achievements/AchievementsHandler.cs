@@ -13,7 +13,7 @@ public class AchievementsHandler : MonoBehaviour {
     public int NumberOfSaftyNets;
     public int NumOfTilesWithSafty;
     public int NumOfCollectablesWithMagnet;
-    public int NumOfTilesWithSfatyNEt;
+    public int NumOfTilesWithSfatyNet;
 
     
     void Awake()
@@ -22,14 +22,16 @@ public class AchievementsHandler : MonoBehaviour {
             AchievementsHandler.instance = this;
         GameManager.Move += Move;
         GameManager.clear += Clear;
+
         //ttttt.text += "fata7";
     }
+    
     public void Clear ()
     {
         NumberOfMagnits = 0;
         NumberOfSaftyNets = 0;
         NumOfCollectablesWithMagnet = 0;
-        NumOfTilesWithSfatyNEt = 0;
+        NumOfTilesWithSfatyNet = 0;
     }
 	public void Move()
     {
@@ -209,7 +211,7 @@ public class AchievementsHandler : MonoBehaviour {
     }
     public void ReportJumpingOnTilesWithSaftNetInOneGame()
     {
-        switch (NumOfTilesWithSfatyNEt)
+        switch (NumOfTilesWithSfatyNet)
         {
             case 10:
                 Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>

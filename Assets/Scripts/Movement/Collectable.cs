@@ -3,12 +3,14 @@ using System.Collections;
 
 public class Collectable : MonoBehaviour
 {
-    float speed;
-    float time;
     bool closeToPoinky = false;
+    public CapsuleCollider magnetTrigger;
+    Transform poinky;
+
     // Use this for initialization
     void Start()
     {
+        magnetTrigger = this.GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -16,45 +18,22 @@ public class Collectable : MonoBehaviour
     {
         if (GameManager.instance.isStarted)
         {
-            //this.transform.position = new Vector3(this.transform.position.x, PoinkyMovementController.poinky.transform.position.y, this.transform.position.z);
-            speed = GameManager.instance.poinkySpeed.y;
-            time = -speed / (0.51f * Physics.gravity.y);
             if (GameManager.instance.Powerup == PowerUps.Magnit)
             {
-                if (gameObject.transform.position.z < 2)
-                {
-                    closeToPoinky = true;
-                }
+                magnetTrigger.enabled = true;
+            }
+            else {
+                magnetTrigger.enabled = false;
             }
             if (closeToPoinky)
             {
                 AttractSelfToPoinky();
             }
-            else if(this.transform.position.z<-1)
+            else if (this.transform.position.z < -1)
             {
                 this.transform.position -= new Vector3(0, 0.1f, 0);
             }
-            if (
-                Vector3.Distance(this.transform.position, PoinkyMovementController.poinky.transform.position) < .7||
-                (this.transform.position.z <= 0 && closeToPoinky)
-                )
-            {
-                CollectablesGenerator.generator.EatCollectable(this.gameObject);
-                PoinkyMovementController.poinky.Eat(this.gameObject);
-                if(GameManager.instance.Powerup==PowerUps.Magnit)
-                {
-                    AchievementsHandler.instance.NumOfCollectablesWithMagnet++;
-                    AchievementsHandler.instance.ReportCollectingCoinsWithMagnetInOneGame();
-
-                }
-                if (GameManager.instance.Powerup == PowerUps.Sliding)
-                {
-                    AchievementsHandler.instance.NumOfTilesWithSfatyNEt++;
-                    AchievementsHandler.instance.ReportJumpingOnTilesWithSaftNetInOneGame();
-
-                }
-            }
-            if (this.transform.position.z-3 <= Camera.main.transform.position.z)
+            if (this.transform.position.z - 3 <= Camera.main.transform.position.z)
             {
                 CollectablesGenerator.generator.EatCollectable(this.gameObject);
             }
@@ -62,21 +41,47 @@ public class Collectable : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Poinky"))
-        {
-            CollectablesGenerator.generator.EatCollectable(this.gameObject);
+        //CollectablesGenerator.generator.EatCollectable(this.gameObject);
 
-           // closeToPoinky = true;
+        if (!closeToPoinky) {
+            closeToPoinky = true;
+            poinky = other.gameObject.transform;
         }
     }
     void AttractSelfToPoinky()
     {
         var position = gameObject.transform.position;
-        position = Vector3.Lerp(position, PoinkyMovementController.poinky.transform.position, Time.deltaTime *5);
+        position = Vector3.Lerp(position, poinky.transform.position, Time.deltaTime * 5);
         gameObject.transform.position = position;
-        if (GameManager.instance.Powerup == PowerUps.Magnit)
+        if (
+            Vector3.Distance(this.transform.position, poinky.transform.position) < .7 ||
+            (this.transform.position.z <= 0 && closeToPoinky)
+            )
         {
+            //CollectablesGenerator.generator.EatCollectable(this.gameObject);
+            GetEaten();
+            if (GameManager.instance.Powerup == PowerUps.Magnit)
+            {
+                AchievementsHandler.instance.NumOfCollectablesWithMagnet++;
+                AchievementsHandler.instance.ReportCollectingCoinsWithMagnetInOneGame();
 
+            }
+            if (GameManager.instance.Powerup == PowerUps.SafetyNet)
+            {
+                AchievementsHandler.instance.NumOfTilesWithSfatyNet++;
+                AchievementsHandler.instance.ReportJumpingOnTilesWithSaftNetInOneGame();
+
+            }
+        }
+    }
+    void GetEaten(){
+        if (GameManager.instance.isStarted)
+        {
+            HUDManager.instance.increaseCollectables();
+            CollectablesGenerator.generator.EatCollectable(gameObject);
+            
+            AudioManager.instance.CoinCollect();
+            AchievementsHandler.instance.ReportCollectingCoinsInOneGame();
         }
 
     }

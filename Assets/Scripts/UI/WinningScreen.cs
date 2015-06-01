@@ -112,7 +112,7 @@ public class WinningScreen : MonoBehaviour
         HUDManager.instance.Clear();
         MainMenu.menu.gameObject.SetActive(true);
 
-        TileGenerator.generator.Clear();
+        TileGenerator.instance.Clear();
        // Application.LoadLevel(Application.loadedLevel);
         GameManager.instance.isStarted = false;
         Time.timeScale = 0;

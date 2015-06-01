@@ -27,7 +27,7 @@ public class ButtonsHandle : MonoBehaviour
         {
             if (pressed)
             {
-                TileGenerator.generator.CurrentTile.Move(buttonDirection * Time.deltaTime * 35 * senstivity * senstivity );
+                TileGenerator.instance.CurrentTile.Move(buttonDirection * Time.deltaTime * 35 * senstivity * senstivity );
             }
         }
     }

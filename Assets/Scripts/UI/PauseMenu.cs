@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour {
 	}
     public void restart() 
     {
-        GameManager.Move -= TileGenerator.generator.Move;
+        GameManager.Move -= TileGenerator.instance.Move;
         Time.timeScale = HUDManager.instance.currentTimeScale;
         Application.LoadLevel(Application.loadedLevel);
         HUDManager.instance.ispaused = false;

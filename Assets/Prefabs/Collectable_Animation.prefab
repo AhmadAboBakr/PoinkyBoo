@@ -56,9 +56,10 @@ GameObject:
   - 95: {fileID: 9570872}
   - 65: {fileID: 6521076}
   - 114: {fileID: 11423480}
+  - 136: {fileID: 13619678}
   m_Layer: 0
   m_Name: Collectable_Animation
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.06999969, y: 1.74000001, z: -10.6800003}
+  m_LocalPosition: {x: 10.1699171, y: 8.41221142, z: -34.4779587}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 497594}
@@ -211,6 +212,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ac75c3df23051429104ae70b2113e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MagnetTrigger: {fileID: 13619678}
+--- !u!136 &13619678
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 4.42999983
+  m_Height: 5.53999996
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &13771082
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

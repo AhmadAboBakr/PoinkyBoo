@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
             {
                 if (e.State == Gesture.GestureState.Changed)
                 {
-                    TileGenerator.generator.CurrentTile.Move((sender as PanGesture).LocalDeltaPosition.x * Screen.dpi * 0.8f * GameManager.instance.Senstivity);
+                    TileGenerator.instance.CurrentTile.Move((sender as PanGesture).LocalDeltaPosition.x * Screen.dpi * 0.8f * GameManager.instance.Senstivity);
                 }
             }
         }
@@ -59,14 +59,14 @@ public class InputManager : MonoBehaviour
             float senstivity = PlayerPrefs.GetFloat("Senstivity") * 10;
             float movement = Input.acceleration.x;
             //TileGenerator.generator.CurrentTile.transform.position += new Vector3(x,0,0);
-            TileGenerator.generator.CurrentTile.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            TileGenerator.generator.CurrentTile.Move(movement * senstivity);
+            TileGenerator.instance.CurrentTile.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            TileGenerator.instance.CurrentTile.Move(movement * senstivity);
         }
         else if (GameManager.instance.Input == InputMethod.buttons && GameManager.instance.isStarted)
         {
             ButtonsHandle.SetActive(true);
             float movement = Input.GetAxis("Horizontal");
-            TileGenerator.generator.CurrentTile.Move(movement *2);
+            TileGenerator.instance.CurrentTile.Move(movement *2);
 
         }
     }

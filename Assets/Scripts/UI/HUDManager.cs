@@ -46,22 +46,7 @@ public class HUDManager : MonoBehaviour {
             if (Time.timeScale >= EndTimeScale) Time.timeScale = EndTimeScale;
             currentTimeScale = Time.timeScale;
         }
-        int modeChanger = score % 35;
-
-        switch (modeChanger)
-        {
-            case 10: 
-                GameManager.instance.GameMode = Mode.Spiral;
-                break;
-            case 25:
-                GameManager.instance.GameMode = Mode.MainMode;
-                break;
-            case 15:
-                GameManager.instance.GameMode = Mode.Desert;
-                break;
-            default:
-                break;
-        }
+        
     }
     public void increaseCollectables()
     {

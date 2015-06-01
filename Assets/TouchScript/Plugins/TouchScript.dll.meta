@@ -1,12 +1,14 @@
 fileFormatVersion: 2
 guid: 20c2a163775f09b4cafa29b19d0c9204
+timeCreated: 1433137893
+licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
   executionOrder:
-    TouchScript.GestureManagerInstance: -1000
-    TouchScript.InputSources.MouseInput: -1101
-    TouchScript.TouchManagerInstance: -900
+    TouchScript.GestureManagerInstance: -1220
+    TouchScript.InputSources.MouseInput: -1250
+    TouchScript.TouchManagerInstance: -1210
   isPreloaded: 0
   platformData:
     Any:

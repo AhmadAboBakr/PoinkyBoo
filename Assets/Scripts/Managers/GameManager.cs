@@ -10,7 +10,7 @@ public enum Mode
 }
 public enum PowerUps
 {
-    Magnit, Sliding, Flying, None
+    Magnit, SafetyNet, Flying, None
 }
 
 public class GameManager : MonoBehaviour

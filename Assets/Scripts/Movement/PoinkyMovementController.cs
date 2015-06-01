@@ -5,11 +5,7 @@ using UnityEngine.UI;
 
 public class PoinkyMovementController : MonoBehaviour
 {
-    public static PoinkyMovementController poinky;
     public GameObject decal;
-    public AudioClip soundTileColl;
-    public AudioClip soundWallColl;
-    public AudioClip soundCollectableColl;
     public GameObject WallColliders;
     private int numberOfMagnetsCollected;
     private int numberOfShieldsCollected;
@@ -38,17 +34,9 @@ public class PoinkyMovementController : MonoBehaviour
     public static bool Hitile;
     float decalWidth;
     Rigidbody myRigidBody;
+    Animator myAnimator;
     GameObject lastCollision;
     public bool isInSpiral = false;
-
-    private AudioSource source;
-
-
-    void Awake()
-    {
-        source = GetComponent<AudioSource>();
-        poinky = this;
-    }
 
     // Use this for initialization
     void Start()
@@ -57,6 +45,7 @@ public class PoinkyMovementController : MonoBehaviour
         myRigidBody = this.GetComponent<Rigidbody>();
         Hitile = false;
         WallColliders.SetActive(true);
+        myAnimator = this.GetComponent<Animator>();
     }
     void Update()
     {
@@ -68,9 +57,10 @@ public class PoinkyMovementController : MonoBehaviour
             this.numberOfShieldsCollected = 0;
         }
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
-        this.GetComponent<Animator>().SetFloat("speedY", this.GetComponent<Rigidbody>().velocity.y);
+        myAnimator.SetFloat("speedY", this.GetComponent<Rigidbody>().velocity.y);
         if (this.transform.position.y < -5 && GameManager.instance.NumOfPoinky == 1)
         {
+            isInSpiral = false;
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             GameManager.instance.Powerup = PowerUps.None;
             PowerUpGenerator.generator.StopGenerate();
@@ -93,32 +83,23 @@ public class PoinkyMovementController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!isInSpiral || true)
+        this.myRigidBody.velocity += new Vector3(0, GameManager.instance.gravity, 0) * Time.deltaTime; //Physics.gravity*Time.deltaTime;
+
+        if (isInSpiral)
         {
-            this.myRigidBody.velocity += new Vector3(0, GameManager.instance.gravity, 0) * Time.deltaTime; //Physics.gravity*Time.deltaTime;
-        }
-        else
-        {
-            this.myRigidBody.velocity += this.transform.position.normalized * GameManager.instance.gravity * Time.deltaTime;
-            this.transform.up = this.transform.position;
+            Vector3 position = this.transform.position;
+            //this.transform.up = position;
+
+            position = new Vector3(0, position.y, position.z);
+            this.transform.position = Vector3.Lerp(this.transform.position, position, Time.deltaTime *4);
         }
     }
 
-    public void Eat(GameObject collectable)
-    {
-        if (GameManager.instance.isStarted)
-        {
-            HUDManager.instance.increaseCollectables();
-            CollectablesGenerator.generator.EatCollectable(collectable.gameObject);
-            source.PlayOneShot(soundCollectableColl, source.volume);
-            AchievementsHandler.instance.ReportCollectingCoinsInOneGame();
-        }
-    }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Tile"))
+        if (other.gameObject.CompareTag("Tile") || other.gameObject.CompareTag("SpiralTile"))
         {
-            this.GetComponent<Animator>().SetTrigger("hitTarget");
+            myAnimator.SetTrigger("hitTarget");
         }
         if (GameManager.instance.isStarted)
         {
@@ -133,7 +114,7 @@ public class PoinkyMovementController : MonoBehaviour
             }
             else if (other.gameObject.CompareTag("Sliding"))
             {
-                GameManager.instance.Powerup = PowerUps.Sliding;
+                GameManager.instance.Powerup = PowerUps.SafetyNet;
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 PowerUpManager.Manager.GenerateNet();
                 AchievementsHandler.instance.NumberOfSaftyNets++;
@@ -147,9 +128,9 @@ public class PoinkyMovementController : MonoBehaviour
             else if (other.CompareTag("Room"))
             {
                 if (this.GetComponent<Rigidbody>().velocity.x > 0)
-                    this.GetComponent<Animator>().SetTrigger("leftWall");
+                    myAnimator.SetTrigger("leftWall");
                 else
-                    this.GetComponent<Animator>().SetTrigger("rightWall");
+                    myAnimator.SetTrigger("rightWall");
             }
 
             else if (other.gameObject.CompareTag("DesertDoorIn"))
@@ -176,21 +157,11 @@ public class PoinkyMovementController : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Tile") && other.gameObject != lastCollision)
             {
-                //other.gameObject.GetComponent<BoxCollider>().enabled = false; //to stop from multiple collisions (should not happen)
-
                 CollectablesGenerator.generator.collectableCounter = 0;
                 lastCollision = other.gameObject;
                 float x = gameObject.transform.position.x - other.transform.position.x;
                 myRigidBody.velocity = new Vector3(2 * x, 0, 0) + GameManager.instance.poinkySpeed;
-
-                HUDManager.instance.increaseScore(1);
-                if (!Hitile)
-                {
-                    Debug.Log("fiha 7aga 7lwa");
-                    Hitile = true;
-                    StartCoroutine("ResetCollisionStatus");
-                    GameManager.instance.IsMoving = true;
-                }
+                JumpForward();
                 var trail = GameObject.Instantiate(decal, other.contacts[0].point, Quaternion.identity) as GameObject;
                 if (Mathf.Abs(trail.transform.position.x - other.transform.position.x) > .51f)
                 {
@@ -200,16 +171,13 @@ public class PoinkyMovementController : MonoBehaviour
                 }
 
                 trail.transform.parent = other.transform;
-                //trail.transform.position = new Vector3(trail.transform.position.x, other.transform.position.y + 0.127f, trail.transform.position.z);
 
-                //source.volume = PlayerPrefs.GetFloat("MusicVol") ;
-                source.PlayOneShot(soundTileColl, source.volume);
-                //  AudioSource.PlayClipAtPoint(soundTileColl, new Vector3(0,0,150));
             }
             else if (other.gameObject.CompareTag("Room"))
             {
                 myRigidBody.velocity = new Vector3(this.transform.position.x - other.contacts[0].point.x * 1.5f, myRigidBody.velocity.y, 0);
-                source.PlayOneShot(soundWallColl, source.volume);
+                AudioManager.instance.HitWall();
+
             }
             else if (other.gameObject.CompareTag("SafetyNet"))
             {
@@ -222,6 +190,8 @@ public class PoinkyMovementController : MonoBehaviour
             {
 
                 myRigidBody.velocity = new Vector3(0, 0, 0) + GameManager.instance.poinkySpeed;
+                JumpForward();
+
             }
         }
 
@@ -234,6 +204,17 @@ public class PoinkyMovementController : MonoBehaviour
     {
         yield return new WaitForSeconds(.35f);
         Hitile = false;
-        Debug.Log("entered");
+    }
+    void JumpForward()
+    {
+        HUDManager.instance.increaseScore(1);
+        if (!Hitile)
+        {
+            Hitile = true;
+            StartCoroutine("ResetCollisionStatus");
+            GameManager.instance.IsMoving = true;
+        }
+        AudioManager.instance.Jump();
+
     }
 }
