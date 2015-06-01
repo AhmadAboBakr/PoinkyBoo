@@ -13,7 +13,7 @@ GameObject:
   - 65: {fileID: 6505208}
   m_Layer: 12
   m_Name: Room_1_sand
-  m_TagString: Untagged
+  m_TagString: Desert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135096}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -100, y: -10, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 439956}
@@ -465,8 +465,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.7563486, y: 19.3702679, z: 9.73579597}
-  m_Center: {x: 12.5581827, y: .858387947, z: -13.9274216}
+  m_Size: {x: 10.7563496, y: 24.3867054, z: 9.73579597}
+  m_Center: {x: 12.5581827, y: .0576295853, z: -13.9277306}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -17,7 +17,6 @@ GameObject:
   - 114: {fileID: 11492226}
   - 114: {fileID: 11468436}
   - 114: {fileID: 11407908}
-  - 114: {fileID: 11411254}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameManager
@@ -137,22 +136,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
 --- !u!114 &11407908
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 144724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18303c10c7c7254eb95eaa545e4e3db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NumberOfMagnits: 0
-  NumberOfSaftyNets: 0
-  NumOfTilesWithSafty: 0
-  NumOfCollectablesWithMagnet: 0
-  NumOfTilesWithSfatyNet: 0
---- !u!114 &11411254
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -300,9 +283,9 @@ MonoBehaviour:
   - {fileID: 147736, guid: e765fe9aab7824e49b81e3d768cb31d6, type: 2}
   previousRoomMode: 0
   DesertEntrance: {fileID: 144426, guid: 28eda17c0bfd57d49ae6b8921569084e, type: 2}
-  DesertExit: {fileID: 194118, guid: 7c1909538b04b8a4792fa0003189075f, type: 2}
+  DesertExit: {fileID: 146462, guid: ffb3593d22932ce49acd738c168fd775, type: 2}
   doors:
-  - {fileID: 165596, guid: c8ab8fc218df3e14bafd8bad324f296c, type: 2}
+  - {fileID: 167056, guid: dc8ab8133a784cc4f85452a95d1d81c0, type: 2}
   rooms: []
 --- !u!114 &11492226
 MonoBehaviour:

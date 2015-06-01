@@ -13,6 +13,11 @@ ModelImporter:
     100010: Line035
     100012: Line036
     100014: Plane003
+    100016: Cylinder054
+    100018: Cylinder055
+    100020: Object109
+    100022: Object110
+    100024: Object111
     400000: Box004
     400002: Box005
     400004: Cylinder050
@@ -21,6 +26,11 @@ ModelImporter:
     400010: Line035
     400012: Line036
     400014: Plane003
+    400016: Cylinder054
+    400018: Cylinder055
+    400020: Object109
+    400022: Object110
+    400024: Object111
     2300000: Box004
     2300002: Box005
     2300004: Cylinder050
@@ -28,6 +38,11 @@ ModelImporter:
     2300008: Line035
     2300010: Line036
     2300012: Plane003
+    2300014: Cylinder054
+    2300016: Cylinder055
+    2300018: Object109
+    2300020: Object110
+    2300022: Object111
     3300000: Box004
     3300002: Box005
     3300004: Cylinder050
@@ -35,6 +50,11 @@ ModelImporter:
     3300008: Line035
     3300010: Line036
     3300012: Plane003
+    3300014: Cylinder054
+    3300016: Cylinder055
+    3300018: Object109
+    3300020: Object110
+    3300022: Object111
     4300000: Plane003
     4300002: Line035
     4300004: Cylinder050
@@ -42,6 +62,11 @@ ModelImporter:
     4300008: Line036
     4300010: Cylinder051
     4300012: Box005
+    4300014: Cylinder054
+    4300016: Object110
+    4300018: Cylinder055
+    4300020: Object111
+    4300022: Object109
     7400000: Open
     7400002: Idle
     9500000: //RootNode

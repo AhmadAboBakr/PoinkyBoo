@@ -113,7 +113,7 @@ public class SpiralTileGenerator : MonoBehaviour {
             }
         }
         index++;
-        tiles.Add(GameObject.Instantiate(tilePrefab, new Vector3(3 * Random.Range(-1, 2), 0, speed * (10)), Quaternion.Euler(new Vector3(270, 180, 0))) as GameObject);
+        tiles.Add(GameObject.Instantiate(tilePrefab, new Vector3(3 * Random.Range(-1, 2)*0, 0, speed * (10)), Quaternion.Euler(new Vector3(270, 180, 0))) as GameObject);
         tiles[tiles.Count-1].transform.RotateAround(Vector3.back, this.transform.position + new Vector3(0, 10, 0), Random.Range(0, 360));
 
        // CollectablesGenerator.generator.generate();

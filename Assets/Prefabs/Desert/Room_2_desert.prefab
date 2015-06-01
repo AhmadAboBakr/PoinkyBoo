@@ -59,7 +59,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 475548}
-  - 65: {fileID: 6534474}
   m_Layer: 0
   m_Name: Room_2_desert
   m_TagString: Desert
@@ -129,9 +128,9 @@ GameObject:
   - 33: {fileID: 3359732}
   - 23: {fileID: 2308654}
   - 65: {fileID: 6545482}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Room_2_sand
-  m_TagString: Untagged
+  m_TagString: Desert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,7 +301,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118154}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -100, y: -10, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469322}
@@ -639,18 +638,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140226}
   m_Mesh: {fileID: 4300008, guid: 3e0115b7c033e8c41b1ac20b9e2bd401, type: 3}
---- !u!65 &6534474
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 118154}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 159.699997, y: 29.0900002, z: 19.1000004}
-  m_Center: {x: 5.0999999, y: 2.9000001, z: -34.0699997}
 --- !u!65 &6545482
 BoxCollider:
   m_ObjectHideFlags: 1
