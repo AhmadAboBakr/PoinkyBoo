@@ -122,7 +122,7 @@ public class PoinkyMovementController : MonoBehaviour
             }
             else if (other.gameObject.CompareTag("PoinkyMultiplier"))
             {
-                other.gameObject.GetComponent<SphereCollider>().enabled = false;
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 PowerUpManager.Manager.MultiplyPoinky(this.gameObject);
             }
             else if (other.CompareTag("Room"))

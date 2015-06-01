@@ -124,17 +124,18 @@ public class RoomGenerator : MonoBehaviour
             previousRoomMode = Mode.Spiral;
         }
         count++;
-        int modeChanger = count% 45;
+        int modeChanger = count% 55;
 
         switch (modeChanger)
         {
-            case 40:
+            case 20:
                 GameManager.instance.GameMode = Mode.Spiral;
                 break;
-            case 20:
+            case 1:
+            case 30:
                 GameManager.instance.GameMode = Mode.MainMode;
                 break;
-            case 27:
+            case 40:
                 GameManager.instance.GameMode = Mode.Desert;
                 break;
             default:

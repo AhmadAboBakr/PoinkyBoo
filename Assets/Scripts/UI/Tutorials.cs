@@ -14,7 +14,7 @@ public class Tutorials : MonoBehaviour {
 	// Use this for initialization
     void Awake()
     {
-        Debug.Log(this.name);
+        //Debug.Log(this.name);
         if (!Tutorials.instance)
             Tutorials.instance = this;
 

@@ -6,9 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: lineGloss
+  m_Name: glass
   m_Shader: {fileID: 10, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _LIGHTMAPPING_REALTIME
+  m_ShaderKeywords: 
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -18,9 +18,9 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 285f3d8d51ebf7f45b8314a0a9085b4e, type: 3}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: .0700000003, y: .209999993}
+          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
@@ -31,20 +31,6 @@ Material:
       data:
         first:
           name: _DetailNormalMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Cube
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _V_CW_IBL_Cube
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -95,21 +81,13 @@ Material:
         first:
           name: _Illum
         second:
-          m_Texture: {fileID: 2800000, guid: 7b4d542af1f059e42af26706d231782e, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: .439883173}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _Cutoff
-        second: .388999999
-      data:
-        first:
-          name: _Shininess
-        second: 1
-      data:
-        first:
-          name: _AlphaTestRef
         second: .5
       data:
         first:
@@ -121,66 +99,6 @@ Material:
         second: 0
       data:
         first:
-          name: V_CW_TAG
-        second: 0
-      data:
-        first:
-          name: V_CW_D_OPTIONS
-        second: 0
-      data:
-        first:
-          name: V_CW_W_OPTIONS
-        second: 0
-      data:
-        first:
-          name: _V_CW_Z_Bend_Size
-        second: 0
-      data:
-        first:
-          name: _V_CW_Z_Bend_Bias
-        second: 0
-      data:
-        first:
-          name: _V_CW_Y_Bend_Size
-        second: 0
-      data:
-        first:
-          name: _V_CW_X_Bend_Size
-        second: 0
-      data:
-        first:
-          name: _V_CW_Camera_Bend_Offset
-        second: 0
-      data:
-        first:
-          name: _V_CW_Rim_Bias
-        second: .200000003
-      data:
-        first:
-          name: _V_CW_Fog_Density
-        second: 1
-      data:
-        first:
-          name: _V_CW_Fog_Start
-        second: 0
-      data:
-        first:
-          name: _V_CW_Fog_End
-        second: 100
-      data:
-        first:
-          name: _V_CW_IBL_Intensity
-        second: 1
-      data:
-        first:
-          name: _V_CW_IBL_Contrast
-        second: 1
-      data:
-        first:
-          name: _V_CW_Emission_Strength
-        second: 1
-      data:
-        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -190,7 +108,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0
+        second: .5
       data:
         first:
           name: _BumpScale
@@ -219,10 +137,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _Lightmapping
-        second: 1
     m_Colors:
       data:
         first:
@@ -231,26 +145,6 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .505882382, g: .505882382, b: .505882382, a: 1}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: 1, g: 0, b: 1, a: 1}
-      data:
-        first:
-          name: _ReflectColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _V_CW_Rim_Color
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _V_CW_Fog_Color
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _V_CW_Emission_Color
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
