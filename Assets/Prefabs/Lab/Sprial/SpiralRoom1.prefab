@@ -28,6 +28,7 @@ GameObject:
   - 33: {fileID: 3325516}
   - 23: {fileID: 2365392}
   - 65: {fileID: 6558136}
+  - 65: {fileID: 6515138}
   m_Layer: 12
   m_Name: Object107
   m_TagString: Spiral
@@ -110,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.5988941, y: -6.33609819, z: 20.3108425}
+  m_LocalPosition: {x: 75.3000031, y: 4.80000019, z: 2.0999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433286}
@@ -211,6 +212,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125076}
   m_Mesh: {fileID: 4300004, guid: 5ab69250f334eb249b698adf024a0dd4, type: 3}
+--- !u!65 &6515138
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 505.351135, y: 489.257507, z: 618.890625}
+  m_Center: {x: .199562073, y: -2.98644257, z: 309.443115}
 --- !u!65 &6558136
 BoxCollider:
   m_ObjectHideFlags: 1

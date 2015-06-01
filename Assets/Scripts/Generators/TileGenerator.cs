@@ -169,7 +169,7 @@ public class TileGenerator : MonoBehaviour
             }
             else if (r.collider.tag == "Desert") //GameManager.instance.GameMode == Mode.Desert
             {
-                tiles.Add((GameObject.Instantiate(desertTile, new Vector3(Random.Range(-1, 2), 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                tiles.Add((GameObject.Instantiate(desertTile, new Vector3(Random.Range(-1, 2)*0, 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
             }
             else if (r.collider.tag == "Spiral" || r.collider.tag == "Door") //currentRoom == "Spiral"//GameManager.instance.GameMode == Mode.Spiral
             {

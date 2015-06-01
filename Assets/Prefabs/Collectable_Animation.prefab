@@ -182,8 +182,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 4.5, z: 3}
-  m_Center: {x: -.0495304391, y: -.0937822908, z: .0471305847}
+  m_Size: {x: 1.55316687, y: 4.5, z: 3}
+  m_Center: {x: -.0506629944, y: -.0937824249, z: .0471343994}
 --- !u!95 &9570872
 Animator:
   serializedVersion: 3
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ac75c3df23051429104ae70b2113e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MagnetTrigger: {fileID: 13619678}
+  magnetTrigger: {fileID: 0}
 --- !u!136 &13619678
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -222,8 +222,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 4.42999983
-  m_Height: 5.53999996
+  m_Radius: 3.99653578
+  m_Height: .0208468121
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &13771082
