@@ -10,6 +10,31 @@ public class PauseMenu : MonoBehaviour {
         instance = this;
     }
     void Start () {
+
+        if (HUDManager.instance.score > PlayerPrefs.GetInt("BestScore"))
+        {
+           // score.color = Color.red;
+           // bestScore.color = Color.red;
+            //score.text = HUDManager.instance.score.ToString();
+           // bestScore.text = HUDManager.instance.score.ToString();
+            PlayerPrefs.SetInt("BestScore", HUDManager.instance.score);
+            // post score 12345 to leaderboard ID "Cfji293fjsie_QA")
+            Social.ReportScore(HUDManager.instance.score, "CgkInbf4694CEAIQAQ", (bool success) =>
+            {
+                // handle success or failure
+            });
+
+        }
+        else
+        {
+            //score.color = startColor;
+           // bestScore.color = startColor;
+            //score.text = HUDManager.instance.score.ToString();
+           // bestScore.text = PlayerPrefs.GetInt("BestScore").ToString();
+        }
+        PlayerPrefs.SetInt("Collectables", PlayerPrefs.GetInt("Collectables") + HUDManager.instance.collectables);
+        AchievementsHandler.instance.ReportTotalCoins(HUDManager.instance.collectables);
+        collectablesTotal.instance.Start(); 
 	}
 	
 	// Update is called once per frame
@@ -21,6 +46,17 @@ public class PauseMenu : MonoBehaviour {
 	}
     public void restart() 
     {
+        collectablesTotal.instance.add(HUDManager.instance.collectables);
+        if (HUDManager.instance.score > PlayerPrefs.GetInt("BestScore"))
+        {
+            PlayerPrefs.SetInt("BestScore", HUDManager.instance.score);
+            // post score 12345 to leaderboard ID "Cfji293fjsie_QA")
+            Social.ReportScore(HUDManager.instance.score, "CgkInbf4694CEAIQAQ", (bool success) =>
+            {
+                // handle success or failure
+            });
+        }
+
         GameManager.Move -= TileGenerator.instance.Move;
         Time.timeScale = HUDManager.instance.currentTimeScale;
         Application.LoadLevel(Application.loadedLevel);
@@ -34,7 +70,6 @@ public class PauseMenu : MonoBehaviour {
         this.gameObject.SetActive(false);
         HUDManager.instance.gameObject.SetActive(true);
         HUDManager.instance.ispaused = false;
-
     }
     public void exit() 
     {

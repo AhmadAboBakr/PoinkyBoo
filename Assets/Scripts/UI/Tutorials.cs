@@ -17,8 +17,6 @@ public class Tutorials : MonoBehaviour {
         Debug.Log(this.name);
         if (!Tutorials.instance)
             Tutorials.instance = this;
-
-       
     }
     void Start()
     {
@@ -77,7 +75,6 @@ public class Tutorials : MonoBehaviour {
                 tabandholdText.enabled = false;
                 swip.gameObject.SetActive(true);
                 swipText.enabled = true;
-
             }
         else if (GameManager.instance.Input == InputMethod.Accelerometer)
             {
@@ -90,12 +87,12 @@ public class Tutorials : MonoBehaviour {
             }
         else if (GameManager.instance.Input == InputMethod.buttons)
             {
-                tilt.gameObject.SetActive(false);
-                swip.gameObject.SetActive(false);
-                tiltText.enabled = false;
-                swipText.enabled = false;
-                tabandhold.gameObject.SetActive(true);
-                tabandholdText.enabled = true;
+                //tilt.gameObject.SetActive(false);
+                //swip.gameObject.SetActive(false);
+                //tiltText.enabled = false;
+                //swipText.enabled = false;
+                //tabandhold.gameObject.SetActive(true);
+                //tabandholdText.enabled = true;
             }
         //}
     }

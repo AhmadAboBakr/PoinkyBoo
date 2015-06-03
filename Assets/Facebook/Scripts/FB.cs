@@ -395,7 +395,7 @@ public sealed class FB : ScriptableObject
 
             if (www.error != null)
             {
-                FbDebug.Error(www.error);
+                //FbDebug.Error(www.error);
                 if (retryLoadCount < maxRetryLoadCount)
                 {
                     ++retryLoadCount;

@@ -66,7 +66,7 @@ public class WinningScreen : MonoBehaviour
             }
             PlayerPrefs.SetInt("Collectables",PlayerPrefs.GetInt("Collectables")+HUDManager.instance.collectables);
             AchievementsHandler.instance.ReportTotalCoins(HUDManager.instance.collectables);
-            collectablesTotal.instance.Start();
+            collectablesTotal.instance.Start(); 
         }
         else
         {
@@ -75,6 +75,11 @@ public class WinningScreen : MonoBehaviour
 
     }
 
+    //this should be.
+    void saveScores()
+    {
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

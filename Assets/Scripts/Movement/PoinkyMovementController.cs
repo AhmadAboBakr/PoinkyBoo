@@ -106,7 +106,7 @@ public class PoinkyMovementController : MonoBehaviour
 
             if (other.gameObject.CompareTag("Magnet"))
             {
-                GameManager.instance.Powerup = PowerUps.Magnit;
+                GameManager.instance.Powerup = PowerUps.Magnet;
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 AchievementsHandler.instance.NumberOfMagnits++;
                 AchievementsHandler.instance.ReportMagnetAchivement();
