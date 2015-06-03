@@ -10,7 +10,7 @@ public enum Mode
 }
 public enum PowerUps
 {
-    Magnit, SafetyNet, Flying, None
+    Magnet, SafetyNet, Flying, None
 }
 
 public class GameManager : MonoBehaviour
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (Powerup == PowerUps.Magnit)
+        if (Powerup == PowerUps.Magnet)
         {
             timer += Time.deltaTime;
         }

@@ -22,7 +22,6 @@ public class HUDManager : MonoBehaviour {
         scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         collectablesText = GameObject.FindGameObjectWithTag("Collectables").GetComponent<Text>();
         currentTimeScale= startTimeScale = Time.timeScale;
-
     }
     public void Clear()
     {
@@ -32,7 +31,6 @@ public class HUDManager : MonoBehaviour {
         collectablesText.text = "" + collectables;
         GlossingScript.glosser.reset();
         currentTimeScale= Time.timeScale = startTimeScale;
-
     }
 
     public void increaseScore(int multiplier)
@@ -45,8 +43,7 @@ public class HUDManager : MonoBehaviour {
             Time.timeScale += .1f;
             if (Time.timeScale >= EndTimeScale) Time.timeScale = EndTimeScale;
             currentTimeScale = Time.timeScale;
-        }
-        
+        }        
     }
     public void increaseCollectables()
     {
@@ -69,5 +66,6 @@ public class HUDManager : MonoBehaviour {
         {
             pause();
         }
+       // scoreText.text = PlayerPrefs.GetInt("Collectables").ToString();
     }
 }

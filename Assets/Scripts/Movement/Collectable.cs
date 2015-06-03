@@ -18,7 +18,7 @@ public class Collectable : MonoBehaviour
     {
         if (GameManager.instance.isStarted)
         {
-            if (GameManager.instance.Powerup == PowerUps.Magnit)
+            if (GameManager.instance.Powerup == PowerUps.Magnet)
             {
                 magnetTrigger.enabled = true;
             }
@@ -60,7 +60,7 @@ public class Collectable : MonoBehaviour
         {
             //CollectablesGenerator.generator.EatCollectable(this.gameObject);
             GetEaten();
-            if (GameManager.instance.Powerup == PowerUps.Magnit)
+            if (GameManager.instance.Powerup == PowerUps.Magnet)
             {
                 AchievementsHandler.instance.NumOfCollectablesWithMagnet++;
                 AchievementsHandler.instance.ReportCollectingCoinsWithMagnetInOneGame();

@@ -4,9 +4,6 @@ using UnityEngine.UI;
 using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
 
-
-
-
 public class MainMenu : MonoBehaviour
 {
     public static MainMenu menu;
@@ -34,9 +31,10 @@ public class MainMenu : MonoBehaviour
         OptionsMenu.menu.gameObject.SetActive(false);
         HUDManager.instance.gameObject.SetActive(false);
         PauseMenu.instance.gameObject.SetActive(false);
+        Store.instance.gameObject.SetActive(false);
         // authenticate user:for google play
         
-        // timeScale = Time.timeScale;
+         timeScale = Time.timeScale;
     }
     void Update()
     {
@@ -52,18 +50,18 @@ public class MainMenu : MonoBehaviour
         HUD.SetActive(true);
         //if (!tutorialsflag)
         //{
-        Tutorials.instance.gameObject.SetActive(true);
-        GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
-        foreach (var item in ARR)
-        {
-            item.gameObject.SetActive(true);
-
-        }
-        Tutorials.instance.tutorials();
+        //Tutorials.instance.gameObject.SetActive(true);
+        //GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
+        //foreach (var item in ARR)
+        //{
+        //    item.gameObject.SetActive(true);
+        //}
+        //Tutorials.instance.tutorials();
+       
         //tutorialsflag = true;
         //}
         //else
-        //GameManager.manager.isStarted = true;
+        GameManager.instance.isStarted = true;
     }
 
     public void BtnOptionsPressed()
@@ -78,15 +76,15 @@ public class MainMenu : MonoBehaviour
     {
         Social.ShowAchievementsUI();
 
+        this.gameObject.SetActive(false);
+        GameManager.instance.IsMoving = false;
+        Store.instance.gameObject.SetActive(true);
     }
 
     public void BtnMorePressed()
-    {
-        
+    {       
         FacebookIntegration.instance.Login();
     }
-    
-
 
     public void BtnLeaderboardPressed()
     {
@@ -102,8 +100,6 @@ public class MainMenu : MonoBehaviour
         PlayGamesPlatform.Instance.ShowLeaderboardUI();
         Debug.Log("kotomoto");
     }
-
-
 
     public void BtnQuitPressed()
     {
