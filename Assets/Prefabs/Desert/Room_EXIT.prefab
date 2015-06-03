@@ -79,7 +79,7 @@ GameObject:
   - 65: {fileID: 6559660}
   m_Layer: 12
   m_Name: Line051
-  m_TagString: Normal
+  m_TagString: DesertDoorIn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144426}
   m_LocalRotation: {x: 1.15202326e-07, y: .707106709, z: .707106829, w: -1.15202312e-07}
-  m_LocalPosition: {x: -33.6300011, y: 17.6100006, z: 90.0899963}
+  m_LocalPosition: {x: 7.63480377, y: 6.13859558, z: -75.5766754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445590}

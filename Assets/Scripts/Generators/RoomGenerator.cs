@@ -114,7 +114,7 @@ public class RoomGenerator : MonoBehaviour
         {
             if (previousRoomMode != Mode.Spiral)
             {
-                rooms.Add(GameObject.Instantiate(doors[0], new Vector3(0f, 4.44f, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
+                rooms.Add(GameObject.Instantiate(doors[0], new Vector3(0f, 4.59f, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
             }
             else
             {
@@ -128,14 +128,14 @@ public class RoomGenerator : MonoBehaviour
 
         switch (modeChanger)
         {
-            case 20:
+            case 5:
                 GameManager.instance.GameMode = Mode.Spiral;
                 break;
             case 1:
-            case 30:
+            case 15:
                 GameManager.instance.GameMode = Mode.MainMode;
                 break;
-            case 40:
+            case 7:
                 GameManager.instance.GameMode = Mode.Desert;
                 break;
             default:

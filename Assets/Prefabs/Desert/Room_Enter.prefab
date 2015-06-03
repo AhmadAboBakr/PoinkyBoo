@@ -245,7 +245,7 @@ GameObject:
   - 65: {fileID: 6507508}
   m_Layer: 12
   m_Name: Room_size_BOX
-  m_TagString: Desert
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,7 +390,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146462}
   m_LocalRotation: {x: -1.1520229e-07, y: -.70710659, z: -.707106948, w: 1.15202347e-07}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.43713379, y: 9.13018036, z: -51.4951057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 423986}

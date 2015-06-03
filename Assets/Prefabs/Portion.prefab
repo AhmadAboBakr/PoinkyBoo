@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 411768}
   - 137: {fileID: 13752032}
+  - 114: {fileID: 11458304}
   m_Layer: 12
   m_Name: Object119
   m_TagString: Untagged
@@ -116,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.757000029, y: 0, z: 0}
+  m_LocalPosition: {x: -.757000029, y: -0, z: 1.73199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 475670}
@@ -141,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -14.1099997}
+  m_LocalPosition: {x: -6.66306925, y: 1.10732317, z: 80.5106277}
   m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children:
   - {fileID: 476864}
@@ -226,6 +227,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &11458304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45db0dd190bc0b14e82b60349c17981c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: .5
+  rend: {fileID: 0}
 --- !u!137 &13752032
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

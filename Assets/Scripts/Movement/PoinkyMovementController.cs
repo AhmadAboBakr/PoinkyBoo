@@ -66,6 +66,7 @@ public class PoinkyMovementController : MonoBehaviour
             PowerUpGenerator.generator.StopGenerate();
             this.transform.position = new Vector3(0, 10, 0);
             WinningScreen.screen.gameObject.SetActive(true);
+            CameraMover.instance.Death();
         }
         else if (GameManager.instance.isStarted && this.transform.position.y < -5)
         {
@@ -123,6 +124,7 @@ public class PoinkyMovementController : MonoBehaviour
             else if (other.gameObject.CompareTag("PoinkyMultiplier"))
             {
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 PowerUpManager.Manager.MultiplyPoinky(this.gameObject);
             }
             else if (other.CompareTag("Room"))
