@@ -16,7 +16,7 @@ public class TutorialImages : MonoBehaviour {
     }
     public void StartFadding()
     {
-        
+        StartCoroutine("fadeButtons");
     }
 	void Start () {
 
@@ -26,14 +26,7 @@ public class TutorialImages : MonoBehaviour {
         fading=1;
 	}
 	
-   public void FadeOut()
-    {
-       // imgLeft.CrossFadeAlpha(0, 0.4f, true);     
-         fade = Mathf.SmoothStep(1f, 0f, fadeSpeed);  
-         imgLeft.color = new Color(1f, 1f, 1f, fade);
-         imgRight.color = new Color(1f, 1f, 1f, fade);
-    }
-
+ 
    public void FadeReset()
    {
        fade = Mathf.SmoothStep(0f, 1f, fadeSpeed);
@@ -43,24 +36,24 @@ public class TutorialImages : MonoBehaviour {
 
 	void Update () {
 
-        fade -= 0.1f;
-       // imgLeft.color = new Color(1f, 1f, 1f, fade);
-       // imgRight.color = new Color(1f, 1f, 1f, fade);
+
 	}
     IEnumerator fadeButtons()
     {
         while (true)
         {
-            return new WaitForSeconds(.2f);
-            fading /= 1.1;
-            if (fading < .01f)
+            yield return new WaitForSeconds(.1f);
+            fading /= 1.5f;
+            if (fading <= .01f)
             {
                 fading = 0;
+                break;
                 
             }
             imgLeft.color = new Color(1f, 1f, 1f, fading);
             imgRight.color = new Color(1f, 1f, 1f, fading);
-
+            
         }
+        yield return null;
     }
 }

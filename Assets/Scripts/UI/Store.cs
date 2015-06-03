@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class Store : MonoBehaviour {
+public class Store : MonoBehaviour
+{
 
     public static Store instance;
 
@@ -11,7 +12,7 @@ public class Store : MonoBehaviour {
     public GameObject[] degreeSafetyImgs;
 
     public int currentDegreeMagnet;
-    public  int currentDegreeSafety;
+    public int currentDegreeSafety;
 
     int collectablesCount;
     public Text txtCollectablesCount;
@@ -24,23 +25,28 @@ public class Store : MonoBehaviour {
 
     void Start()
     {
-        //just to set the page
         getCollectablesCount();
+        if (!PlayerPrefs.HasKey("CurrentMagnetLevel"))
+        {
+            PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
+        }
+        if (!PlayerPrefs.HasKey("CurrentMagnetLevel"))
+        {
+            PlayerPrefs.SetInt("CurrentShieldLevel", 0);
+        }
+        currentDegreeMagnet = PlayerPrefs.GetInt("CurrentMagnetLevel");
+        currentDegreeSafety = PlayerPrefs.GetInt("CurrentShieldLevel");
 
-        //
-        currentDegreeMagnet = 0;
-        currentDegreeSafety = 0;
 
-    
         //getDegree();
         //PlayerPrefs.HasKey("degreeMagnet")
-        txtSafetyPrice.text = getPowerPrice(0).ToString();
-        txtMagnetPrice.text = getPowerPrice(0).ToString();
+        txtSafetyPrice.text = getPowerPrice(currentDegreeSafety).ToString();
+        txtMagnetPrice.text = getPowerPrice(currentDegreeSafety).ToString();
 
 
         for (int i = 0; i < 5; i++) //degreeMagnetImgs.Length
         {
-            GameObject imgMag =  degreeMagnetImgs.GetValue(i) as GameObject;
+            GameObject imgMag = degreeMagnetImgs.GetValue(i) as GameObject;
             GameObject imgSaf = degreeSafetyImgs.GetValue(i) as GameObject;
 
             //if they are not bought, or if they are expired//need to be renewed
@@ -70,29 +76,21 @@ public class Store : MonoBehaviour {
                 if (!degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().isActiveAndEnabled)
                 {
                     degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().gameObject.SetActive(true);
-                   
+
                     //actuallyBuy
                     currentDegreeMagnet++;
+                    PlayerPrefs.SetInt("CurrentMagnetLevel", currentDegreeMagnet);
+
                     txtMagnetPrice.text = getPowerPrice(currentDegreeMagnet).ToString();
                 }
-            }   
- 
+            }
+
         }
-          
+
     }
 
     public void OnSafetyNetPressed()
     {
-        //player prefs, and then minus the collectables count
-
-        //if (!PlayerPrefs.HasKey("SafetyDegree"))
-        //{
-        //    PlayerPrefs.SetInt("SafetyDegree", currentDegreeSafety);
-        //}
-        //else
-        //{
-        //   currentDegreeSafety = PlayerPrefs.GetInt("SafetyDegree");
-        //}
 
         if (minusCollectables(currentDegreeSafety))
         {
@@ -101,13 +99,15 @@ public class Store : MonoBehaviour {
                 if (!degreeSafetyImgs[currentDegreeSafety].GetComponent<Image>().isActiveAndEnabled)
                 {
                     degreeSafetyImgs[currentDegreeSafety].GetComponent<Image>().gameObject.SetActive(true);
-                                    
+
                     //actuallyBuy
                     currentDegreeSafety++;
+                    PlayerPrefs.SetInt("CurrentShieldLevel", currentDegreeSafety);
+
                     txtSafetyPrice.text = getPowerPrice(currentDegreeSafety).ToString();
                 }
-            }    
-        }        
+            }
+        }
     }
 
     int getPowerPrice(int degree)
@@ -116,7 +116,7 @@ public class Store : MonoBehaviour {
     }
     void getCollectablesCount()
     {
-        txtCollectablesCount = GameObject.Find("txtCollectablesCount").GetComponent<Text>();   
+        txtCollectablesCount = GameObject.Find("txtCollectablesCount").GetComponent<Text>();
 
         if (PlayerPrefs.GetInt("Collectables") != null)
         {
@@ -126,12 +126,12 @@ public class Store : MonoBehaviour {
         else
             txtCollectablesCount.text = "0";
     }
-     bool minusCollectables(int degree)
+    bool minusCollectables(int degree)
     {
         //PlayerPrefs.collectibles.toInt -= amount;
 
-       // getCollectablesCount();
-        if(collectablesCount >= 500 * (degree+1) &&degree<5) //because the 1st digree is 0
+        // getCollectablesCount();
+        if (collectablesCount >= 500 * (degree + 1) && degree < 5) //because the 1st digree is 0
         {
             collectablesCount = collectablesCount - 500 * (degree + 1);
             txtCollectablesCount.text = collectablesCount.ToString();
@@ -149,10 +149,10 @@ public class Store : MonoBehaviour {
     //    return true;
     //}
     public void OnBackPressed()
-    {   
+    {
         Store.instance.gameObject.SetActive(false);
         MainMenu.menu.gameObject.SetActive(true);
-       // HUDManager.instance.collectablesText.text = PlayerPrefs.GetInt("Collectables").ToString();
+        // HUDManager.instance.collectablesText.text = PlayerPrefs.GetInt("Collectables").ToString();
     }
 
 }
