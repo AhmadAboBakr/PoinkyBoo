@@ -26,7 +26,7 @@ public class CameraMover : MonoBehaviour
     // Update is called once per frame
     public void CameraMove()
     {
-        if (Physics.Raycast(new Vector3(0, -3, this.transform.position.z + 10), -Vector3.up, out r, float.MaxValue, 1 << 12))
+        if (Physics.Raycast(new Vector3(0, -3, this.transform.position.z + 15), -Vector3.up, out r, float.MaxValue, 1 << 12))
         {
             Debug.Log("wsel  " + r.collider.tag);
 
