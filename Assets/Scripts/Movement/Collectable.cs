@@ -63,13 +63,13 @@ public class Collectable : MonoBehaviour
             if (GameManager.instance.Powerup == PowerUps.Magnet)
             {
                 AchievementsHandler.instance.NumOfCollectablesWithMagnet++;
-                AchievementsHandler.instance.ReportCollectingCoinsWithMagnetInOneGame();
+                //AchievementsHandler.instance.ReportCollectingCoinsWithMagnetInOneGame();
 
             }
             if (GameManager.instance.Powerup == PowerUps.SafetyNet)
             {
                 AchievementsHandler.instance.NumOfTilesWithSfatyNet++;
-                AchievementsHandler.instance.ReportJumpingOnTilesWithSaftNetInOneGame();
+                //AchievementsHandler.instance.ReportJumpingOnTilesWithSaftNetInOneGame();
 
             }
         }

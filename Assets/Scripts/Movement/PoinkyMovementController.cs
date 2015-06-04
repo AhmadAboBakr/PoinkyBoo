@@ -118,8 +118,7 @@ public class PoinkyMovementController : MonoBehaviour
                 GameManager.instance.Powerup = PowerUps.SafetyNet;
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 PowerUpManager.Manager.GenerateNet();
-                AchievementsHandler.instance.NumberOfSaftyNets++;
-                AchievementsHandler.instance.ReportShieldAchivement();
+
             }
             else if (other.gameObject.CompareTag("PoinkyMultiplier"))
             {
@@ -183,7 +182,8 @@ public class PoinkyMovementController : MonoBehaviour
             }
             else if (other.gameObject.CompareTag("SafetyNet"))
             {
-
+                AchievementsHandler.instance.NumberOfSaftyNets++;
+                AchievementsHandler.instance.ReportShieldAchivement();
                 myRigidBody.velocity = new Vector3(0, 0, 0) + GameManager.instance.poinkySpeed;
                 GameObject.Destroy(other.gameObject);
                 GameManager.instance.IsMoving = true;
