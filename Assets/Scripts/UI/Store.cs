@@ -30,29 +30,41 @@ public class Store : MonoBehaviour
         {
             PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
         }
-        if (!PlayerPrefs.HasKey("CurrentMagnetLevel"))
+
+        if (!PlayerPrefs.HasKey("CurrentShieldLevel"))
         {
             PlayerPrefs.SetInt("CurrentShieldLevel", 0);
         }
-        currentDegreeMagnet = PlayerPrefs.GetInt("CurrentMagnetLevel");
-        currentDegreeSafety = PlayerPrefs.GetInt("CurrentShieldLevel");
+
+        currentDegreeMagnet =  PlayerPrefs.GetInt("CurrentMagnetLevel");
+        currentDegreeSafety =  PlayerPrefs.GetInt("CurrentShieldLevel");
 
 
         //getDegree();
         //PlayerPrefs.HasKey("degreeMagnet")
+        txtMagnetPrice.text = getPowerPrice(currentDegreeMagnet).ToString();
         txtSafetyPrice.text = getPowerPrice(currentDegreeSafety).ToString();
-        txtMagnetPrice.text = getPowerPrice(currentDegreeSafety).ToString();
 
-
-        for (int i = 0; i < 5; i++) //degreeMagnetImgs.Length
+        if (currentDegreeMagnet < 5)
         {
-            GameObject imgMag = degreeMagnetImgs.GetValue(i) as GameObject;
-            GameObject imgSaf = degreeSafetyImgs.GetValue(i) as GameObject;
-
-            //if they are not bought, or if they are expired//need to be renewed
-            imgMag.SetActive(false);
-            imgSaf.SetActive(false);
+            if (!degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().isActiveAndEnabled)
+            {
+                for (int i = 0; i < currentDegreeMagnet; i++)
+                {
+                    degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().gameObject.SetActive(true);
+                }
+            }
         }
+
+        //for (int i = 0; i < 5; i++) //degreeMagnetImgs.Length
+        //{
+        //    GameObject imgMag = degreeMagnetImgs.GetValue(i) as GameObject;
+        //    GameObject imgSaf = degreeSafetyImgs.GetValue(i) as GameObject;
+
+        //    //if they are not bought, or if they are expired//need to be renewed
+        //    imgMag.SetActive(false);
+        //    imgSaf.SetActive(false);
+        //}
     }
 
     public void OnMagnetPressed()
@@ -75,7 +87,10 @@ public class Store : MonoBehaviour
             {
                 if (!degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().isActiveAndEnabled)
                 {
-                    degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().gameObject.SetActive(true);
+                    for (int i = 0; i < currentDegreeMagnet; i++)
+                    {
+                        degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().gameObject.SetActive(true);                                                
+                    }
 
                     //actuallyBuy
                     currentDegreeMagnet++;
@@ -98,7 +113,10 @@ public class Store : MonoBehaviour
             {
                 if (!degreeSafetyImgs[currentDegreeSafety].GetComponent<Image>().isActiveAndEnabled)
                 {
-                    degreeSafetyImgs[currentDegreeSafety].GetComponent<Image>().gameObject.SetActive(true);
+                    for (int i = 0; i < currentDegreeSafety; i++)
+                    {
+                        degreeSafetyImgs[currentDegreeSafety].GetComponent<Image>().gameObject.SetActive(true);                        
+                    }
 
                     //actuallyBuy
                     currentDegreeSafety++;
@@ -112,7 +130,14 @@ public class Store : MonoBehaviour
 
     int getPowerPrice(int degree)
     {
-        return (degree + 1) * 500;
+        if(degree<4)
+        {
+            return (degree + 1) * 500;
+        }
+        else
+        {
+            return (5) * 500;
+        }
     }
     void getCollectablesCount()
     {

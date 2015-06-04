@@ -57,11 +57,24 @@ public class PauseMenu : MonoBehaviour {
             });
         }
 
-        GameManager.Move -= TileGenerator.instance.Move;
-        Time.timeScale = HUDManager.instance.currentTimeScale;
-        Application.LoadLevel(Application.loadedLevel);
-        HUDManager.instance.ispaused = false;
+        //GameManager.Move -= TileGenerator.instance.Move;
 
+        ////commented after pasting
+        Time.timeScale = HUDManager.instance.currentTimeScale;
+       // Application.LoadLevel(Application.loadedLevel);
+      //  HUDManager.instance.ispaused = false;
+
+        /////////////////////////////////////////////////////pasted from winning screen
+        RoomGenerator.generator.Clear();
+
+        this.gameObject.SetActive(false);
+        HUDManager.instance.Clear();
+        MainMenu.menu.gameObject.SetActive(true);
+
+        TileGenerator.instance.Clear();
+        HUDManager.instance.ispaused = false;
+        GameManager.instance.isStarted = false;
+        Time.timeScale = 0;
     }
     public void ContinuePlay() 
     {

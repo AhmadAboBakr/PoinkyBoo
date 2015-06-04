@@ -135,7 +135,10 @@ public class TileGenerator : MonoBehaviour
     {
         for (int i = 0; i < tiles.Count; i++)
         {
-            GameObject.Destroy(tiles[i].gameObject);
+            if(tiles[i]!=null)
+            {
+                GameObject.Destroy(tiles[i].gameObject);
+            }
         }
         tiles.Clear();
         index = 0;
