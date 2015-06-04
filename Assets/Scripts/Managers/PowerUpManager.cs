@@ -9,30 +9,20 @@ public class PowerUpManager : MonoBehaviour
     public GameObject safetyNet = null;
     float MagnetTimer;
     float SafetyNetTimer;
-    public int MagnetTime;
-    public int SafetyNetTime;
+    public int magnetTime;
+    public int safetyNetTime;
     int degreeMagnet, degreeSafety;
-
-
-    // Use this for initialization
-    void Start()
+    void GetMaqgnetTime()
     {
-        
+        int degree = PlayerPrefs.GetInt("CurrentMagnetLevel");
+        magnetTime = (degree) * 5 + 10;
+
     }
-
-    void setMagnetPowerup(int degree)
+    void GetShieldPowerUp()
     {
-        if (!PlayerPrefs.HasKey("MagnetTime"))
-        {
-            degree = 1;
-            PlayerPrefs.SetInt("MagnetTime", degree * 15);
-            PlayerPrefs.SetInt("MagnetDegree", degree);
-        }
-        else
-        {
-            MagnetTime = degree * 15;    
-            
-        }
+        int degree = PlayerPrefs.GetInt("CurrentShieldLevel");
+        magnetTime = (degree) * 5 + 10;
+
     }
 
     void setSafetyPowerup(int degree)
@@ -42,23 +32,41 @@ public class PowerUpManager : MonoBehaviour
             degree = 1;
             PlayerPrefs.SetInt("SafetyNetTime", degree * 15);
         }
-        SafetyNetTime = degree * 15;
+        safetyNetTime = degree * 15;
 
     }
+
+	// Use this for initialization
+	void Start () 
+    {
+        if (!PlayerPrefs.HasKey("CurrentShieldLevel"))
+        {
+            PlayerPrefs.SetInt("CurrentShieldLevel", 0);
+        }
+        if (!PlayerPrefs.HasKey("CurrentShieldLevel"))
+        {
+            PlayerPrefs.SetInt("CurrentShieldLevel", 0);
+        }
+        GetMaqgnetTime();
+        GetShieldPowerUp(); ;
+
+	}
     void Awake()
     {
         if (!PowerUpManager.Manager)
             PowerUpManager.Manager = this;
+        safetyNet = null;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+	
+	// Update is called once per frame
+	void Update () {
         if (GameManager.instance.Powerup == PowerUps.Magnet)
         {
             MagnetTimer += Time.deltaTime;
         }
-        if (MagnetTimer > MagnetTime)
+        if (MagnetTimer > magnetTime)
         {
             GameManager.instance.Powerup = PowerUps.None;
             MagnetTimer = 0;
@@ -67,13 +75,15 @@ public class PowerUpManager : MonoBehaviour
         {
             SafetyNetTimer += Time.deltaTime;
         }
-        if (MagnetTimer > SafetyNetTimer)
+        if (SafetyNetTimer > safetyNetTime)
         {
             GameManager.instance.Powerup = PowerUps.None;
+            Destroy(safetyNet.gameObject);
+            safetyNet = null;
             SafetyNetTimer = 0;
         }
-    }
-    public void GenerateNet()
+	}
+    public void GenerateNet() 
     {
         if (safetyNet == null)
         {

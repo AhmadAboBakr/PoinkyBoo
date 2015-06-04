@@ -153,7 +153,7 @@ public class TileGenerator : MonoBehaviour
         if (Physics.Raycast(new Vector3(0, -3, z), -Vector3.up, out r, float.MaxValue, 1 << 12))
         {
 
-            if (r.collider.tag == "Normal")
+            if (r.collider.tag == "Normal" || r.collider.tag == "DesertDoorIn")
             {
                 count++;
                 if (count > 10 && Random.Range(0, 4) == 0)
@@ -163,20 +163,23 @@ public class TileGenerator : MonoBehaviour
                 }
                 else
                 {
-                    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(Random.Range(-3, 4), 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(Random.Range(-3, 4)*0, 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
 
                 }
             }
-            else if (r.collider.tag == "Desert") //GameManager.instance.GameMode == Mode.Desert
+            else if (r.collider.tag == "Desert" || r.collider.tag == "DesertDoorOut") //GameManager.instance.GameMode == Mode.Desert
             {
-                tiles.Add((GameObject.Instantiate(desertTile, new Vector3(Random.Range(-3, 4), 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                tiles.Add((GameObject.Instantiate(desertTile, new Vector3(Random.Range(-3, 4) * 0, 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
             }
             else if (r.collider.tag == "Spiral" || r.collider.tag == "Door") //currentRoom == "Spiral"//GameManager.instance.GameMode == Mode.Spiral
             {
-                tiles.Add((GameObject.Instantiate(spiralTile, new Vector3(0, 3, z), Quaternion.Euler(0, 0, Random.Range(-90, 90))) as GameObject).GetComponent<Tile>());
+                tiles.Add((GameObject.Instantiate(spiralTile, new Vector3(0, 3, z), Quaternion.Euler(0, 0, Random.Range(-90, 90)*0)) as GameObject).GetComponent<Tile>());
                 // tiles[tiles.Count-1].transform.RotateAround(this.transform.position + new Vector3(0, 0, 0), Vector3.back, Random.Range(0, 45) * 8);
 
             }
+            else
+                tiles.Add((GameObject.Instantiate(normalTile, new Vector3(Random.Range(-3, 4) * 0, 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
+
         }
         else
         {

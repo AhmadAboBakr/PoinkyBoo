@@ -38,34 +38,40 @@ public class AchievementsHandler : MonoBehaviour {
 
         switch (HUDManager.instance.score)
         {
-            case 10:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
+            case 20:
+                Social.ReportProgress("CgkInbf4694CEAIQCw", 100, (bool success) =>
                 {
-                    
+                    //reach spiral
                 });
                 break;
-            case 50:
-                Social.ReportProgress("CgkInbf4694CEAIQAw", 100, (bool success) =>
+            case 35:
+                Social.ReportProgress("CgkInbf4694CEAIQDA", 100, (bool success) =>
                 {
-                    // handle success or failure
+                    // Reach desert
                 });
                 break;
-            case 100:
+            case 55:
                 Social.ReportProgress("CgkInbf4694CEAIQBA", 100, (bool success) =>
                 {
-                    // handle success or failure
+                    // reach lap second time
+                });
+                break;
+            case 110:
+                Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
+                {
+                    // Reach desert with water lesa
                 });
                 break;
             case 500:
-                Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
+                Social.ReportProgress("CgkInbf4694CEAIQDg", 100, (bool success) =>
                 {
-                    // handle success or failure
+                    // 500 tile
                 });
                 break;
             case 1000:
-                Social.ReportProgress("CgkInbf4694CEAIQBg", 100, (bool success) =>
+                Social.ReportProgress("CgkInbf4694CEAIQDg", 100, (bool success) =>
                 {
-                    // handle success or failure
+                    // another 1000 tile lesa
                 });
                 break;
             default:
@@ -77,15 +83,15 @@ public class AchievementsHandler : MonoBehaviour {
         switch (NumberOfMagnits)
         {
             case 2:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
+                Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
                 {
-
+                   //done magnet lover
                 });
                 break;
             case 5:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
+                Social.ReportProgress("CgkInbf4694CEAIQBg", 100, (bool success) =>
                 {
-
+                    //done center of attraction 
                 });
                 break;
             case 10:

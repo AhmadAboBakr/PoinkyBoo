@@ -37,7 +37,7 @@ public class HUDManager : MonoBehaviour {
     {
         score += multiplier;
         scoreText.text = "" + score;
-        if (score % 10 == 0)
+        if (score % 10== 0)
         {
             GlossingScript.glosser.changeColor();
             Time.timeScale += .1f;

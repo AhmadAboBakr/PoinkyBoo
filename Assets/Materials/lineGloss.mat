@@ -97,7 +97,7 @@ Material:
         second:
           m_Texture: {fileID: 2800000, guid: 7b4d542af1f059e42af26706d231782e, type: 3}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: .27053076}
+          m_Offset: {x: 0, y: .947538555}
     m_Floats:
       data:
         first:
@@ -161,6 +161,10 @@ Material:
         second: 0
       data:
         first:
+          name: _Lightmapping
+        second: 1
+      data:
+        first:
           name: V_CW_TAG
         second: 0
       data:
@@ -219,10 +223,6 @@ Material:
         first:
           name: _V_CW_Emission_Strength
         second: 1
-      data:
-        first:
-          name: _Lightmapping
-        second: 1
     m_Colors:
       data:
         first:
@@ -231,7 +231,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .999999762, g: .643137038, b: 1.34401611e-28, a: 1}
+        second: {r: 1.40129846e-45, g: .599999964, b: 1.40129846e-45, a: 1}
       data:
         first:
           name: _SpecColor

@@ -19,13 +19,19 @@ public class GlossingScript : MonoBehaviour {
     {
         rend = GetComponent<Renderer>();
 
-        colors[0] = new Color(20 / 255f, 128 / 255f, 34 / 255f);
-        colors[1] = new Color(1, 164 / 255.0f, 0);
-        colors[2] = new Color(129/255f, 129/255f , 129/255f);
-        colors[3] = new Color(56 / 255f, 58 / 255f, 153 / 255f);
-        colors[4] = new Color(0 / 255f, 126 / 255f, 126 / 255f);
-        colors[5] = new Color(103 / 255f, 91 / 255f, 131 / 255f);
-        colors[6] = new Color(113 / 255f, 30 / 255f, 200 / 255f); 
+        //
+        //
+        //
+        //
+        //
+        //
+        colors[0] = new Color(255/255,131/255f, 31/255f);//orange
+        colors[1] = new Color(255/255f, 0, 255/255f);//pink
+        colors[2] = new Color(0/255f, 153/255f, 0f);//green
+        colors[3] = new Color(102/255f, 0/255f, 102/255f);//blue
+        colors[4] = new Color(204/255f, 0/255f, 0/255f);//red
+        colors[5] = new Color(0/255f, 153/255f, 153/255f);
+        colors[6] = new Color(128/255f, 0/255f, 255/255f);
 
         index = 0;   
 
@@ -45,8 +51,8 @@ public class GlossingScript : MonoBehaviour {
 
          timer += Time.deltaTime;
 
-
-         this.rend.sharedMaterial.color = Color.Lerp(this.rend.sharedMaterial.color, colors[index], Time.deltaTime * 4);     
+         //this.rend.sharedMaterial.color = colors[index];
+         this.rend.sharedMaterial.color = Color.Lerp(this.rend.sharedMaterial.color, colors[index], Time.deltaTime*8);     
     }
     public void changeColor(){
         index = (index + 1) % colors.Length;

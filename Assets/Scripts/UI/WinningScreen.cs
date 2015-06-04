@@ -35,9 +35,9 @@ public class WinningScreen : MonoBehaviour
         }
         if (!GameJustStarted)
         {
+            Debug.Log("lol");
             GameManager.instance.isStarted = false;
             
-            RoomGenerator.generator.Clear();
             HUDManager.instance.gameObject.SetActive(false);
 
             GameManager.instance.isStarted = false;
@@ -91,6 +91,7 @@ public class WinningScreen : MonoBehaviour
 
     public void BtnPlayPressed()
     {
+        RoomGenerator.generator.Clear();
         GameManager.instance.isStarted = true;
         Time.timeScale = timeScale;
         GameManager.instance.Clear();
@@ -112,6 +113,8 @@ public class WinningScreen : MonoBehaviour
     //back to main menu
     public void BtnBackPressed()
     {
+        RoomGenerator.generator.Clear();
+
         this.gameObject.SetActive(false);
         //HUD.SetActive(false);
         HUDManager.instance.Clear();

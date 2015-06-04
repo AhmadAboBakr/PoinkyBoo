@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public enum Mode
 {
-    MainMode, Spiral, Desert
+    MainMode, Spiral, Desert, Water 
 }
 public enum PowerUps
 {
@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     public float timeScale;
     public float gravity = Physics.gravity.y;
-    float timer;
     float modeTimer;
     public string FacebookUserId;
 
@@ -133,16 +132,6 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (Powerup == PowerUps.Magnet)
-        {
-            timer += Time.deltaTime;
-        }
-        if (timer > 15)
-        {
-            Powerup = PowerUps.None;
-            timer = 0;
-        }
-
         //game modes
         //if (modeTimer > 1)
         //{
