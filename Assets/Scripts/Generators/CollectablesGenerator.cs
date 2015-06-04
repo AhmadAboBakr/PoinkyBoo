@@ -15,10 +15,12 @@ public class CollectablesGenerator : MonoBehaviour
     float random;
     float newrandom;
     int counter = 0;
+    RaycastHit r;
     void Awake()
     {
         if (!CollectablesGenerator.generator)
             CollectablesGenerator.generator = this;
+        GameManager.clear += Clear;
     }
 
     void Start()
@@ -29,8 +31,6 @@ public class CollectablesGenerator : MonoBehaviour
         collectables = new List<GameObject>();
         random = 0;
         newrandom = 0;
-        //randomgenerate = 13;
-        //magnetflag = true;
         for (int i = 1; i <= 18; i++)
         {
             if (i % 6 == 0)
@@ -87,17 +87,22 @@ public class CollectablesGenerator : MonoBehaviour
     }
     public void generate()
     {
-
-        counter++;
-        if (counter == 6)
+        if (Physics.Raycast(new Vector3(0, -3, speed*15), -Vector3.up, out r, float.MaxValue, 1 << 12))
         {
-            counter = 0;
-            random = newrandom;
-            newrandom = Random.Range(-1, 2) * 3;
-            for (int i = 1; i < 18; i++)
+            if (r.collider.tag != "Spiral")
             {
-                if (!(i % 6 == 0))
-                    collectables.Add(Instantiate(collectablePrefab, new Vector3((random + (newrandom - random) / 6 * (i % 6)), (speed * 2 / 6 * (i % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), ((speed / 6) * i) + speed * 13), Quaternion.identity) as GameObject);
+                counter++;
+                if (counter == 6)
+                {
+                    counter = 0;
+                    random = newrandom;
+                    newrandom = Random.Range(-1, 2) * 3;
+                    for (int i = 1; i < 18; i++)
+                    {
+                        if (!(i % 6 == 0))
+                            collectables.Add(Instantiate(collectablePrefab, new Vector3((random + (newrandom - random) / 6 * (i % 6)), (speed * 2 / 6 * (i % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), ((speed / 6) * i) + speed * 13), Quaternion.identity) as GameObject);
+                    }
+                }
             }
         }
     }

@@ -15,6 +15,7 @@ public class PowerUpGenerator : MonoBehaviour {
     float time;
     public float powerupdiff;
     int counter = 0;
+    RaycastHit r;
 	// Use this for initialization
     //public void generatePowerup() 
     //{
@@ -111,32 +112,37 @@ public class PowerUpGenerator : MonoBehaviour {
     public void Generate() 
     {
        //powerupsCour = StartCoroutine(PowerUpGenerator.generator.Generatepowerup());
-        if (powerupdiff <=0)
+        if (Physics.Raycast(new Vector3(0, -3, speed * (10) + 5), -Vector3.up, out r, float.MaxValue, 1 << 12))
         {
-            int type = Random.Range(0, 3);
-            //powerupdiff = Random.Range(15,20);
-           powerupdiff = Random.Range(15,20);
+            if (r.collider.tag != "Spiral")
+            {
+                if (powerupdiff <= 0)
+                {
+                    int type = Random.Range(0, 3);
+                    //powerupdiff = Random.Range(15,20);
+                    powerupdiff = Random.Range(15, 20);
 
-            random = 3 * Random.Range(-1, 2);
-            if (type == 0)
-            {
-                PowerUps.Add(Instantiate(Magnet, new Vector3(random*0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                    random = 3 * Random.Range(-1, 2);
+                    if (type == 0)
+                    {
+                        PowerUps.Add(Instantiate(Magnet, new Vector3(random * 0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
 
-            }
-            else if (type == 1)
-            {
-                PowerUps.Add(Instantiate(Sliding, new Vector3(random * 0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
-            }
-            else if (type == 2)
-            {
-                PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random * 0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                    }
+                    else if (type == 1)
+                    {
+                        PowerUps.Add(Instantiate(Sliding, new Vector3(random * 0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                    }
+                    else if (type == 2)
+                    {
+                        PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random * 0, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                    }
+                }
+                else
+                {
+                    powerupdiff--;
+                }
             }
         }
-        else
-        {
-            powerupdiff--;
-        }
-
     }
     public void StopGenerate()
     {

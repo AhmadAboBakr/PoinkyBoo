@@ -6207,7 +6207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5bb0eba498c804baaf1e41de111a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: .0500000007
+  scrollSpeed: .200000003
   rend: {fileID: 0}
   changeColourTime: 2
 --- !u!23 &1386081149

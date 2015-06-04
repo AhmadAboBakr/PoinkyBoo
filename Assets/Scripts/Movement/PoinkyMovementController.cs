@@ -185,7 +185,7 @@ public class PoinkyMovementController : MonoBehaviour
                 AchievementsHandler.instance.NumberOfSaftyNets++;
                 AchievementsHandler.instance.ReportShieldAchivement();
                 myRigidBody.velocity = new Vector3(0, 0, 0) + GameManager.instance.poinkySpeed;
-                GameObject.Destroy(other.gameObject);
+                //GameObject.Destroy(other.gameObject);
                 GameManager.instance.IsMoving = true;
             }
             else if (other.gameObject.CompareTag("SpiralTile"))
