@@ -25,16 +25,16 @@ public class PowerUpManager : MonoBehaviour
 
     }
 
-    void setSafetyPowerup(int degree)
-    {
-        if (!PlayerPrefs.HasKey("SafetyNetTime"))
-        {
-            degree = 1;
-            PlayerPrefs.SetInt("SafetyNetTime", degree * 15);
-        }
-        safetyNetTime = degree * 15;
+    //void setSafetyPowerup(int degree)
+    //{
+    //    if (!PlayerPrefs.HasKey("SafetyNetTime"))
+    //    {
+    //        degree = 1;
+    //        PlayerPrefs.SetInt("SafetyNetTime", degree * 15);
+    //    }
+    //    safetyNetTime = degree * 15;
 
-    }
+    //}
 
 	// Use this for initialization
 	void Start () 
@@ -86,9 +86,18 @@ public class PowerUpManager : MonoBehaviour
 	}
     public void GenerateNet() 
     {
+        Debug.Log(GameManager.instance.GameMode); //msh bttndh!
+
         if (safetyNet == null)
         {
-            safetyNet = Instantiate(slide, new Vector3(0, -0.19f, 37.31f), Quaternion.EulerAngles(0, 90 * Mathf.Deg2Rad, 0)) as GameObject;
+            if (GameManager.instance.GameMode != Mode.Spiral)
+            {
+                safetyNet = Instantiate(slide, new Vector3(0, -0.19f, 37.31f), Quaternion.EulerAngles(0, 90 * Mathf.Deg2Rad, 0)) as GameObject;
+            }
+            else
+            {
+                safetyNet = Instantiate(slide, new Vector3(0, -10.0f, 37.31f), Quaternion.EulerAngles(0, 90 * Mathf.Deg2Rad, 0)) as GameObject;
+            }
         }
         //(Instantiate(slide) as GameObject).transform.position = new Vector3(0, 0, 69.25f);
     }

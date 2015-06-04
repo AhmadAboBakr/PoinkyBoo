@@ -38,6 +38,11 @@ public class CameraMover : MonoBehaviour
                 CameraAnimator.SetBool("InDesert", true);
             }
         }
+        else
+        {
+            CameraAnimator.SetBool("InDesert", false);
+
+        }
     }
     public void CameraReturn()
     {

@@ -96,7 +96,7 @@ public class CollectablesGenerator : MonoBehaviour
             newrandom = Random.Range(-1, 2) * 3;
             for (int i = 1; i < 18; i++)
             {
-                if (!(i % 6 == 0))// || i % 6 == 2 || i % 6 == 4))
+                if (!(i % 6 == 0))
                     collectables.Add(Instantiate(collectablePrefab, new Vector3((random + (newrandom - random) / 6 * (i % 6)), (speed * 2 / 6 * (i % 6) + 0.5f * GameManager.instance.gravity * 2 / 6 * (i % 6) * 2 / 6 * (i % 6)), ((speed / 6) * i) + speed * 13), Quaternion.identity) as GameObject);
             }
         }

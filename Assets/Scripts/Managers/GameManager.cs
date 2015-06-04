@@ -100,10 +100,13 @@ public class GameManager : MonoBehaviour
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
         PlayGamesPlatform.InitializeInstance(config);
         // recommended for debugging:
-        PlayGamesPlatform.DebugLogEnabled = true;
+        PlayGamesPlatform.DebugLogEnabled = false;
         // Activate the Google Play Games platform
         PlayGamesPlatform.Activate();
+        Social.localUser.Authenticate((bool success) =>
+        {
 
+        });
         GameManager.instance = this;
         isStarted = false;
         isMoving = false;

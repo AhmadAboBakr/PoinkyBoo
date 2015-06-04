@@ -29,9 +29,10 @@ public class TutorialImages : MonoBehaviour {
  
    public void FadeReset()
    {
-       fade = Mathf.SmoothStep(0f, 1f, fadeSpeed);
-       imgLeft.color = new Color(1f, 1f, 1f, fade);
-       imgRight.color = new Color(1f, 1f, 1f, fade);
+       imgLeft.color = new Color(1f, 1f, 1f, 1);
+       imgRight.color = new Color(1f, 1f, 1f, 1);
+       fading = 1;
+       
    }
 
 	void Update () {
@@ -46,14 +47,11 @@ public class TutorialImages : MonoBehaviour {
             fading /= 1.5f;
             if (fading <= .01f)
             {
-                fading = 0;
-                break;
-                
+                fading = 0;                
             }
             imgLeft.color = new Color(1f, 1f, 1f, fading);
             imgRight.color = new Color(1f, 1f, 1f, fading);
             
         }
-        yield return null;
     }
 }
