@@ -22,6 +22,8 @@ public class TutorialImages : MonoBehaviour {
 
         //imgRight = GameObject.FindGameObjectWithTag("TutImgRight").GetComponent<Image>();
         //imgLeft = GameObject.FindGameObjectWithTag("TutImgLeft").GetComponent<Image>();
+        if (GameManager.instance.Input != InputMethod.buttons)
+            this.gameObject.SetActive(false);
         fadeSpeed = 0.8f;
         fading=1;
 	}

@@ -10,6 +10,8 @@ public class Tutorials : MonoBehaviour {
     public Text tabandholdText;
     public Text swipText;
     public Text tiltText;
+    public GameObject tutorialsPanel;
+    public GameObject TapandHoldPanel;
     /// 
 	// Use this for initialization
     void Awake()
@@ -24,49 +26,51 @@ public class Tutorials : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-         
-	if(Input.GetMouseButtonDown(0))
-    {
-        //if (InputManager.method == InputMethod.Touch)
-        //{
-            GameManager.instance.isStarted = true;
-            PowerUpGenerator.generator.Generate();
-            if (GameManager.instance.Input == InputMethod.Touch)
+        
+            if (Input.GetMouseButtonDown(0))
             {
-                swip.gameObject.SetActive(false);
-                swipText.enabled = false;
-            }
-            else if (GameManager.instance.Input == InputMethod.Accelerometer)
-            {
-                tilt.gameObject.SetActive(false);
-                tiltText.enabled = false;
-            }
-            else if (GameManager.instance.Input == InputMethod.buttons)
-            {
-                //tabandhold.gameObject.SetActive(false);
-                //tabandholdText.enabled = false;
-
-                //if (HUDManager.instance.score == 5)
+                //if (InputManager.method == InputMethod.Touch)
                 //{
-                //    TutorialImages.instance.FadeOut();
-                //}
-            }
-            this.gameObject.SetActive(false);
-            foreach (var item in GameObject.FindGameObjectsWithTag("Tutorials"))
-            {
-                if (item)
+                GameManager.instance.isStarted = true;
+               // PowerUpGenerator.generator.Generate();
+                if (GameManager.instance.Input == InputMethod.Touch)
                 {
-                    item.SetActive(false);
+                    swip.gameObject.SetActive(false);
+                    swipText.enabled = false;
                 }
-            }
+                else if (GameManager.instance.Input == InputMethod.Accelerometer)
+                {
+                    tilt.gameObject.SetActive(false);
+                    tiltText.enabled = false;
+                }
+                else if (GameManager.instance.Input == InputMethod.buttons)
+                {
+                    //tabandhold.gameObject.SetActive(false);
+                    tabandholdText.enabled = false;
 
-        //}
-    }
+                    //if (HUDManager.instance.score == 5)
+                    //{
+                    //    TutorialImages.instance.FadeOut();
+                    //}
+                }
+                this.gameObject.SetActive(false);
+                //foreach (var item in GameObject.FindGameObjectsWithTag("Tutorials"))
+                //{
+                //    if (item)
+                //    {
+                //        item.SetActive(false);
+                //    }
+                //}
+
+            }
+        
 	}
     public void tutorials()
     {
         //if (GameManager.manager.isStarted == true)
         //{
+        
+        Debug.Log("tutorials called");
         if (GameManager.instance.Input == InputMethod.Touch)
             {
                 tabandhold.gameObject.SetActive(false);
@@ -75,6 +79,7 @@ public class Tutorials : MonoBehaviour {
                 tabandholdText.enabled = false;
                 swip.gameObject.SetActive(true);
                 swipText.enabled = true;
+                TapandHoldPanel.SetActive(false);
             }
         else if (GameManager.instance.Input == InputMethod.Accelerometer)
             {
@@ -84,15 +89,16 @@ public class Tutorials : MonoBehaviour {
                 tabandholdText.enabled = false;
                 tilt.gameObject.SetActive(true);
                 tiltText.enabled = true;
+                TapandHoldPanel.SetActive(false);
             }
         else if (GameManager.instance.Input == InputMethod.buttons)
             {
-                //tilt.gameObject.SetActive(false);
-                //swip.gameObject.SetActive(false);
-                //tiltText.enabled = false;
-                //swipText.enabled = false;
-                //tabandhold.gameObject.SetActive(true);
-                //tabandholdText.enabled = true;
+                tilt.gameObject.SetActive(false);
+                swip.gameObject.SetActive(false);
+                tiltText.enabled = false;
+                swipText.enabled = false;
+                tabandhold.gameObject.SetActive(false);
+                tabandholdText.enabled = true;
             }
         //}
     }

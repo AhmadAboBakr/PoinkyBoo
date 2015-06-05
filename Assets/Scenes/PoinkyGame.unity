@@ -734,7 +734,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1922069188}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -7.62939453e-06, y: 9.53674316e-06}
@@ -1029,12 +1029,12 @@ RectTransform:
   m_Children:
   - {fileID: 1539222340}
   - {fileID: 1614845469}
-  m_Father: {fileID: 1922069188}
-  m_RootOrder: 0
+  m_Father: {fileID: 794554924}
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -3.83333635, y: -73.3335724}
+  m_SizeDelta: {x: 7, y: -146.669983}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &154839458
 MonoBehaviour:
@@ -1370,14 +1370,14 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
-    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_PressedColor: {r: .566176474, g: .723783016, b: .875, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
-    m_FadeDuration: .100000001
+    m_FadeDuration: 0
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 21eef68b4e7eb6c47afd699d392cc1f0, type: 3}
@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 7387094d5c09983459f4e88b5ff6e5eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4a76b51ffa96944ebd9a6fdce770d37, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2773,7 +2773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 103486, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 194422, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
       propertyPath: m_IsActive
@@ -2783,6 +2783,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11488844, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: tutorialsPanle
+      value: 
+      objectReference: {fileID: 794554923}
+    - target: {fileID: 11488844, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: tutorialsPanel
+      value: 
+      objectReference: {fileID: 794554923}
+    - target: {fileID: 11488844, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
+      propertyPath: TapandHoldPanel
+      value: 
+      objectReference: {fileID: 154839456}
     m_RemovedComponents:
     - {fileID: 11444736, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 22ed2c1d6eed96546b7274ef80040042, type: 2}
@@ -3791,7 +3803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &794554924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3806,6 +3818,7 @@ RectTransform:
   - {fileID: 1653720212}
   - {fileID: 498794210}
   - {fileID: 347582324}
+  - {fileID: 154839457}
   m_Father: {fileID: 1535058615}
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
@@ -4863,7 +4876,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Tab and hold right to move right and left to move left
 --- !u!1 &1110186585
 GameObject:
   m_ObjectHideFlags: 0
@@ -6743,7 +6756,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1922069188}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 6.10351562e-05, y: 0}
@@ -9254,7 +9267,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.04347825, y: 1.04347825, z: 1.04347825}
   m_Children:
-  - {fileID: 154839457}
   - {fileID: 1507446812}
   - {fileID: 120205710}
   m_Father: {fileID: 1535058615}

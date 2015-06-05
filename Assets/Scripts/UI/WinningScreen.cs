@@ -92,18 +92,25 @@ public class WinningScreen : MonoBehaviour
     public void BtnPlayPressed()
     {
         RoomGenerator.generator.Clear();
-        GameManager.instance.isStarted = true;
         Time.timeScale = timeScale;
         GameManager.instance.Clear();
         this.gameObject.SetActive(false);
         HUDManager.instance.gameObject.SetActive(true);
-        GameManager.instance.isStarted = true;
-        PowerUpGenerator.generator.Generate();
+        //GameManager.instance.isStarted = true;
+        //PowerUpGenerator.generator.Generate();
         //Dictionary<string, object> dict = new Dictionary<string, object>();
        // dict.Add("replay", true);
         //UnityAnalytics.CustomEvent("gameOver", dict);
         //GA.API.Design.NewEvent("Game:replay", 1);
-
+        Tutorials.instance.gameObject.SetActive(true);
+        Tutorials.instance.tutorialsPanel.SetActive(true);
+        GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
+        foreach (var item in ARR)
+        {
+            item.gameObject.SetActive(true);
+        }
+        Tutorials.instance.tutorials();
+       
         if (GameManager.instance.Input == InputMethod.buttons)
         {
             rightbutton.pressed = leftButton.pressed = false;
