@@ -41,25 +41,25 @@ public class AchievementsHandler : MonoBehaviour {
             case 20:
                 Social.ReportProgress("CgkInbf4694CEAIQCw", 100, (bool success) =>
                 {
-                    //reach spiral
+                    //reach spiral done
                 });
                 break;
-            case 35:
+            case 50:
                 Social.ReportProgress("CgkInbf4694CEAIQDA", 100, (bool success) =>
                 {
-                    // Reach desert
+                    // Reach desert done
                 });
                 break;
-            case 55:
-                Social.ReportProgress("CgkInbf4694CEAIQBA", 100, (bool success) =>
+            case 85:
+                Social.ReportProgress("CgkInbf4694CEAIQDQ", 100, (bool success) =>
                 {
-                    // reach lap second time
+                    // reach lap second time done
                 });
                 break;
-            case 110:
-                Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
+            case 105:
+                Social.ReportProgress("CgkInbf4694CEAIQEA", 100, (bool success) =>
                 {
-                    // Reach desert with water lesa
+                    // Reach desert with water lesa done
                 });
                 break;
             case 500:
@@ -69,7 +69,7 @@ public class AchievementsHandler : MonoBehaviour {
                 });
                 break;
             case 1000:
-                Social.ReportProgress("CgkInbf4694CEAIQDg", 100, (bool success) =>
+                Social.ReportProgress("CgkInbf4694CEAIQDw", 100, (bool success) =>
                 {
                     // another 1000 tile lesa
                 });
@@ -82,193 +82,160 @@ public class AchievementsHandler : MonoBehaviour {
     {
         switch (NumberOfMagnits)
         {
-            case 2:
+            case 5:
                 Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
                 {
                    //done magnet lover
                 });
                 break;
-            case 5:
+            case 15:
                 Social.ReportProgress("CgkInbf4694CEAIQBg", 100, (bool success) =>
                 {
                     //done center of attraction 
                 });
                 break;
-            case 10:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
+            case 50:
+                Social.ReportProgress("CgkInbf4694CEAIQEQ", 100, (bool success) =>
                 {
-
+                    //done king of magnits 
                 });
                 break;
-            case 15:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
-                {
-
-                });
-                break;
+            
             default:
                 break;
         }
     }
-    public void ReportShieldAchivement()
-    {
-        switch (NumberOfSaftyNets)
-        {
-            case 2:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
-                {
-
-                });
-                break;
-            case 5:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
-                {
-
-                });
-                break;
-            case 10:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
-                {
-
-                });
-                break;
-            case 15:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
-                {
-
-                });
-                break;
-            default:
-                break;
-        }
-    }
+    
     public void ReportCollectingCoinsInOneGame()
     {
         switch (HUDManager.instance.collectables)
         {
-            case 10:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
+            case 50:
+                Social.ReportProgress("CgkInbf4694CEAIQCQ", 100, (bool success) =>
                 {
 
                 });
                 break;
-            case 50:
-                Social.ReportProgress("CgkInbf4694CEAIQAw", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
             case 100:
-                Social.ReportProgress("CgkInbf4694CEAIQBA", 100, (bool success) =>
+                Social.ReportProgress("CgkInbf4694CEAIQFg", 100, (bool success) =>
                 {
                     // handle success or failure
                 });
                 break;
             case 500:
-                Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
+                Social.ReportProgress("CgkInbf4694CEAIQCg", 100, (bool success) =>
                 {
                     // handle success or failure
                 });
                 break;
-            case 1000:
-                Social.ReportProgress("CgkInbf4694CEAIQBg", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
+            default:
                 break;
         }
     }
-    public void ReportCollectingCoinsWithMagnetInOneGame()
-    {
-        
-        switch (NumOfCollectablesWithMagnet)
-        {
-            case 10:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
-                {
 
-                });
-                break;
-            case 50:
-                Social.ReportProgress("CgkInbf4694CEAIQAw", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
-            case 100:
-                Social.ReportProgress("CgkInbf4694CEAIQBA", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
-            case 500:
-                Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
-            case 1000:
-                Social.ReportProgress("CgkInbf4694CEAIQBg", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
-        }
-    }
-    public void ReportJumpingOnTilesWithSaftNetInOneGame()
-    {
-        switch (NumOfTilesWithSfatyNet)
-        {
-            case 10:
-                Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
-                {
-
-                });
-                break;
-            case 50:
-                Social.ReportProgress("CgkInbf4694CEAIQAw", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
-            case 100:
-                Social.ReportProgress("CgkInbf4694CEAIQBA", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
-            case 500:
-                Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
-            case 1000:
-                Social.ReportProgress("CgkInbf4694CEAIQBg", 100, (bool success) =>
-                {
-                    // handle success or failure
-                });
-                break;
-        }
-    }
     public void ReportTotalCoins(int numberOfCoins)
     {
-        PlayGamesPlatform.Instance.IncrementAchievement("ID", numberOfCoins, (bool success) =>
-      {
-          // handle success or failure
-      });
-        PlayGamesPlatform.Instance.IncrementAchievement("ID", numberOfCoins, (bool success) =>
+        PlayGamesPlatform.Instance.IncrementAchievement("CgkInbf4694CEAIQEg", numberOfCoins, (bool success) =>
         {
-            // handle success or failure
+            //number of coins 500
         });
-        PlayGamesPlatform.Instance.IncrementAchievement("ID", numberOfCoins, (bool success) =>
+        PlayGamesPlatform.Instance.IncrementAchievement("CgkInbf4694CEAIQEw", numberOfCoins, (bool success) =>
         {
-            // handle success or failure
+            // 1000
         });
-        PlayGamesPlatform.Instance.IncrementAchievement("ID", numberOfCoins, (bool success) =>
+        PlayGamesPlatform.Instance.IncrementAchievement("CgkInbf4694CEAIQFA", numberOfCoins, (bool success) =>
         {
-            // handle success or failure
+            // 5000
+        });
+        PlayGamesPlatform.Instance.IncrementAchievement("CgkInbf4694CEAIQFQ", numberOfCoins, (bool success) =>
+        {
+            // 5000
+        });
+        
+    }
+   
+    //public void ReportJumpingOnTilesWithSaftNetInOneGame()
+    //{
+    //    switch (NumOfTilesWithSfatyNet)
+    //    {
+    //        case 10:
+    //            Social.ReportProgress("CgkInbf4694CEAIQAg", 100, (bool success) =>
+    //            {
+
+    //            });
+    //            break;
+    //        case 50:
+    //            Social.ReportProgress("CgkInbf4694CEAIQAw", 100, (bool success) =>
+    //            {
+    //                // handle success or failure
+    //            });
+    //            break;
+    //        case 100:
+    //            Social.ReportProgress("CgkInbf4694CEAIQBA", 100, (bool success) =>
+    //            {
+    //                // handle success or failure
+    //            });
+    //            break;
+    //        case 500:
+    //            Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
+    //            {
+    //                // handle success or failure
+    //            });
+    //            break;
+    //        case 1000:
+    //            Social.ReportProgress("CgkInbf4694CEAIQBg", 100, (bool success) =>
+    //            {
+    //                // handle success or failure
+    //            });
+    //            break;
+    //    }
+    //}
+    
+    public void ReportShieldAchivement()
+    {
+        //get saved by saftynets 
+        PlayGamesPlatform.Instance.IncrementAchievement("CgkInbf4694CEAIQBw", 1, (bool success) =>
+        {
+            //living on the edge 10
+        });
+        PlayGamesPlatform.Instance.IncrementAchievement("CgkInbf4694CEAIQCA", 1, (bool success) =>
+        {
+            // 1000
+        });
+        PlayGamesPlatform.Instance.IncrementAchievement("CgkInbf4694CEAIQFw", 1, (bool success) =>
+        {
+            // 5000
         });
     }
+    //public void ReportCollectingCoinsWithMagnetInOneGame()
+    //{
 
+    //    switch (NumOfCollectablesWithMagnet)
+    //    {
+    //        case 50:
+    //            Social.ReportProgress("CgkInbf4694CEAIQAw", 100, (bool success) =>
+    //            {
+    //                // handle success or failure
+    //            });
+    //            break;
+    //        case 100:
+    //            Social.ReportProgress("CgkInbf4694CEAIQBA", 100, (bool success) =>
+    //            {
+    //                // handle success or failure
+    //            });
+    //            break;
+    //        case 500:
+    //            Social.ReportProgress("CgkInbf4694CEAIQBQ", 100, (bool success) =>
+    //            {
+    //                // handle success or failure
+    //            });
+    //            break;
+    //        case 1000:
+    //            Social.ReportProgress("CgkInbf4694CEAIQBg", 100, (bool success) =>
+    //            {
+    //                // handle success or failure
+    //            });
+    //            break;
+    //    }
+    //}
 }

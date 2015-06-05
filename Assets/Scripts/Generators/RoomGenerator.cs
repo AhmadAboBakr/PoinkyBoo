@@ -16,6 +16,8 @@ public class RoomGenerator : MonoBehaviour
     
 
     public GameObject[] doors;
+    public GameObject wallColliders;
+
     int count = 0;
     //  public GameObject[] spiralRoomsPrefab;
     float speed;
@@ -28,6 +30,7 @@ public class RoomGenerator : MonoBehaviour
     {
         generator = this;
         previousRoomMode = Mode.MainMode;
+      //  wallColliders.gameObject.SetActive(true);
         GameManager.clear += Clear;
     }
     void Start()
@@ -86,8 +89,15 @@ public class RoomGenerator : MonoBehaviour
             lastRoomLocation = -5;
         }
 
+        //if (GameManager.instance.GameMode != Mode.MainMode)
+        //{
+        //    wallColliders.gameObject.SetActive(false);
+        //}
+
         if (GameManager.instance.GameMode == Mode.MainMode)
         {
+           // wallColliders.gameObject.SetActive(true);
+
             if (previousRoomMode != Mode.Desert)
             {
                 random = Random.Range(0, roomPrefabs.Length);
@@ -101,6 +111,8 @@ public class RoomGenerator : MonoBehaviour
         }
         else if (GameManager.instance.GameMode == Mode.Desert)
         {
+            //wallColliders.gameObject.SetActive(false);
+
             if (previousRoomMode != Mode.Desert)
             {
                 rooms.Add(GameObject.Instantiate(DesertEntrance, new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
@@ -114,6 +126,8 @@ public class RoomGenerator : MonoBehaviour
         }
         else if (GameManager.instance.GameMode == Mode.Spiral)
         {
+           // wallColliders.gameObject.SetActive(true);
+
             if (previousRoomMode != Mode.Spiral)
             {
                 rooms.Add(GameObject.Instantiate(doors[0], new Vector3(0f, 4.59f, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
@@ -127,6 +141,8 @@ public class RoomGenerator : MonoBehaviour
         }
         else if (GameManager.instance.GameMode == Mode.Water)
         {
+            //wallColliders.gameObject.SetActive(false);
+
             if (previousRoomMode != Mode.Desert)
             {
                 rooms.Add(GameObject.Instantiate(DesertEntrance, new Vector3(0f, 3, lastRoomLocation), Quaternion.Euler(-90, 0, 0)) as GameObject);
@@ -142,7 +158,7 @@ public class RoomGenerator : MonoBehaviour
 
 
         count++;
-        int modeChanger = count% 40;
+        int modeChanger = count% 45;
 
         switch (modeChanger)
         {
@@ -154,10 +170,10 @@ public class RoomGenerator : MonoBehaviour
             case 30:
                 GameManager.instance.GameMode = Mode.MainMode;
                 break;
-            case 24:
+            case 25:
                 GameManager.instance.GameMode = Mode.Desert;
                 break;
-            case 34:
+            case 40:
                 GameManager.instance.GameMode = Mode.Water;
  
                 break;

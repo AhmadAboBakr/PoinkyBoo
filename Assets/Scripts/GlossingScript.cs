@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GlossingScript : MonoBehaviour {
     public static GlossingScript glosser;
-    public float scrollSpeed = 0.05F;
+    public float scrollSpeed = 2F;
     public Renderer rend;
     Color[] colors = new Color[7];
 
@@ -18,13 +18,6 @@ public class GlossingScript : MonoBehaviour {
     void Start()
     {
         rend = GetComponent<Renderer>();
-
-        //
-        //
-        //
-        //
-        //
-        //
         colors[0] = new Color(255/255,131/255f, 31/255f);//orange
         colors[1] = new Color(255/255f, 0, 255/255f);//pink
         colors[2] = new Color(0/255f, 153/255f, 0f);//green

@@ -127,14 +127,23 @@ public class WinningScreen : MonoBehaviour
     }
     public void Share()
     {
-        string link = "https://play.google.com/store/apps/details?id=com.ITI.poinky";
-        string pictureLink = "http://i.imgur.com/WD7nqDE.png";
-        string name="I'm Playing Poinky";
-        string caption="a new High score";
-        string description="just scored : "+HUDManager.instance.score;
-        Debug.Log(HUDManager.instance.score);
-        string redirectUri = "http://facebook.com/";
-        ShareToFacebook(link,name,caption,description,pictureLink,redirectUri);
+        FacebookIntegration.instance.Login();
+        if (FB.IsLoggedIn)
+        {
+            FacebookIntegration.instance.Share(HUDManager.instance.score.ToString());
+        }
+        else
+        {
+            string link = "https://play.google.com/store/apps/details?id=com.ITI.poinky";
+            string pictureLink = "http://i.imgur.com/WD7nqDE.png";
+            string name = "I'm Playing Poinky";
+            string caption = "a new High score";
+            string description = "just scored : " + HUDManager.instance.score;
+            Debug.Log(HUDManager.instance.score);
+            string redirectUri = "http://facebook.com/";
+            ShareToFacebook(link, name, caption, description, pictureLink, redirectUri);
+
+        }
     }
     void ShareToFacebook(string linkParameter, string nameParameter, string captionParameter, string descriptionParameter, string pictureParameter, string redirectParameter)
     {
