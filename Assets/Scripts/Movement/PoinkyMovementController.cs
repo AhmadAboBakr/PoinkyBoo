@@ -177,8 +177,7 @@ public class PoinkyMovementController : MonoBehaviour
             else if (other.gameObject.CompareTag("Room"))
             {
                 myRigidBody.velocity = new Vector3(this.transform.position.x - other.contacts[0].point.x * 1.5f, myRigidBody.velocity.y, 0);
-                AudioManager.instance.HitWall();
-
+                AudioManager.instanceHitWall.HitWall();
             }
             else if (other.gameObject.CompareTag("SafetyNet"))
             {
@@ -187,13 +186,14 @@ public class PoinkyMovementController : MonoBehaviour
                 myRigidBody.velocity = new Vector3(0, 0, 0) + GameManager.instance.poinkySpeed;
                 //GameObject.Destroy(other.gameObject);
                 GameManager.instance.IsMoving = true;
+
+                AudioManager.instanceCollect.CoinCollect(); //to be changed when we make new sound for the powerups
+
             }
             else if (other.gameObject.CompareTag("SpiralTile"))
             {
-
                 myRigidBody.velocity = new Vector3(0, 0, 0) + GameManager.instance.poinkySpeed;
                 JumpForward();
-
             }
         }
 
@@ -216,7 +216,7 @@ public class PoinkyMovementController : MonoBehaviour
             StartCoroutine("ResetCollisionStatus");
             GameManager.instance.IsMoving = true;
         }
-        AudioManager.instance.Jump();
+        AudioManager.instanceJump.Jump();
 
     }
 }
