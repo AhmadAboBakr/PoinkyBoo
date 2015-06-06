@@ -60,7 +60,7 @@ public class PauseMenu : MonoBehaviour {
         //GameManager.Move -= TileGenerator.instance.Move;
 
         ////commented after pasting
-        Time.timeScale = HUDManager.instance.currentTimeScale;
+        Time.timeScale = TileGenerator.instance.currentTimeScale;
        // Application.LoadLevel(Application.loadedLevel);
       //  HUDManager.instance.ispaused = false;
 
@@ -78,7 +78,7 @@ public class PauseMenu : MonoBehaviour {
     }
     public void ContinuePlay() 
     {
-        Time.timeScale = HUDManager.instance.currentTimeScale;
+        Time.timeScale = TileGenerator.instance.currentTimeScale;
         gameObject.SetActive(false);
         this.gameObject.SetActive(false);
         HUDManager.instance.gameObject.SetActive(true);

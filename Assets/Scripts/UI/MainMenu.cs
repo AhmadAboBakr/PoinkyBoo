@@ -9,11 +9,10 @@ public class MainMenu : MonoBehaviour
     public static MainMenu menu;
     public GameObject Options;
     public GameObject HUD;
+    public GameObject credits;
     float timeScale;
     bool tutorialsflag;
     public GameObject tutorials;
-    public Text ttttt;
-
     void Awake()
     {
         menu = this;
@@ -32,7 +31,7 @@ public class MainMenu : MonoBehaviour
         HUDManager.instance.gameObject.SetActive(false);
         PauseMenu.instance.gameObject.SetActive(false);
         Store.instance.gameObject.SetActive(false);
-        
+        // authenticate user:for google play
         
          timeScale = Time.timeScale;
     }
@@ -48,27 +47,21 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = GameManager.instance.timeScale;
         this.gameObject.SetActive(false);
         HUD.SetActive(true);
-        //if (!tutorialsflag)
-        //{
-      
-        Tutorials.instance.gameObject.SetActive(true);
-        Tutorials.instance.tutorialsPanel.SetActive(true);
-        if (GameManager.instance.Input == InputMethod.buttons)
+        if (!tutorialsflag)
         {
-                Tutorials.instance.TapandHoldPanel.SetActive(true);
+            Tutorials.instance.gameObject.SetActive(true);
+            GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
+            foreach (var item in ARR)
+            {
+                item.gameObject.SetActive(true);
+            }
+            Tutorials.instance.tutorials();
 
+            //tutorialsflag = true;
+            //}
+            //else
+            GameManager.instance.isStarted = false;
         }
-        GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
-        foreach (var item in ARR)
-        {
-            item.gameObject.SetActive(true);
-        }
-        Tutorials.instance.tutorials();
-       
-        //tutorialsflag = true;
-        //}
-        //else
-        //GameManager.instance.isStarted = true;
     }
 
     public void BtnOptionsPressed()
@@ -106,4 +99,9 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void BtnCredits()
+    {
+        credits.SetActive(true);
+    }
+
 }

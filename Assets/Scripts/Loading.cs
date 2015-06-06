@@ -11,10 +11,9 @@ public class Loading : MonoBehaviour {
 	}
     float time = 0;
 	// Update is called once per frame
-	void Update () {
-        time += Time.deltaTime;
-        if(time>3)
-            async.allowSceneActivation = true;
 
-	}
+    public void LoadScene()
+    {
+        async.allowSceneActivation = true;
+    }
 }

@@ -121,7 +121,7 @@ PlayerSettings:
   iOSLaunchScreenCustomXibPath: 
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: C:/Users/alaa0_000/Desktop/Poinky.keystore
+  AndroidKeystoreName: D:/Projects/GraduationProjects_ITI/PoinkyEsraa/Assets/Poinky.keystore
   AndroidKeyaliasName: poinky
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

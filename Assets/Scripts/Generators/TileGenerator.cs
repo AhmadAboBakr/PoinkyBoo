@@ -13,7 +13,7 @@ public class TileGenerator : MonoBehaviour
     int index;
     int count;
     float time;
-    float startTimeScale, EndTimeScale = 1.8f, currentTimeScale;
+    public float startTimeScale, EndTimeScale = 1.8f, currentTimeScale;
 
     int score=-1;
     public Tile CurrentTile

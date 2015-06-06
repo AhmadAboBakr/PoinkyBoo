@@ -8,7 +8,6 @@ public class HUDManager : MonoBehaviour {
     public int score;
     public int collectables;
     public bool ispaused = false;
-    public float currentTimeScale;
     float startTimeScale, EndTimeScale=2;
     Text scoreText;
     Text collectablesText;
