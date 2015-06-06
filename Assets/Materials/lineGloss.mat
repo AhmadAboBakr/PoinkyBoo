@@ -79,13 +79,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Illum
-        second:
-          m_Texture: {fileID: 2800000, guid: 7b4d542af1f059e42af26706d231782e, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: .814189076}
-      data:
-        first:
           name: _Cube
         second:
           m_Texture: {fileID: 0}
@@ -98,6 +91,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Illum
+        second:
+          m_Texture: {fileID: 2800000, guid: 7b4d542af1f059e42af26706d231782e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: .610788107}
     m_Floats:
       data:
         first:
@@ -123,10 +123,6 @@ Material:
         first:
           name: _Parallax
         second: .0199999996
-      data:
-        first:
-          name: _Lightmapping
-        second: 1
       data:
         first:
           name: _ZWrite
@@ -163,6 +159,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _Lightmapping
+        second: 1
       data:
         first:
           name: V_CW_TAG

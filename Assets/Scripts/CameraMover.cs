@@ -46,20 +46,20 @@ public class CameraMover : MonoBehaviour
     }
     public void CameraReturn()
     {
-        CameraAnimator.SetBool("InDesert", false);
-        Debug.Log("rage3");
+        //CameraAnimator.SetBool("InDesert", false);
+        //Debug.Log("rage3");
 
-        //if (Physics.Raycast(new Vector3(0, -3, this.transform.position.z + 10), -Vector3.up, out r, float.MaxValue, 1 << 12))
-        //{
-        //    if (r.collider.tag == "Normal" || r.collider.tag == "DesertDoorOut")
-        //    {
-        //        CameraAnimator.SetBool("InDesert", false);
-        //    }
-        //    else if (r.collider.tag == "Desert" || r.collider.tag == "DesertDoorIn")
-        //    {
-        //        CameraAnimator.SetBool("InDesert", true);
-        //    }
-        //}
+        if (Physics.Raycast(new Vector3(0, -3, this.transform.position.z + 10), -Vector3.up, out r, float.MaxValue, 1 << 12))
+        {
+            if (r.collider.tag == "Normal" || r.collider.tag == "DesertDoorOut")
+            {
+                CameraAnimator.SetBool("InDesert", false);
+            }
+            else if (r.collider.tag == "Desert" || r.collider.tag == "DesertDoorIn")
+            {
+                CameraAnimator.SetBool("InDesert", true);
+            }
+        }
        
     }
     public void Death()

@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
         HUDManager.instance.gameObject.SetActive(false);
         PauseMenu.instance.gameObject.SetActive(false);
         Store.instance.gameObject.SetActive(false);
-        // authenticate user:for google play
+        
         
          timeScale = Time.timeScale;
     }
@@ -50,18 +50,25 @@ public class MainMenu : MonoBehaviour
         HUD.SetActive(true);
         //if (!tutorialsflag)
         //{
-        //Tutorials.instance.gameObject.SetActive(true);
-        //GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
-        //foreach (var item in ARR)
-        //{
-        //    item.gameObject.SetActive(true);
-        //}
-        //Tutorials.instance.tutorials();
+      
+        Tutorials.instance.gameObject.SetActive(true);
+        Tutorials.instance.tutorialsPanel.SetActive(true);
+        if (GameManager.instance.Input == InputMethod.buttons)
+        {
+                Tutorials.instance.TapandHoldPanel.SetActive(true);
+
+        }
+        GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
+        foreach (var item in ARR)
+        {
+            item.gameObject.SetActive(true);
+        }
+        Tutorials.instance.tutorials();
        
         //tutorialsflag = true;
         //}
         //else
-        GameManager.instance.isStarted = true;
+        //GameManager.instance.isStarted = true;
     }
 
     public void BtnOptionsPressed()
@@ -74,8 +81,7 @@ public class MainMenu : MonoBehaviour
 
     public void BtnStorePressed()
     {
-        Social.ShowAchievementsUI();
-
+        
         this.gameObject.SetActive(false);
         GameManager.instance.IsMoving = false;
         Store.instance.gameObject.SetActive(true);
@@ -83,22 +89,17 @@ public class MainMenu : MonoBehaviour
 
     public void BtnMorePressed()
     {       
-        FacebookIntegration.instance.Login();
+        Social.ShowAchievementsUI();
+
     }
 
     public void BtnLeaderboardPressed()
     {
         Social.localUser.Authenticate((bool success) =>
         {
-            if (success)
-                ttttt.text = "success";
-            else
-                ttttt.text = "failure";
-            // handle success or failure
+           
         });
-    // show leaderboard UI
         PlayGamesPlatform.Instance.ShowLeaderboardUI();
-        Debug.Log("kotomoto");
     }
 
     public void BtnQuitPressed()

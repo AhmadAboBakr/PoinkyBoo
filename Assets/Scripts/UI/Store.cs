@@ -22,10 +22,8 @@ public class Store : MonoBehaviour
     {
         instance = this;
     }
-
-    void Start()
+    void OnEnable()
     {
-        getCollectablesCount();
         if (!PlayerPrefs.HasKey("CurrentMagnetLevel"))
         {
             PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
@@ -36,12 +34,8 @@ public class Store : MonoBehaviour
             PlayerPrefs.SetInt("CurrentShieldLevel", 0);
         }
 
-        currentDegreeMagnet =  PlayerPrefs.GetInt("CurrentMagnetLevel");
-        currentDegreeSafety =  PlayerPrefs.GetInt("CurrentShieldLevel");
-
-
-        //getDegree();
-        //PlayerPrefs.HasKey("degreeMagnet")
+        currentDegreeMagnet = PlayerPrefs.GetInt("CurrentMagnetLevel");
+        currentDegreeSafety = PlayerPrefs.GetInt("CurrentShieldLevel");
         txtMagnetPrice.text = getPowerPrice(currentDegreeMagnet).ToString();
         txtSafetyPrice.text = getPowerPrice(currentDegreeSafety).ToString();
 
@@ -53,8 +47,19 @@ public class Store : MonoBehaviour
                 {
                     degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().gameObject.SetActive(true);
                 }
+                for (int i = 0; i < currentDegreeMagnet; i++)
+                {
+                    degreeMagnetImgs[currentDegreeMagnet].GetComponent<Image>().gameObject.SetActive(true);
+                }
             }
         }
+
+    }
+    void Start()
+    {
+        getCollectablesCount();
+
+       
 
         //for (int i = 0; i < 5; i++) //degreeMagnetImgs.Length
         //{

@@ -158,7 +158,7 @@ public class RoomGenerator : MonoBehaviour
 
 
         count++;
-        int modeChanger = count% 40;
+        int modeChanger = count% 45;
 
         switch (modeChanger)
         {
@@ -170,10 +170,10 @@ public class RoomGenerator : MonoBehaviour
             case 30:
                 GameManager.instance.GameMode = Mode.MainMode;
                 break;
-            case 24:
+            case 25:
                 GameManager.instance.GameMode = Mode.Desert;
                 break;
-            case 34:
+            case 40:
                 GameManager.instance.GameMode = Mode.Water;
  
                 break;

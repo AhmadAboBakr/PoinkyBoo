@@ -43,9 +43,9 @@ public class PowerUpManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("CurrentShieldLevel", 0);
         }
-        if (!PlayerPrefs.HasKey("CurrentShieldLevel"))
+        if (!PlayerPrefs.HasKey("CurrentMagnetLevel"))
         {
-            PlayerPrefs.SetInt("CurrentShieldLevel", 0);
+            PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
         }
         GetMaqgnetTime();
         GetShieldPowerUp(); ;
@@ -65,6 +65,7 @@ public class PowerUpManager : MonoBehaviour
         if (GameManager.instance.Powerup == PowerUps.Magnet)
         {
             MagnetTimer += Time.deltaTime;
+
         }
         if (MagnetTimer > magnetTime)
         {
