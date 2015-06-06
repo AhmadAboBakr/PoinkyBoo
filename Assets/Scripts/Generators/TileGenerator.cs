@@ -13,6 +13,9 @@ public class TileGenerator : MonoBehaviour
     int index;
     int count;
     float time;
+    float startTimeScale, EndTimeScale = 1.8f, currentTimeScale;
+
+    int score=-1;
     public Tile CurrentTile
     {
         get
@@ -29,12 +32,15 @@ public class TileGenerator : MonoBehaviour
             GameManager.Move += this.Move;
             GameManager.clear += Clear;
         }
+        currentTimeScale = startTimeScale = Time.timeScale;
+
     }
 
     void Start()
     {
         index = 0;
         count = 0;
+
         tiles = new List<Tile>();
         speed = GameManager.instance.poinkySpeed.y;
         time = -2 * speed / Physics.gravity.y;
@@ -44,6 +50,9 @@ public class TileGenerator : MonoBehaviour
         {
             GenerateTile(speed * i);
         }
+        Time.timeScale=currentTimeScale = startTimeScale;
+        
+        score = 0;
 
     }
     void Update()
@@ -146,6 +155,18 @@ public class TileGenerator : MonoBehaviour
     }
     public void GenerateTile(float z)
     {
+        if (score > -1)
+        {
+            score++;
+            if (score % 10 == 0)
+            {
+                GlossingScript.glosser.changeColor();
+                Time.timeScale += .1f;
+                if (Time.timeScale >= EndTimeScale) Time.timeScale = EndTimeScale;
+                currentTimeScale = Time.timeScale;
+            }
+        }
+           
         Vector3 positionOfTile = new Vector3(0, -16, z);
 
         //  var currentRoom = Physics.OverlapSphere(positionOfTile, 1f /* Radius */)[0].gameObject.tag;
@@ -166,27 +187,27 @@ public class TileGenerator : MonoBehaviour
                 }
                 else
                 {
-                    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(Random.Range(-3, 4), 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                    tiles.Add((GameObject.Instantiate(normalTile, new Vector3(Random.Range(-3, 4)*0, 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
 
                 }
             }
             else if (r.collider.tag == "Desert" || r.collider.tag == "DesertDoorOut") //GameManager.instance.GameMode == Mode.Desert
             {
-                tiles.Add((GameObject.Instantiate(desertTile, new Vector3(Random.Range(-3, 4) , 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                tiles.Add((GameObject.Instantiate(desertTile, new Vector3(Random.Range(-3, 4)*0 , 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
             }
             else if (r.collider.tag == "Spiral" || r.collider.tag == "Door") //currentRoom == "Spiral"//GameManager.instance.GameMode == Mode.Spiral
             {
-                tiles.Add((GameObject.Instantiate(spiralTile, new Vector3(0, 3, z), Quaternion.Euler(0, 0, Random.Range(-90, 90))) as GameObject).GetComponent<Tile>());
+                tiles.Add((GameObject.Instantiate(spiralTile, new Vector3(0, 3, z), Quaternion.Euler(0, 0, Random.Range(-90, 90)*0)) as GameObject).GetComponent<Tile>());
                 // tiles[tiles.Count-1].transform.RotateAround(this.transform.position + new Vector3(0, 0, 0), Vector3.back, Random.Range(0, 45) * 8);
 
             }
             else
-                tiles.Add((GameObject.Instantiate(normalTile, new Vector3(Random.Range(-3, 4) , 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
+                tiles.Add((GameObject.Instantiate(normalTile, new Vector3(Random.Range(-3, 4)*0 , 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
 
         }
         else
         {
-            tiles.Add((GameObject.Instantiate(normalTile, new Vector3( Random.Range(-3, 4), 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
+            tiles.Add((GameObject.Instantiate(normalTile, new Vector3( Random.Range(-3, 4)*0, 0, z), Quaternion.identity) as GameObject).GetComponent<Tile>());
         }
     }
 }

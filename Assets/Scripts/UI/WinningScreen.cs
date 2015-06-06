@@ -91,6 +91,10 @@ public class WinningScreen : MonoBehaviour
 
     public void BtnPlayPressed()
     {
+        if (GameManager.instance.Input == InputMethod.buttons)
+        {
+            rightbutton.pressed = leftButton.pressed = false;
+        }
         RoomGenerator.generator.Clear();
         Time.timeScale = timeScale;
         GameManager.instance.Clear();
@@ -111,10 +115,8 @@ public class WinningScreen : MonoBehaviour
         }
         Tutorials.instance.tutorials();
        
-        if (GameManager.instance.Input == InputMethod.buttons)
-        {
-            rightbutton.pressed = leftButton.pressed = false;
-        }
+
+        //TileGenerator.instance.CurrentTile.Move(-1800);
     }   
 
     //back to main menu
