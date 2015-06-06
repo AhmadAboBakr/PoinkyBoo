@@ -80,7 +80,7 @@ public class Collectable : MonoBehaviour
             HUDManager.instance.increaseCollectables();
             CollectablesGenerator.generator.EatCollectable(gameObject);
             
-            AudioManager.instance.CoinCollect();
+            AudioManager.instanceCollect.CoinCollect();
             AchievementsHandler.instance.ReportCollectingCoinsInOneGame();
         }
 
