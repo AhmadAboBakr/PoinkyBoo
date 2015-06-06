@@ -178,7 +178,7 @@ public class PoinkyMovementController : MonoBehaviour
             else if (other.gameObject.CompareTag("Room"))
             {
                 myRigidBody.velocity = new Vector3(this.transform.position.x - other.contacts[0].point.x * 1.5f, myRigidBody.velocity.y, 0);
-                AudioManager.instance.HitWall();
+               // AudioManager.instance. ();
 
             }
             else if (other.gameObject.CompareTag("SafetyNet"))
