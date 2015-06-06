@@ -164,11 +164,11 @@ public class Store : MonoBehaviour
     {
         if(degree<4)
         {
-            return (degree + 1) * 500;
+            return (degree + 1) * 12;
         }
         else
         {
-            return (5) * 500;
+            return (5) * 12;
         }
     }
     void getCollectablesCount()
@@ -188,9 +188,9 @@ public class Store : MonoBehaviour
         //PlayerPrefs.collectibles.toInt -= amount;
 
         // getCollectablesCount();
-        if (collectablesCount >= 500 * (degree + 1) && degree < 5) //because the 1st digree is 0
+        if (collectablesCount >= 12 * (degree + 1) && degree < 5) //because the 1st digree is 0
         {
-            collectablesCount = collectablesCount - 500 * (degree + 1);
+            collectablesCount = collectablesCount - 12 * (degree + 1);
             txtCollectablesCount.text = collectablesCount.ToString();
             collectablesTotal.instance.change(collectablesCount);
             return true;
