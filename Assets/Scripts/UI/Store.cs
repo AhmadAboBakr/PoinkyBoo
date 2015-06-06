@@ -44,8 +44,8 @@ public class Store : MonoBehaviour
         }
 
         ////for testing
-        PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
-        PlayerPrefs.SetInt("CurrentShieldLevel", 0);
+        //PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
+        //PlayerPrefs.SetInt("CurrentShieldLevel", 0);
         //currentDegreeMagnet = 0;
         //currentDegreeSafety = 0;
         ////end for testing
