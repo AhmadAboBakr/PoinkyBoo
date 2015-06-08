@@ -173,7 +173,7 @@ public class RoomGenerator : MonoBehaviour
             case 25:
                 GameManager.instance.GameMode = Mode.Desert;
                 break;
-            case 5:
+            case 40:
                 GameManager.instance.GameMode = Mode.Water;
                 break;
             default:

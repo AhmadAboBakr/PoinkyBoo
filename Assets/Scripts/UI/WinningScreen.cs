@@ -136,12 +136,15 @@ public class WinningScreen : MonoBehaviour
     }
     public void Share()
     {
+        #if UNITY_ANDROID
+
         FacebookIntegration.instance.Login();
         if (FB.IsLoggedIn)
         {
             FacebookIntegration.instance.Share(HUDManager.instance.score.ToString());
         }
         else
+        #endif
         {
             string link = "https://play.google.com/store/apps/details?id=com.ITI.poinky";
             string pictureLink = "http://i.imgur.com/WD7nqDE.png";

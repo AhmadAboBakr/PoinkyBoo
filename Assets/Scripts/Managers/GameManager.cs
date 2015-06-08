@@ -96,6 +96,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+#if UNITY_ANDROID
+        Debug.Log("Unity Editor");
         FB.Init(SetInit, OnHideUnity);
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
         PlayGamesPlatform.InitializeInstance(config);
@@ -103,6 +105,8 @@ public class GameManager : MonoBehaviour
         PlayGamesPlatform.DebugLogEnabled = false;
         // Activate the Google Play Games platform
         PlayGamesPlatform.Activate();
+#endif
+        
         Social.localUser.Authenticate((bool success) =>
         {
 
@@ -128,7 +132,6 @@ public class GameManager : MonoBehaviour
         }
         timeScale = Time.timeScale;
         GameMode = Mode.MainMode;
-
     }
     void Start()
     {
