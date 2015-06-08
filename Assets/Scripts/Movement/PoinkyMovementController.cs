@@ -109,16 +109,23 @@ public class PoinkyMovementController : MonoBehaviour
             if (other.gameObject.CompareTag("Magnet"))
             {
                 GameManager.instance.Powerup = PowerUps.Magnet;
+                PowerUpManager.Manager.eatMagnet();
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 AchievementsHandler.instance.NumberOfMagnits++;
                 AchievementsHandler.instance.ReportMagnetAchivement();
+
+                AudioManager.instanceCollect.CoinCollect(); //to be changed when we make new sound for the powerups
+
 
             }
             else if (other.gameObject.CompareTag("Sliding"))
             {
                 GameManager.instance.Powerup = PowerUps.SafetyNet;
+                PowerUpManager.Manager.eatSafteyNet();
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 PowerUpManager.Manager.GenerateNet();
+                
+                AudioManager.instanceCollect.CoinCollect(); //to be changed when we make new sound for the powerups
 
             }
             else if (other.gameObject.CompareTag("PoinkyMultiplier"))
@@ -126,6 +133,9 @@ public class PoinkyMovementController : MonoBehaviour
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 PowerUpGenerator.generator.EatPowerup(other.gameObject);
                 PowerUpManager.Manager.MultiplyPoinky(this.gameObject);
+
+                AudioManager.instanceCollect.CoinCollect(); //to be changed when we make new sound for the powerups
+
             }
             else if (other.CompareTag("Room"))
             {
@@ -186,10 +196,8 @@ public class PoinkyMovementController : MonoBehaviour
                 AchievementsHandler.instance.ReportShieldAchivement();
                 myRigidBody.velocity = new Vector3(0, 0, 0) + GameManager.instance.poinkySpeed;
                 //GameObject.Destroy(other.gameObject);
-                GameManager.instance.IsMoving = true;
-
-                AudioManager.instanceCollect.CoinCollect(); //to be changed when we make new sound for the powerups
-
+                //GameManager.instance.IsMoving = true;
+                JumpForward();
             }
             else if (other.gameObject.CompareTag("SpiralTile"))
             {
@@ -205,7 +213,7 @@ public class PoinkyMovementController : MonoBehaviour
     }
     IEnumerator ResetCollisionStatus()
     {
-        yield return new WaitForSeconds(.8f/Time.timeScale);
+        yield return new WaitForSeconds(.95f/Time.timeScale);
         Hitile = false;
     }
     void JumpForward()

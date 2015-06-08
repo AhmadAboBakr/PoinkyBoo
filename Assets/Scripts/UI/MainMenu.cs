@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     float timeScale;
     bool tutorialsflag;
     public GameObject tutorials;
-    void Awake()
+     void Awake()
     {
         menu = this;
         tutorialsflag = false;
@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
         
          timeScale = Time.timeScale;
     }
-    void Update()
+   void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -50,11 +50,13 @@ public class MainMenu : MonoBehaviour
         if (!tutorialsflag)
         {
             Tutorials.instance.gameObject.SetActive(true);
+            Tutorials.instance.TapandHoldPanel.SetActive(true);
             GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
             foreach (var item in ARR)
             {
                 item.gameObject.SetActive(true);
             }
+            TutorialImages.instance.FadeReset();
             Tutorials.instance.tutorials();
 
             //tutorialsflag = true;
@@ -72,14 +74,13 @@ public class MainMenu : MonoBehaviour
     }
 
 
-    public void BtnStorePressed()
+   public void BtnStorePressed()
     {
         
         this.gameObject.SetActive(false);
         GameManager.instance.IsMoving = false;
         Store.instance.gameObject.SetActive(true);
     }
-
     public void BtnMorePressed()
     {       
         Social.ShowAchievementsUI();
@@ -103,5 +104,11 @@ public class MainMenu : MonoBehaviour
     {
         credits.SetActive(true);
     }
-
 }
+
+
+
+    
+
+    
+

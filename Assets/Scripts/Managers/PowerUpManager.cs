@@ -9,27 +9,41 @@ public class PowerUpManager : MonoBehaviour
     public GameObject slide;
     public static PowerUpManager Manager;
     public GameObject safetyNet = null;
-    float MagnetTimer;
-    float SafetyNetTimer;
+    public float MagnetTimer;
+    public float SafetyNetTimer;
     public int magnetTime;
     public int safetyNetTime;
     int degreeMagnet, degreeSafety;
 
-    public Text counter;
-    public Image filledimage;
-    public Image background;
-
+    public Text  Magnetcounter;
+    public Image Magnetfilledimage;
+    public Image Magnetbackground;
+    public Text  SafetyNetcounter;
+    public Image SafetyNetfilledimage;
+    public Image SafetyNetbackground;
+     
     void GetMaqgnetTime()
     {
+        if (PlayerPrefs.GetInt("CurrentMagnetLevel") == null)
+        {
+            PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
+        }
+
         int degree = PlayerPrefs.GetInt("CurrentMagnetLevel");
-        magnetTime = (degree) * 5 + 15;
+        magnetTime = (degree * 5) + 10;
+       
+
 
     }
     void GetShieldPowerUp()
     {
-        int degree = PlayerPrefs.GetInt("CurrentShieldLevel");
-        safetyNetTime = (degree) * 5 + 15;
+        if(PlayerPrefs.GetInt("CurrentShieldLevel") == null)
+        {
+            PlayerPrefs.SetInt("CurrentShieldLevel", 0);
+        }
 
+        int degree = PlayerPrefs.GetInt("CurrentMagnetLevel");
+        safetyNetTime = (degree * 5) + 10;        
     }
 
   
@@ -44,7 +58,6 @@ public class PowerUpManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
         }
         GetMaqgnetTime();
-        GetShieldPowerUp();
         
 	}
     void Awake()
@@ -57,29 +70,27 @@ public class PowerUpManager : MonoBehaviour
     {
         if(GameManager.instance.Powerup!=PowerUps.None)
         {
-            background.gameObject.SetActive(true);
-            GetMaqgnetTime();
             GetShieldPowerUp();
         }
         if (GameManager.instance.Powerup == PowerUps.Magnet)
         {
             MagnetTimer += Time.deltaTime;
-            int x = magnetTime-(int)MagnetTimer;
-            counter.text = x+"";
-            filledimage.fillAmount =1-( MagnetTimer*1.0f / magnetTime);
+            int x = magnetTime - (int)MagnetTimer;
+            Magnetcounter.text = x + "";
+            Magnetfilledimage.fillAmount = 1 - (MagnetTimer * 1.0f / magnetTime);
         }
         if (MagnetTimer > magnetTime)
         {
             GameManager.instance.Powerup = PowerUps.None;
             MagnetTimer = 0;
-            background.gameObject.SetActive(false);
+            Magnetbackground.gameObject.SetActive(false);
         }
         if (GameManager.instance.Powerup == PowerUps.SafetyNet)
         {
             SafetyNetTimer += Time.deltaTime;
-            int x =safetyNetTime- (int)SafetyNetTimer;
-            counter.text = x + "";
-            filledimage.fillAmount =1-( SafetyNetTimer * 1.0f / safetyNetTime);
+            int x = safetyNetTime - (int)SafetyNetTimer;
+            SafetyNetcounter.text = x + "";
+            SafetyNetfilledimage.fillAmount = 1 - (SafetyNetTimer * 1.0f / safetyNetTime);
         }
         if (SafetyNetTimer > safetyNetTime)
         {
@@ -87,7 +98,7 @@ public class PowerUpManager : MonoBehaviour
             Destroy(safetyNet.gameObject);
             safetyNet = null;
             SafetyNetTimer = 0;
-            background.gameObject.SetActive(false);
+            SafetyNetbackground.gameObject.SetActive(false);
 
         }
 	}
@@ -112,5 +123,31 @@ public class PowerUpManager : MonoBehaviour
         Instantiate(poinky, new Vector3(-2, poinky.gameObject.transform.position.y, 0), Quaternion.identity);
         GameManager.instance.NumOfPoinky += 2;
     }
+    public void ClearTimer()
+    {
+        Magnetcounter.text = "";
+        Magnetfilledimage.fillAmount = 1;
+        Magnetbackground.gameObject.SetActive(false);
+        SafetyNetcounter.text = "";
+        SafetyNetfilledimage.fillAmount = 1;
+        SafetyNetbackground.gameObject.SetActive(false);
+    }
+    public void eatMagnet()
+    {
+        GetMaqgnetTime();
+        Magnetbackground.gameObject.SetActive(true);
+        MagnetTimer = 0;
+        int x = magnetTime - (int)MagnetTimer;
+        Magnetcounter.text = x + "";
 
+    }
+    public void eatSafteyNet()
+    {
+        GetShieldPowerUp();
+        SafetyNetbackground.gameObject.SetActive(true);
+        SafetyNetTimer = 0;
+        int x = safetyNetTime - (int)SafetyNetTimer;
+        SafetyNetcounter.text = x + "";
+
+    }
 }

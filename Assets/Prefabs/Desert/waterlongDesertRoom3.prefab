@@ -253,7 +253,7 @@ GameObject:
   - 65: {fileID: 6543496}
   m_Layer: 12
   m_Name: Room_4_sand
-  m_TagString: Desert
+  m_TagString: WaterDesert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,7 +415,7 @@ GameObject:
   - 65: {fileID: 6505500}
   m_Layer: 12
   m_Name: Room_4_sand
-  m_TagString: Desert
+  m_TagString: WaterDesert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,7 +589,7 @@ GameObject:
   - 65: {fileID: 6516450}
   m_Layer: 12
   m_Name: Room_2_sand
-  m_TagString: Desert
+  m_TagString: WaterDesert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -946,7 +946,7 @@ GameObject:
   - 65: {fileID: 6518984}
   m_Layer: 12
   m_Name: Room_3_sand
-  m_TagString: Desert
+  m_TagString: WaterDesert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1120,7 +1120,7 @@ GameObject:
   - 4: {fileID: 405796}
   m_Layer: 0
   m_Name: waterlongDesertRoom3
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1612,7 +1612,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 19.4174671, y: 30.6650467, z: 250.416611}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489652}
@@ -2689,7 +2689,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155892}
-  m_LocalRotation: {x: .0525901541, y: .705148458, z: .705148339, w: .0525901467}
+  m_LocalRotation: {x: .0525901467, y: .705148458, z: .705148339, w: .0525901392}
   m_LocalPosition: {x: -15.278697, y: -2.06577396, z: 6.33154154}
   m_LocalScale: {x: 6.38785696, y: 8.93611526, z: 8.93611526}
   m_Children: []
