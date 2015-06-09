@@ -8,7 +8,6 @@ public class HUDManager : MonoBehaviour {
     public int score;
     public int collectables;
     public bool ispaused = false;
-    public float currentTimeScale;
     float startTimeScale, EndTimeScale=2;
     Text scoreText;
     Text collectablesText;
@@ -21,7 +20,6 @@ public class HUDManager : MonoBehaviour {
     {
         scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         collectablesText = GameObject.FindGameObjectWithTag("Collectables").GetComponent<Text>();
-        currentTimeScale= startTimeScale = Time.timeScale;
     }
     public void Clear()
     {
@@ -30,20 +28,13 @@ public class HUDManager : MonoBehaviour {
         scoreText.text = "" + score;
         collectablesText.text = "" + collectables;
         GlossingScript.glosser.reset();
-        currentTimeScale= Time.timeScale = startTimeScale;
     }
 
     public void increaseScore(int multiplier)
     {
         score += multiplier;
         scoreText.text = "" + score;
-        if (score % 10== 0)
-        {
-            GlossingScript.glosser.changeColor();
-            Time.timeScale += .1f;
-            if (Time.timeScale >= EndTimeScale) Time.timeScale = EndTimeScale;
-            currentTimeScale = Time.timeScale;
-        }        
+ 
     }
     public void increaseCollectables()
     {

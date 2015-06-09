@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -12,6 +14,11 @@ public class PowerUpManager : MonoBehaviour
     public int magnetTime;
     public int safetyNetTime;
     int degreeMagnet, degreeSafety;
+
+    public Text counter;
+    public Image filledimage;
+    public Image background;
+
     void GetMaqgnetTime()
     {
         int degree = PlayerPrefs.GetInt("CurrentMagnetLevel");
@@ -25,18 +32,7 @@ public class PowerUpManager : MonoBehaviour
 
     }
 
-    //void setSafetyPowerup(int degree)
-    //{
-    //    if (!PlayerPrefs.HasKey("SafetyNetTime"))
-    //    {
-    //        degree = 1;
-    //        PlayerPrefs.SetInt("SafetyNetTime", degree * 15);
-    //    }
-    //    safetyNetTime = degree * 15;
-
-    //}
-
-	// Use this for initialization
+  
 	void Start () 
     {
         if (!PlayerPrefs.HasKey("CurrentShieldLevel"))
@@ -48,8 +44,8 @@ public class PowerUpManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentMagnetLevel", 0);
         }
         GetMaqgnetTime();
-        GetShieldPowerUp(); ;
-
+        GetShieldPowerUp();
+        
 	}
     void Awake()
     {
@@ -57,24 +53,33 @@ public class PowerUpManager : MonoBehaviour
             PowerUpManager.Manager = this;
         safetyNet = null;
     }
-
-    // Update is called once per frame
-	
-	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
+        if(GameManager.instance.Powerup!=PowerUps.None)
+        {
+            background.gameObject.SetActive(true);
+            GetMaqgnetTime();
+            GetShieldPowerUp();
+        }
         if (GameManager.instance.Powerup == PowerUps.Magnet)
         {
             MagnetTimer += Time.deltaTime;
-
+            int x = magnetTime-(int)MagnetTimer;
+            counter.text = x+"";
+            filledimage.fillAmount =1-( MagnetTimer*1.0f / magnetTime);
         }
         if (MagnetTimer > magnetTime)
         {
             GameManager.instance.Powerup = PowerUps.None;
             MagnetTimer = 0;
+            background.gameObject.SetActive(false);
         }
         if (GameManager.instance.Powerup == PowerUps.SafetyNet)
         {
             SafetyNetTimer += Time.deltaTime;
+            int x =safetyNetTime- (int)SafetyNetTimer;
+            counter.text = x + "";
+            filledimage.fillAmount =1-( SafetyNetTimer * 1.0f / safetyNetTime);
         }
         if (SafetyNetTimer > safetyNetTime)
         {
@@ -82,24 +87,24 @@ public class PowerUpManager : MonoBehaviour
             Destroy(safetyNet.gameObject);
             safetyNet = null;
             SafetyNetTimer = 0;
+            background.gameObject.SetActive(false);
+
         }
 	}
     public void GenerateNet() 
     {
         Debug.Log(GameManager.instance.GameMode); //msh bttndh!
-
         if (safetyNet == null)
         {
-            if (GameManager.instance.GameMode != Mode.Spiral)
-            {
+            //if (GameManager.instance.GameMode != Mode.Spiral)
+            //{
                 safetyNet = Instantiate(slide, new Vector3(0, -0.19f, 37.31f), Quaternion.EulerAngles(0, 90 * Mathf.Deg2Rad, 0)) as GameObject;
-            }
-            else
-            {
-                safetyNet = Instantiate(slide, new Vector3(0, -10.0f, 37.31f), Quaternion.EulerAngles(0, 90 * Mathf.Deg2Rad, 0)) as GameObject;
-            }
+            //}
+            //else
+            //{
+            //    safetyNet = Instantiate(slide, new Vector3(0, -10.0f, 37.31f), Quaternion.EulerAngles(0, 90 * Mathf.Deg2Rad, 0)) as GameObject;
+            //}
         }
-        //(Instantiate(slide) as GameObject).transform.position = new Vector3(0, 0, 69.25f);
     }
     public void MultiplyPoinky(GameObject poinky)
     {

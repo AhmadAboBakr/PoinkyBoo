@@ -67,6 +67,7 @@ public class PoinkyMovementController : MonoBehaviour
             this.transform.position = new Vector3(0, 10, 0);
             WinningScreen.screen.gameObject.SetActive(true);
             CameraMover.instance.Death();
+            CameraMover.instance.CameraAnimator.SetBool("InDesert", false);
         }
         else if (GameManager.instance.isStarted && this.transform.position.y < -5)
         {
@@ -204,7 +205,7 @@ public class PoinkyMovementController : MonoBehaviour
     }
     IEnumerator ResetCollisionStatus()
     {
-        yield return new WaitForSeconds(.35f);
+        yield return new WaitForSeconds(.8f/Time.timeScale);
         Hitile = false;
     }
     void JumpForward()

@@ -47,20 +47,21 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = GameManager.instance.timeScale;
         this.gameObject.SetActive(false);
         HUD.SetActive(true);
-        //if (!tutorialsflag)
-        //{
-        //Tutorials.instance.gameObject.SetActive(true);
-        //GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
-        //foreach (var item in ARR)
-        //{
-        //    item.gameObject.SetActive(true);
-        //}
-        //Tutorials.instance.tutorials();
-       
-        //tutorialsflag = true;
-        //}
-        //else
-        GameManager.instance.isStarted = true;
+        if (!tutorialsflag)
+        {
+            Tutorials.instance.gameObject.SetActive(true);
+            GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
+            foreach (var item in ARR)
+            {
+                item.gameObject.SetActive(true);
+            }
+            Tutorials.instance.tutorials();
+
+            //tutorialsflag = true;
+            //}
+            //else
+            GameManager.instance.isStarted = false;
+        }
     }
 
     public void BtnOptionsPressed()

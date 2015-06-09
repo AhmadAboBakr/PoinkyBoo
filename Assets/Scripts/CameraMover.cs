@@ -12,7 +12,7 @@ public class CameraMover : MonoBehaviour
 
         }
     }
-    Animator CameraAnimator;
+    public Animator CameraAnimator;
     RaycastHit r;
     // Use this for initialization
     void Start()
@@ -29,20 +29,23 @@ public class CameraMover : MonoBehaviour
         {
             Debug.Log("wsel  " + r.collider.tag);
 
-            if (r.collider.tag == "Normal" || r.collider.tag == "DesertDoorOut")
+            //if (r.collider.tag == "Normal" || r.collider.tag == "DesertDoorOut")
+            if (r.collider.tag == "Finish")
+
             {
+                Debug.Log("a5er l sa7ra " + r.collider.tag);
                 CameraAnimator.SetBool("InDesert", false);
             }
-            else if (r.collider.tag == "Desert" || r.collider.tag == "DesertDoorIn")
+            //else if (r.collider.tag == "Desert" || r.collider.tag == "DesertDoorIn")
+            else if (r.collider.tag == "DesertDoorIn")
+
             {
+                Debug.Log("awel l sa7ra " + r.collider.tag);
+
                 CameraAnimator.SetBool("InDesert", true);
             }
         }
-        else
-        {
-            CameraAnimator.SetBool("InDesert", false);
-
-        }
+        
     }
     public void CameraReturn()
     {

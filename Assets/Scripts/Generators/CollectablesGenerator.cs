@@ -82,8 +82,9 @@ public class CollectablesGenerator : MonoBehaviour
     }
     public void EatCollectable(GameObject collectable)
     {
-        collectables.Remove(collectable);
         Destroy(collectable);
+        collectables.Remove(collectable);
+        
     }
     public void generate()
     {

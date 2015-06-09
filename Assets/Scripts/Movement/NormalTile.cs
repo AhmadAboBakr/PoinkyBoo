@@ -10,7 +10,13 @@ public class NormalTile : Tile {
     }
     public override void Move(float force)
     {
+        if (force < -1800)
+        {
+            this.myRigidBody.velocity = Vector3.zero;
+            this.transform.position = Vector3.zero;
+        }
         this.myRigidBody.AddForce(new Vector3(force, 0, 0), ForceMode.Impulse);
+
     }
 
     public override void Clear()
