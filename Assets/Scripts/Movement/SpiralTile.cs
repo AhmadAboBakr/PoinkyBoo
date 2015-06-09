@@ -24,7 +24,7 @@ public class SpiralTile : Tile {
                 force = 0;
             } 
         }
-        this.transform.Rotate(0, 0, force*5); //force*5      
+        this.transform.Rotate(0, 0, force*3); //force*5      
     }
 
     public override void Clear()

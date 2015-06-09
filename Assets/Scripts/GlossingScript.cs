@@ -18,13 +18,13 @@ public class GlossingScript : MonoBehaviour {
     void Start()
     {
         rend = GetComponent<Renderer>();
-        colors[0] = new Color(255/255,131/255f, 31/255f);//orange
-        colors[1] = new Color(255/255f, 0, 255/255f);//pink
-        colors[2] = new Color(0/255f, 153/255f, 0f);//green
-        colors[3] = new Color(102/255f, 0/255f, 102/255f);//blue
-        colors[4] = new Color(204/255f, 0/255f, 0/255f);//red
-        colors[5] = new Color(0/255f, 153/255f, 153/255f);
-        colors[6] = new Color(128/255f, 0/255f, 255/255f);
+        colors[0] = new Color(231 / 255f, 161 / 255f, 12 / 255f);//orange
+        colors[1] = new Color(216 / 255f, 25 / 255f , 216 / 255f);//pink
+        colors[2] = new Color(37 / 255f , 133 / 255f, 65 / 255f);//green
+        colors[3] = new Color(49 / 255f , 93 / 255f , 186 / 255f);//blue
+        colors[4] = new Color(227 / 255f, 87 / 255f , 87 / 255f);//red
+        colors[5] = new Color(9 / 255f  , 177 / 255f, 184 / 255f);
+        colors[6] = new Color(87 / 255f , 56 / 255f , 101 / 255f);
 
         index = 0;   
 

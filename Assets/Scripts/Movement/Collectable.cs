@@ -18,7 +18,7 @@ public class Collectable : MonoBehaviour
     {
         if (GameManager.instance.isStarted)
         {
-            if (GameManager.instance.Powerup == PowerUps.Magnet)
+            if (PowerUpManager.Manager.MagnetTimer > 0 && PowerUpManager.Manager.MagnetTimer < PowerUpManager.Manager.magnetTime)
             {
                 magnetTrigger.enabled = true;
             }
@@ -79,7 +79,6 @@ public class Collectable : MonoBehaviour
         {
             HUDManager.instance.increaseCollectables();
             CollectablesGenerator.generator.EatCollectable(gameObject);
-            
             AudioManager.instanceCollect.CoinCollect();
             AchievementsHandler.instance.ReportCollectingCoinsInOneGame();
         }

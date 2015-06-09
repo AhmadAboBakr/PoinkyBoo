@@ -23,16 +23,16 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1.33333337
+      - time: .333333343
         value: -808
-        inSlope: 42.8225822
-        outSlope: 42.8225822
-        tangentMode: 10
-      - time: 26.1333332
-        value: 1316
-        inSlope: 85.6451645
-        outSlope: 85.6451645
-        tangentMode: 10
+        inSlope: 64.2338715
+        outSlope: 125.497742
+        tangentMode: 17
+      - time: 15.0666666
+        value: 1041
+        inSlope: 125.497742
+        outSlope: 0
+        tangentMode: 5
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_AnchoredPosition.y
@@ -40,7 +40,7 @@ AnimationClip:
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
-  m_SampleRate: 30
+  m_SampleRate: 120
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -57,7 +57,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 26.1333332
+    m_StopTime: 15.0666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -80,16 +80,16 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1.33333337
+      - time: .333333343
         value: -808
-        inSlope: 42.8225822
-        outSlope: 42.8225822
-        tangentMode: 10
-      - time: 26.1333332
-        value: 1316
-        inSlope: 85.6451645
-        outSlope: 85.6451645
-        tangentMode: 10
+        inSlope: 64.2338715
+        outSlope: 125.497742
+        tangentMode: 17
+      - time: 15.0666666
+        value: 1041
+        inSlope: 125.497742
+        outSlope: 0
+        tangentMode: 5
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_AnchoredPosition.y
@@ -101,7 +101,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 23.9666672
+  - time: 15.0249996
     functionName: Disable
     data: 
     objectReferenceParameter: {fileID: 0}

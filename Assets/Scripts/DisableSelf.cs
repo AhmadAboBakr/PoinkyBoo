@@ -19,4 +19,8 @@ public class DisableSelf : MonoBehaviour {
             StartFading();
         }
 	}
+    void OnEnable()
+    {
+        this.GetComponent<Animator>().SetTrigger("start");
+    }
 }

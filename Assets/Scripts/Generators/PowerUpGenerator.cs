@@ -108,6 +108,8 @@ public class PowerUpGenerator : MonoBehaviour {
         powerupdiff = 2;
         PowerUps.Clear();
         Start();
+        PowerUpManager.Manager.ClearTimer();
+
     }
     public void Generate() 
     {
@@ -119,23 +121,23 @@ public class PowerUpGenerator : MonoBehaviour {
                 if (powerupdiff <= 0)
                 {
                     int type = Random.Range(0, 3);
-                    powerupdiff = Random.Range(5,7);
-                    //powerupdiff = Random.Range(15, 20);
+                    //powerupdiff = Random.Range(2,3);
+                    powerupdiff = Random.Range(30, 40);
 
                     random = 3 * Random.Range(-1, 2);
-                    //if (type == 0)
-                    //{
-                    //    PowerUps.Add(Instantiate(Magnet, new Vector3(random * 0, 5, speed * (0) + 5), Quaternion.identity) as GameObject);
+                    if (type == 0)
+                    {
+                        PowerUps.Add(Instantiate(Magnet, new Vector3(random, 5, speed * (10) + 5), Quaternion.identity) as GameObject);
 
-                    //}
-                    //else if (type == 1)
-                    //{
-                    //    PowerUps.Add(Instantiate(Sliding, new Vector3(random * 0, 5, speed * (0) + 5), Quaternion.identity) as GameObject);
-                    //}
-                    //else if (type == 2)
-                    //{
-                        //PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random * 0, 5, speed * (0) + 5), Quaternion.identity) as GameObject);
-                    //}
+                    }
+                    else if (type == 1)
+                    {
+                        PowerUps.Add(Instantiate(Sliding, new Vector3(random , 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                    }
+                    else if (type == 2)
+                    {
+                        PowerUps.Add(Instantiate(PoinkyMultiplier, new Vector3(random , 5, speed * (10) + 5), Quaternion.identity) as GameObject);
+                    }
                 }
                 else
                 {

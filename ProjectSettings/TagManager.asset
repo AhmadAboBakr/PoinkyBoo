@@ -37,6 +37,12 @@ TagManager:
   - MaterialText
   - NormalRoomIn
   - DesertDoorOut
+  - txtMagnetPrice
+  - imgSafetyDegree
+  - TutImgRight
+  - TutImgLeft
+  - txtSafetyPrice
+  - WaterDesert
   layers:
   - Default
   - TransparentFX
