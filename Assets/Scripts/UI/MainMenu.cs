@@ -89,11 +89,12 @@ public class MainMenu : MonoBehaviour
 
     public void BtnLeaderboardPressed()
     {
+
         Social.localUser.Authenticate((bool success) =>
         {
            
         });
-        PlayGamesPlatform.Instance.ShowLeaderboardUI();
+        PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkInbf4694CEAIQAQ");
     }
 
     public void BtnQuitPressed()

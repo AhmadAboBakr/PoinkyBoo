@@ -25,6 +25,7 @@ public class AchievementsHandler : MonoBehaviour {
 
         //ttttt.text += "fata7";
     }
+#if UNITY_ANDROID
     
     public void Clear ()
     {
@@ -238,4 +239,41 @@ public class AchievementsHandler : MonoBehaviour {
     //            break;
     //    }
     //}
+#else
+        public void Clear ()
+    {
+        NumberOfMagnits = 0;
+        NumberOfSaftyNets = 0;
+        NumOfCollectablesWithMagnet = 0;
+        NumOfTilesWithSfatyNet = 0;
+    }
+	public void Move()
+    {
+
+    }
+    public void ReportMagnetAchivement()
+    {
+  
+    }
+    
+    public void ReportCollectingCoinsInOneGame()
+    {
+ 
+    }
+
+    public void ReportTotalCoins(int numberOfCoins)
+    {
+   
+    }
+   
+    //public void ReportJumpingOnTilesWithSaftNetInOneGame()
+ 
+    //}
+    
+    public void ReportShieldAchivement()
+    {
+   
+    }
+
+#endif
 }
