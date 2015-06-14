@@ -7,11 +7,15 @@ public class collectablesTotal : MonoBehaviour {
     int collectables;
     void Awake()
     {
+#if UNITY_EDITOR
+        PlayerPrefs.SetInt("Collectables", 10000);
+#endif
         instance = this;
     }
 	public void Start () {
         text = this.GetComponent<Text>();
         text.text = PlayerPrefs.GetInt("Collectables").ToString();
+
 	}
     public void change(int collectables)
     {
