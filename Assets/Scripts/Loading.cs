@@ -15,5 +15,6 @@ public class Loading : MonoBehaviour {
     public void LoadScene()
     {
         async.allowSceneActivation = true;
+        Debug.Log("test");
     }
 }

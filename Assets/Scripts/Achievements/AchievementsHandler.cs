@@ -35,13 +35,6 @@ public class AchievementsHandler : MonoBehaviour
     }
 #if UNITY_ANDROID
     
-    public void Clear ()
-    {
-        NumberOfMagnits = 0;
-        NumberOfSaftyNets = 0;
-        NumOfCollectablesWithMagnet = 0;
-        NumOfTilesWithSfatyNet = 0;
-    }
 	public void Move()
     {
 
