@@ -43,9 +43,10 @@ public class PoinkyMovementController : MonoBehaviour
     {
         lastCollision = null;
         myRigidBody = this.GetComponent<Rigidbody>();
+        myAnimator = this.GetComponent<Animator>();
+
         Hitile = false;
         WallColliders.SetActive(true);
-        myAnimator = this.GetComponent<Animator>();
     }
     void Update()
     {
