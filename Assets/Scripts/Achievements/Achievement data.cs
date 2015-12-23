@@ -3,12 +3,20 @@ using System.Collections;
 
 public class Achievementdata {
     //public int Value;
-    public string ID;
+    //public string ID;
     public bool Unlocked;
-	
-    public Achievementdata (string id,bool unlocked)
+    public string Description;
+    public string Name;
+    public Achievementdata (bool unlocked,string description,string name)
     {
-        ID = id;
         Unlocked = unlocked;
+        Name = name;
+        Description = description;
+    }
+    public Achievementdata( string description, string name)
+    {
+        Unlocked = false;
+        Name = name;
+        Description = description;
     }
 }

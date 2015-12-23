@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
+
+
 
 public enum Mode
 {
@@ -153,11 +153,6 @@ public class GameManager : MonoBehaviour
     {
        // Debug.Log("SetInit");
         //enabled = true; // "enabled" is a property inherited from MonoBehaviour                  
-        if (FB.IsLoggedIn)
-        {
-            Debug.Log("Already logged in");
-            FacebookIntegration.instance.OnLoggedIn();
-        }
     }
 
     private void OnHideUnity(bool isGameShown)

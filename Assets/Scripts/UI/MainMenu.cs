@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using GooglePlayGames;
+
 using UnityEngine.SocialPlatforms;
 
 public class MainMenu : MonoBehaviour
@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     float timeScale;
     bool tutorialsflag;
     public GameObject tutorials;
+    public GameObject Achievements;
+    
      void Awake()
     {
         menu = this;
@@ -31,6 +33,7 @@ public class MainMenu : MonoBehaviour
         HUDManager.instance.gameObject.SetActive(false);
         PauseMenu.instance.gameObject.SetActive(false);
         Store.instance.gameObject.SetActive(false);
+        Achievements.SetActive(false);
         // authenticate user:for google play
         
          timeScale = Time.timeScale;
@@ -39,7 +42,18 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            if (Achievements.gameObject.activeSelf)
+            {
+                Achievements.gameObject.SetActive(false);
+            }
+            else if (credits.gameObject.activeSelf)
+            {
+                credits.gameObject.SetActive(false);
+            }
+            else
+            {
+                Application.Quit();
+            }
         }
     }
     public void BtnPlayPressed()
@@ -82,9 +96,12 @@ public class MainMenu : MonoBehaviour
         Store.instance.gameObject.SetActive(true);
     }
     public void BtnMorePressed()
-    {       
+   {
+#if UNITY_ANDROID
         Social.ShowAchievementsUI();
-
+#else
+       Achievements.SetActive(true);
+        #endif
     }
 
     public void BtnLeaderboardPressed()
@@ -94,7 +111,7 @@ public class MainMenu : MonoBehaviour
         {
            
         });
-        PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkInbf4694CEAIQAQ");
+        //PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkInbf4694CEAIQAQ");
     }
 
     public void BtnQuitPressed()
@@ -103,7 +120,9 @@ public class MainMenu : MonoBehaviour
     }
     public void BtnCredits()
     {
+        
         credits.SetActive(true);
+       
     }
 }
 

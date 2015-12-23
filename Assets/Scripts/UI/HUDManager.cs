@@ -38,8 +38,8 @@ public class HUDManager : MonoBehaviour {
     }
     public void increaseCollectables()
     {
-        collectables ++;
-        collectablesText.text = "" + collectables;
+        //collectables ++;
+        //collectablesText.text = "" + collectables;
     }
     public void pause() 
     {

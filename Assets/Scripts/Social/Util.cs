@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Facebook.MiniJSON;
+
 
 public class Util : ScriptableObject
 {
@@ -28,54 +28,6 @@ public class Util : ScriptableObject
         friend["image_url"] = (string)pictureDataDict["url"];
         return friend;
     }
-
-    public static Dictionary<string, string> DeserializeJSONProfile(string response)
-    {
-        var responseObject = Json.Deserialize(response) as Dictionary<string, object>;
-        object nameH;
-        var profile = new Dictionary<string, string>();
-        if (responseObject.TryGetValue("first_name", out nameH))
-        {
-            profile["first_name"] = (string)nameH;
-        }
-        return profile;
-    }
-
-    public static List<object> DeserializeScores(string response)
-    {
-
-        var responseObject = Json.Deserialize(response) as Dictionary<string, object>;
-        object scoresh;
-        var scores = new List<object>();
-        if (responseObject.TryGetValue("data", out scoresh))
-        {
-            scores = (List<object>)scoresh;
-        }
-
-        return scores;
-    }
-
-    public static List<object> DeserializeJSONFriends(string response)
-    {
-        var responseObject = Json.Deserialize(response) as Dictionary<string, object>;
-        object friendsH;
-        var friends = new List<object>();
-        if (responseObject.TryGetValue("invitable_friends", out friendsH))
-        {
-            friends = (List<object>)(((Dictionary<string, object>)friendsH)["data"]);
-        }
-        if (responseObject.TryGetValue("friends", out friendsH))
-        {
-            friends.AddRange((List<object>)(((Dictionary<string, object>)friendsH)["data"]));
-        }
-        return friends;
-    }
-
-    public static string DeserializePictureURLString(string response)
-    {
-        return DeserializePictureURLObject(Json.Deserialize(response));
-    }
-
     public static string DeserializePictureURLObject(object pictureObj)
     {
 

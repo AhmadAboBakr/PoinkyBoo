@@ -19,3 +19,7 @@ Assets/Materials/lineGloss.mat
 *.rar
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+*.zip
+*.rar
+XCode/
+xcode/

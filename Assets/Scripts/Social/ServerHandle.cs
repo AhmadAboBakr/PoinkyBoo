@@ -52,22 +52,7 @@ public class ServerHandle : MonoBehaviour {
             ttttt.text += ("WWW shit!: " + www.error);
         }
     }
-    public void SendFbId() 
-    {
-        ttttt.text += FacebookIntegration.instance.profile["first_name"];
-       
-        WWWForm form = new WWWForm();
-        ttttt.text += FacebookIntegration.instance.profile["first_name"];
-
-        form.AddField("name", FacebookIntegration.instance.profile["first_name"]);
-
-        //HUDManager.manager.gameObject.SetActive(true);
-        ttttt.text += FB.UserId;
-
-        form.AddField("fbId", FB.UserId);
-        POST("http://45.55.200.82:80/api/user", form);
-        ttttt.text += "end of request";
 
 
-    }
+    
 }
