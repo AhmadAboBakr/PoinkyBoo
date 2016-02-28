@@ -66,7 +66,6 @@ public class WinningScreen : MonoBehaviour
                 bestScore.text = PlayerPrefs.GetInt("BestScore").ToString();
             }
             PlayerPrefs.SetInt("Collectables",PlayerPrefs.GetInt("Collectables")+HUDManager.instance.collectables);
-            AchievementsHandler.instance.ReportTotalCoins(HUDManager.instance.collectables);
             
         }
         else
@@ -101,23 +100,6 @@ public class WinningScreen : MonoBehaviour
         GameManager.instance.Clear();
         this.gameObject.SetActive(false);
         HUDManager.instance.gameObject.SetActive(true);
-        //GameManager.instance.isStarted = true;
-        //PowerUpGenerator.generator.Generate();
-        //Dictionary<string, object> dict = new Dictionary<string, object>();
-       // dict.Add("replay", true);
-        //UnityAnalytics.CustomEvent("gameOver", dict);
-        //GA.API.Design.NewEvent("Game:replay", 1);
-        Tutorials.instance.gameObject.SetActive(true);
-        Tutorials.instance.tutorialsPanel.SetActive(true);
-        GameObject[] ARR = GameObject.FindGameObjectsWithTag("Tutorials");
-        foreach (var item in ARR)
-        {
-            item.gameObject.SetActive(true);
-        }
-        Tutorials.instance.tutorials();
-       
-
-        //TileGenerator.instance.CurrentTile.Move(-1800);
     }   
 
     //back to main menu
