@@ -33,8 +33,7 @@ public class PauseMenu : MonoBehaviour {
            // bestScore.text = PlayerPrefs.GetInt("BestScore").ToString();
         }
         PlayerPrefs.SetInt("Collectables", PlayerPrefs.GetInt("Collectables") + HUDManager.instance.collectables);
-        AchievementsHandler.instance.ReportTotalCoins(HUDManager.instance.collectables);
-        collectablesTotal.instance.Start(); 
+         
 	}
 	
 	// Update is called once per frame

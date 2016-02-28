@@ -27,20 +27,17 @@ public class CameraMover : MonoBehaviour
     {
         if (Physics.Raycast(new Vector3(0, -3, this.transform.position.z + 15), -Vector3.up, out r, float.MaxValue, 1 << 12))
         {
-            Debug.Log("wsel  " + r.collider.tag);
 
             //if (r.collider.tag == "Normal" || r.collider.tag == "DesertDoorOut")
             if (r.collider.tag == "Finish")
 
             {
-                Debug.Log("a5er l sa7ra " + r.collider.tag);
                 CameraAnimator.SetBool("InDesert", false);
             }
             //else if (r.collider.tag == "Desert" || r.collider.tag == "DesertDoorIn")
             else if (r.collider.tag == "DesertDoorIn")
 
             {
-                Debug.Log("awel l sa7ra " + r.collider.tag);
 
                 CameraAnimator.SetBool("InDesert", true);
             }
@@ -68,7 +65,6 @@ public class CameraMover : MonoBehaviour
     public void Death()
     {
         CameraAnimator.SetTrigger("Death");
-        Debug.Log("maaaat");
     }
 
 }

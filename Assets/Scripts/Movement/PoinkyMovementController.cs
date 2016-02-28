@@ -63,7 +63,6 @@ public class PoinkyMovementController : MonoBehaviour
             isInSpiral = false;
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             GameManager.instance.Powerup = PowerUps.None;
-            PowerUpGenerator.generator.StopGenerate();
             this.transform.position = new Vector3(0, 10, 0);
             WinningScreen.screen.gameObject.SetActive(true);
             CameraMover.instance.Death();
@@ -75,7 +74,6 @@ public class PoinkyMovementController : MonoBehaviour
             GameManager.instance.NumOfPoinky--;
         }
 
-        CollectablesGenerator.generator.collectableCounter += Time.deltaTime;
 
         if (GameManager.instance.GameMode == Mode.MainMode)
         {
@@ -106,38 +104,7 @@ public class PoinkyMovementController : MonoBehaviour
         if (GameManager.instance.isStarted)
         {
 
-            if (other.gameObject.CompareTag("Magnet"))
-            {
-                GameManager.instance.Powerup = PowerUps.Magnet;
-                PowerUpManager.Manager.eatMagnet();
-                PowerUpGenerator.generator.EatPowerup(other.gameObject);
-                AchievementsHandler.instance.NumberOfMagnits++;
-                AchievementsHandler.instance.ReportMagnetAchivement();
-
-                AudioManager.instanceCollect.CoinCollect(); //to be changed when we make new sound for the powerups
-
-
-            }
-            else if (other.gameObject.CompareTag("Sliding"))
-            {
-                GameManager.instance.Powerup = PowerUps.SafetyNet;
-                PowerUpManager.Manager.eatSafteyNet();
-                PowerUpGenerator.generator.EatPowerup(other.gameObject);
-                PowerUpManager.Manager.GenerateNet();
-                
-                AudioManager.instanceCollect.CoinCollect(); //to be changed when we make new sound for the powerups
-
-            }
-            else if (other.gameObject.CompareTag("PoinkyMultiplier"))
-            {
-                other.gameObject.GetComponent<BoxCollider>().enabled = false;
-                PowerUpGenerator.generator.EatPowerup(other.gameObject);
-                PowerUpManager.Manager.MultiplyPoinky(this.gameObject);
-
-                AudioManager.instanceCollect.CoinCollect(); //to be changed when we make new sound for the powerups
-
-            }
-            else if (other.CompareTag("Room"))
+            if (other.CompareTag("Room"))
             {
                 if (this.GetComponent<Rigidbody>().velocity.x > 0)
                     myAnimator.SetTrigger("leftWall");
@@ -169,7 +136,6 @@ public class PoinkyMovementController : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Tile") && other.gameObject != lastCollision)
             {
-                CollectablesGenerator.generator.collectableCounter = 0;
                 lastCollision = other.gameObject;
                 float x = gameObject.transform.position.x - other.transform.position.x;
                 myRigidBody.velocity = new Vector3(2 * x, 0, 0) + GameManager.instance.poinkySpeed;

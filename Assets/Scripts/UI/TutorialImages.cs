@@ -6,8 +6,8 @@ public class TutorialImages : MonoBehaviour {
 
     public static TutorialImages instance;
     public Image imgLeft, imgRight;
-    float fadeSpeed, fade;
-    float fading;
+    float fadeSpeed=0.8f, fade;
+    float fading=1;
 
     void Awake()
     {
@@ -18,16 +18,7 @@ public class TutorialImages : MonoBehaviour {
     {
         StartCoroutine("fadeButtons");
     }
-	void Start () {
 
-        //imgRight = GameObject.FindGameObjectWithTag("TutImgRight").GetComponent<Image>();
-        //imgLeft = GameObject.FindGameObjectWithTag("TutImgLeft").GetComponent<Image>();
-        if (GameManager.instance.Input != InputMethod.buttons)
-            this.gameObject.SetActive(false);
-        fadeSpeed = 0.8f;
-        fading=1;
-	}
-	
  
    public void FadeReset()
    {
@@ -37,10 +28,6 @@ public class TutorialImages : MonoBehaviour {
        
    }
 
-	void Update () {
-
-
-	}
     IEnumerator fadeButtons()
     {
         while (true)

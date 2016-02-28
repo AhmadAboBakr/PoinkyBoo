@@ -3,16 +3,11 @@ using System.Collections;
 
 public class ButtonsHandle : MonoBehaviour
 {
-    public static ButtonsHandle handleManager;
     public bool pressed;
     public int buttonDirection = 1;
     float senstivity;
     // Use this for initialization
-    void Awake()
-    {
-        if (!ButtonsHandle.handleManager)
-            ButtonsHandle.handleManager = this;
-    }
+
     void Start()
     {
     }
@@ -23,7 +18,7 @@ public class ButtonsHandle : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.Input == InputMethod.buttons && GameManager.instance.isStarted)
+        if (GameManager.instance.isStarted)
         {
             if (pressed)
             {
@@ -38,6 +33,10 @@ public class ButtonsHandle : MonoBehaviour
     }
     public void OnPointerEnter()
     {
+		if (!GameManager.instance.isStarted) {
+			HUDManager.instance.myAnimator.SetTrigger("fade");
+			GameManager.instance.isStarted=true;
+		}
         pressed = true;
     }
     public void OnPointerExit()

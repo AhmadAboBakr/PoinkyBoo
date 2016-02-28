@@ -5,12 +5,12 @@ public class HUDManager : MonoBehaviour {
 
     public static HUDManager instance;
     public GameObject canvasMainMenu;
+	public Animator myAnimator;
     public int score;
     public int collectables;
     public bool ispaused = false;
     float startTimeScale, EndTimeScale=2;
     Text scoreText;
-    Text collectablesText;
     void Awake()
     {
         instance = this;
@@ -18,16 +18,17 @@ public class HUDManager : MonoBehaviour {
     }
     void Start()
     {
+		myAnimator = this.GetComponent<Animator> ();
         scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
-        collectablesText = GameObject.FindGameObjectWithTag("Collectables").GetComponent<Text>();
     }
     public void Clear()
     {
         score = 0;
         collectables=0;
-        scoreText.text = "" + score;
-        collectablesText.text = "" + collectables;
+		myAnimator.SetTrigger ("restart");
+		scoreText.text = "" + score;
         GlossingScript.glosser.reset();
+
     }
 
     public void increaseScore(int multiplier)
@@ -39,7 +40,6 @@ public class HUDManager : MonoBehaviour {
     public void increaseCollectables()
     {
         collectables ++;
-        collectablesText.text = "" + collectables;
     }
     public void pause() 
     {

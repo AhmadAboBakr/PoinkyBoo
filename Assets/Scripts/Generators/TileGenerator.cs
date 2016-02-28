@@ -78,17 +78,6 @@ public class TileGenerator : MonoBehaviour
                 tile.transform.position = position;
             }
 
-            foreach (var collectable in CollectablesGenerator.generator.collectables)
-            {
-                if (GameManager.instance.IsMoving)
-                {
-                    collectable.transform.position = Vector3.Lerp(collectable.transform.position, collectable.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
-                }
-            }
-            foreach (var powerup in PowerUpGenerator.generator.PowerUps)
-            {
-                powerup.transform.position = Vector3.Lerp(powerup.transform.position, powerup.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
-            }
             foreach (var room in RoomGenerator.generator.rooms)
             {
                 room.transform.position = Vector3.Lerp(room.transform.position, room.transform.position + new Vector3(0, 0, -speed), Time.deltaTime / time);
@@ -139,7 +128,6 @@ public class TileGenerator : MonoBehaviour
         index++;
         GenerateTile(speed * 10);
 
-        CollectablesGenerator.generator.generate();
     }
     public void Clear()
     {
